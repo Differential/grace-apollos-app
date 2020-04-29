@@ -1,4 +1,4 @@
-package com.apolloschurchapp;
+package org.trygrace.gracechurch;
 
 import android.app.Application;
 import android.util.Log;

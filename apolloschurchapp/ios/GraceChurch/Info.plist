@@ -25,7 +25,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>apolloschurchapp</string>
+				<string>GraceChurch</string>
 			</array>
 		</dict>
 	</array>
