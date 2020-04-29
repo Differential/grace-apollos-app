@@ -22,8 +22,8 @@
   },
   "workspaces": {
     "packages": [
-      "apolloschurchapp",
-      "apollos-church-api"
+      "GraceChurch",
+      "apollos-api"
     ],
     "nohoist": [
       "*",
