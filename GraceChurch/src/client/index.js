@@ -30,7 +30,11 @@ const onAuthError = async () => {
 
 const errorLink = buildErrorLink(onAuthError);
 
-const link = ApolloLink.from([authLink, errorLink, httpLink]);
+const link = ApolloLink.from([
+  authLink,
+  errorLink,
+  httpLink
+]);
 
 export const client = new ApolloClient({
   link,
@@ -45,7 +49,7 @@ export const client = new ApolloClient({
 
 // Hack to give auth link access to method on client;
 // eslint-disable-next-line prefer-destructuring
-clearStore = client.clearStore;
+// clearStore = client.clearStore;
 
 wipeData();
 // Ensure that media player still works after logout.

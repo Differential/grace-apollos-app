@@ -19,7 +19,6 @@ import {
   ContentItem,
   ContentChannel,
   Sharable,
-  Auth,
   PersonalDevice,
   Template,
   AuthSms,
@@ -30,7 +29,7 @@ import {
   Event,
 } from '@apollosproject/data-connector-rock';
 import * as Theme from './theme';
-
+import * as Auth from './Auth';
 // This module is used to attach Rock User updating to the OneSignal module.
 // This module includes a Resolver that overides a resolver defined in `OneSignal`
 import * as OneSignalWithRock from './oneSignalWithRock';
