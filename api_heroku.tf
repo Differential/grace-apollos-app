@@ -52,6 +52,10 @@ provider "heroku" {
   api_key = "${var.heroku_api_key}"
 }
 
+data "heroku_team" "app_team" {
+  name = "${var.heroku_team}"
+}
+
 ##
 # 2. Create Heroku apps for staging and production
 ##
@@ -59,14 +63,14 @@ resource "heroku_app" "staging" {
   region = "us"
   name   = "${var.app_name}-staging"
 
-  config_vars {
+  config_vars = {
     BIBLE_API_KEY       = "${var.bible_api_key}"
     ENGINE_API_KEY      = "${var.engine_api_key}"
     ROCK_TOKEN          = "${var.rock_token}"
     ONE_SIGNAL_REST_KEY = "${var.one_signal_rest_key}"
   }
 
-  organization = {
+  organization {
     name = "${var.heroku_team}"
   }
 
@@ -77,14 +81,14 @@ resource "heroku_app" "production" {
   region = "us"
   name   = "${var.app_name}-production"
 
-  config_vars {
+  config_vars = {
     BIBLE_API_KEY       = "${var.bible_api_key}"
     ENGINE_API_KEY      = "${var.engine_api_key}"
     ROCK_TOKEN          = "${var.rock_token}"
     ONE_SIGNAL_REST_KEY = "${var.one_signal_rest_key}"
   }
 
-  organization = {
+  organization {
     name = "${var.heroku_team}"
   }
 
@@ -96,6 +100,11 @@ resource "heroku_app" "production" {
 ##
 resource "heroku_pipeline" "pipeline" {
   name = "${var.app_name}"
+
+  owner {
+    type = "team"
+    id = "${data.heroku_team.app_team.id}"
+  }
 }
 
 # Couple apps to different pipeline stages
@@ -132,10 +141,10 @@ resource "heroku_addon" "cloudinary-production" {
 #   plan = "fastly:quick"
 # }
 
-resource "heroku_addon" "fastly-production" {
-  app  = "${heroku_app.production.name}"
-  plan = "fastly:quick"
-}
+# resource "heroku_addon" "fastly-production" {
+#   app  = "${heroku_app.production.name}"
+#   plan = "fastly:quick"
+# }
 
 
 resource "heroku_addon" "redis-staging" {
