@@ -127,7 +127,7 @@ ROCK_MAPPINGS:
     - 5
 
   CAMPAIGN_CHANNEL_IDS:
-    - 1
+    - 13
 
   SERMON_CHANNEL_ID: 5
 
@@ -138,9 +138,24 @@ ROCK_MAPPINGS:
   MOBILE_DEVICE_TYPE_ID: 512
 
 HOME_FEATURES:
-  - title: FOR YOU
-    algorithms: [USER_FEED]
-    subtitle: Explore what God calls you to today
+  - title:
+    algorithms: [CAMPAIGN_ITEMS]
+    subtitle:
+    type: VerticalCardList
+    isFeatured: true
+  - title: Stay Connected
+    algorithms:
+      - type: CONTENT_CHANNEL
+        arguments:
+          contentChannelId: 14
+    subtitle: GRACE KIDS
+    type: ActionList
+  - title: Recent stories of
+    algorithms:
+      - type: CONTENT_CHANNEL
+        arguments:
+          contentChannelId: 7
+    subtitle: LIVES CHANGED
     type: VerticalCardList
   # - algorithms: [CAMPAIGN_ITEMS]
   #   type: VerticalCardList
