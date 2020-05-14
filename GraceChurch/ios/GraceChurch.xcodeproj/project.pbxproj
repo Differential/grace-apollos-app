@@ -91,6 +91,7 @@
 		AB44FC16DED929081698EDFD /* Pods-GraceChurchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraceChurchTests.debug.xcconfig"; path = "Target Support Files/Pods-GraceChurchTests/Pods-GraceChurchTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ADC3D2DB245545ADB1CAB3FE /* DroidSerif-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DroidSerif-Italic.ttf"; path = "../assets/fonts/DroidSerif-Italic.ttf"; sourceTree = "<group>"; };
 		AE85030F59F256E90D5A4C2B /* Pods-GraceChurch-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraceChurch-tvOS.release.xcconfig"; path = "Target Support Files/Pods-GraceChurch-tvOS/Pods-GraceChurch-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		BFB9ECE0246D98D400FA1E56 /* Grace Church.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "Grace Church.entitlements"; path = "GraceChurch/Grace Church.entitlements"; sourceTree = "<group>"; };
 		D394E3064D75710E81C51EB0 /* Pods-GraceChurch-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraceChurch-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-GraceChurch-tvOSTests/Pods-GraceChurch-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5157D807E164356ADE87867 /* Inter-UI-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-UI-Bold.otf"; path = "../assets/fonts/Inter-UI-Bold.otf"; sourceTree = "<group>"; };
 		DA9745795726553C6FA9E7A8 /* Pods-GraceChurch-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraceChurch-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-GraceChurch-tvOSTests/Pods-GraceChurch-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -162,6 +163,7 @@
 		13B07FAE1A68108700A75B9A /* GraceChurch */ = {
 			isa = PBXGroup;
 			children = (
+				BFB9ECE0246D98D400FA1E56 /* Grace Church.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -670,6 +672,7 @@
 			baseConfigurationReference = 54F271B8EB67A4997A2C7D96 /* Pods-GraceChurch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "GraceChurch/Grace Church.entitlements";
 				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 2N3ZXZPPAT;
@@ -698,6 +701,7 @@
 			baseConfigurationReference = 1F8F5BC4745C8F22C695573D /* Pods-GraceChurch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "GraceChurch/Grace Church.entitlements";
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 2N3ZXZPPAT;
 				HEADER_SEARCH_PATHS = (
