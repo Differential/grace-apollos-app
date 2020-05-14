@@ -146,11 +146,16 @@ HOME_FEATURES:
     isFeatured: true
   - title: Stay Connected
     algorithms:
+      - type: GRACE_GROUPS
+    subtitle:
+    type: HeroListFeature
+  - title: Stay Connected
+    algorithms:
       - type: CONTENT_CHANNEL
         arguments:
           contentChannelId: 14
     subtitle: GRACE KIDS
-    type: ActionList
+    type: ActionList    
   - title: Recent stories of
     algorithms:
       - type: CONTENT_CHANNEL
