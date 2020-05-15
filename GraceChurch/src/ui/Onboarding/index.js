@@ -1,4 +1,5 @@
 import React from 'react';
+import { View } from 'react-native';
 import {
   checkNotifications,
   openSettings,
@@ -30,6 +31,11 @@ const StyledGradient = styled({
   maxHeight: '40%',
 })(GradientOverlayImage);
 
+const Spacer = styled(({ theme: { sizing: { baseUnit }}}) => ({
+  maxHeight: '10%',
+  flex: 1,
+}))(View)
+
 function Onboarding({ navigation }) {
   return (
     <>
@@ -37,34 +43,13 @@ function Onboarding({ navigation }) {
       <OnboardingSwiper>
         {({ swipeForward }) => (
           <>
-            <AskNameConnected onPressPrimary={swipeForward} />
-            <FeaturesConnected
-              onPressPrimary={swipeForward}
-              BackgroundComponent={
-                <StyledGradient
-                  source={'https://picsum.photos/640/640/?random'}
-                />
-              }
-            />
-            <AboutYouConnected
-              onPressPrimary={swipeForward}
-              BackgroundComponent={
-                <StyledGradient
-                  source={'https://picsum.photos/640/640/?random'}
-                />
-              }
-            />
-            <LocationFinderConnected
-              onPressPrimary={swipeForward}
-              onNavigate={() => {
-                navigation.navigate('Location');
-              }}
-              BackgroundComponent={
-                <StyledGradient
-                  source={'https://picsum.photos/640/640/?random'}
-                />
-              }
-            />
+             <LocationFinderConnected
+                onPressPrimary={swipeForward}
+                onNavigate={() => {
+                  navigation.navigate('Location');
+                }}
+                BackgroundComponent={<Spacer />}
+              />
             <AskNotificationsConnected
               onRequestPushPermissions={(update) => {
                 checkNotifications().then((checkRes) => {
@@ -88,11 +73,7 @@ function Onboarding({ navigation }) {
                 )
               }
               primaryNavText={'Finish'}
-              BackgroundComponent={
-                <StyledGradient
-                  source={'https://picsum.photos/640/640/?random'}
-                />
-              }
+              BackgroundComponent={<Spacer />}
             />
           </>
         )}
