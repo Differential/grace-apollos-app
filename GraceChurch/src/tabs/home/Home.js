@@ -40,7 +40,6 @@ class Home extends PureComponent {
         transitionKey: 2,
       });
     }
-    console.log(relatedNode);
     if (action === 'OPEN_URL') {
       openUrl(relatedNode.url);
     }

@@ -40,7 +40,24 @@ class dataSource extends FeatureDataSource {
     ...this.ACTION_ALGORITHIMS,
     GRACE_GROUPS: this.graceGroupsAlgorithm.bind(this),
     SINGLE_IMAGE_CARD: this.singleImageCardAlgorithm.bind(this),
+    MOST_RECENT_SERMON: this.mostRecentSermonAlgorithm.bind(this),
   };
+
+  async mostRecentSermonAlgorithm() {
+    const { ContentItem } = this.context.dataSources;
+    const sermon = await ContentItem.getSermonFeed().first();
+    return [
+      {
+        id: createGlobalId(`${sermon.id}`, 'ActionListAction'),
+        title: sermon.title,
+        subtitle: 'Current Message',
+        relatedNode: { ...sermon, __type: ContentItem.resolveType(sermon) },
+        image: ContentItem.getCoverImage(sermon),
+        action: 'READ_CONTENT',
+        summary: ContentItem.createSummary(sermon),
+      },
+    ];
+  }
 
   async singleImageCardAlgorithm({ title, subtitle, image, url }) {
     return [

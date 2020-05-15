@@ -24,7 +24,7 @@ ROCK:
   USE_PLUGIN: true
   SHOW_INACTIVE_CONTENT: ${ROCK_SHOW_INACTIVE_CONTENT}
 ONE_SIGNAL:
-  APP_ID: b6e75a77-003f-4466-95ca-82cc5cdc407b
+  APP_ID: 50a99e4b-050c-4cb6-a606-4a7895b0fc4e
   REST_KEY: ${ONE_SIGNAL_REST_KEY}
 # CHURCH_ONLINE:
 #   URL: https://apollos.churchonline.org/api/v1/
@@ -140,11 +140,15 @@ ROCK_MAPPINGS:
 
 HOME_FEATURES:
   - title:
-    algorithms: [CAMPAIGN_ITEMS]
+    algorithms: [MOST_RECENT_SERMON]
     subtitle:
     type: VerticalCardList
     isFeatured: true
-  - title: Stay Connected
+  - title:
+    algorithms: [CAMPAIGN_ITEMS]
+    subtitle: This Week
+    type: VerticalCardList
+  - subtitle: Stay Connected
     algorithms:
       - type: GRACE_GROUPS
     heroAlgorithms:
@@ -154,7 +158,6 @@ HOME_FEATURES:
           url: https://trygrace.org/groups
           subtitle:
           title:
-    subtitle:
     type: HeroListFeature
   - title: Stay Connected
     algorithms:
