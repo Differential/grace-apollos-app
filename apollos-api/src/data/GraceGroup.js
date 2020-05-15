@@ -1,4 +1,5 @@
 import RockApolloDataSource from '@apollosproject/rock-apollo-data-source';
+import gql from 'graphql-tag';
 
 class GraceGroup extends RockApolloDataSource {
   expanded = true;
@@ -9,13 +10,23 @@ class GraceGroup extends RockApolloDataSource {
     );
   }
 
+  getUrl({ id }) {
+    return `https://trygrace.org/page/724?GroupId=${id}`;
+  }
+
   getImage(group) {
     const images = this.context.dataSources.ContentItem.getImages(group).filter(
       ({ sources }) => sources.length
     );
-    console.log(images);
     return images.length ? images[0] : null;
   }
 }
 
-export { GraceGroup as dataSource };
+const schema = gql`
+  type GraceGroup implements Node {
+    url: String
+    id: ID!
+  }
+`;
+
+export { GraceGroup as dataSource, schema };

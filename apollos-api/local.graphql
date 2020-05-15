@@ -3,6 +3,7 @@ directive @cacheControl(maxAge: Int, scope: CacheControlScope) on FIELD_DEFINITI
 enum ACTION_FEATURE_ACTION {
   READ_CONTENT
   READ_EVENT
+  OPEN_URL
 }
 
 type ActionListAction {
@@ -226,6 +227,11 @@ enum GENDER {
   Unknown
 }
 
+type GraceGroup implements Node {
+  url: String
+  id: ID!
+}
+
 type Group implements Node {
   id: ID!
   name: String
@@ -238,6 +244,15 @@ enum GROUP_TYPE {
   Serving
   Community
   Family
+}
+
+type HeroListFeature implements Feature & Node {
+  id: ID!
+  order: Int
+  title: String
+  subtitle: String
+  actions: [ActionListAction]
+  heroCard: CardListItem
 }
 
 type HorizontalCardListFeature implements Feature & Node {
@@ -543,6 +558,11 @@ input UpdateProfileInput {
 
 """The `Upload` scalar type represents a file upload."""
 scalar Upload
+
+type Url implements Node {
+  url: String
+  id: ID!
+}
 
 enum USER_AUTH_STATUS {
   NONE
