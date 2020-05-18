@@ -26,10 +26,10 @@ ROCK:
 ONE_SIGNAL:
   APP_ID: 50a99e4b-050c-4cb6-a606-4a7895b0fc4e
   REST_KEY: ${ONE_SIGNAL_REST_KEY}
-# CHURCH_ONLINE:
-#   URL: https://apollos.churchonline.org/api/v1/
-#   MEDIA_URLS: []
-#   WEB_VIEW_URL: https://apollos.churchonline.org/
+CHURCH_ONLINE:
+  URL: https://live.trygrace.org/
+  MEDIA_URLS: []
+  WEB_VIEW_URL: https://live.trygrace.org/
 ALGOLIA:
   APPLICATION_ID: ${ALGOLIA_APP_ID}
   API_KEY: ${ALGOLIA_API_KEY}

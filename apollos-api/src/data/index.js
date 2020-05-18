@@ -4,7 +4,7 @@ import { createApolloServerConfig } from '@apollosproject/server-core';
 
 import * as Analytics from '@apollosproject/data-connector-analytics';
 import * as Scripture from '@apollosproject/data-connector-bible';
-import * as LiveStream from '@apollosproject/data-connector-church-online';
+
 import * as Cloudinary from '@apollosproject/data-connector-cloudinary';
 import * as OneSignal from '@apollosproject/data-connector-onesignal';
 import * as Search from '@apollosproject/data-connector-algolia-search';
@@ -26,6 +26,7 @@ import {
   BinaryFiles,
   Event,
 } from '@apollosproject/data-connector-rock';
+import * as LiveStream from './ChurchOnline';
 import * as Theme from './theme';
 import * as GraceGroup from './GraceGroup';
 import * as Auth from './Auth';
