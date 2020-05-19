@@ -1,16 +1,18 @@
 import React from 'react';
 import { get } from 'lodash';
 
-import { DefaultCard, HighlightCard } from '@apollosproject/ui-kit';
+import { DefaultCard, HighlightCard, FeaturedCard } from '@apollosproject/ui-kit';
 
 const cardMapper = (props) => {
   // map typename to the the card we want to render.
   switch (get(props, '__typename')) {
     case 'Url':
-      return <HighlightCard 
+      return <FeaturedCard 
         {...props}       
           theme={{
-            // type: 'no-card-gradient'
+            colors: {
+              primary: 'transparent'
+            }
           }}
         />;
     case 'MediaContentItem':
@@ -60,6 +62,23 @@ const colors = {
   },
 };
 
+const types = {
+  'no-card-gradient': (theme) => ({
+    ...theme,
+    overlays: {
+      ...theme.overlays,
+      'gradient-bottom': () => ({
+        colors: [
+          'transparent',
+          'transparent',
+        ],
+        start: { x: 0, y: 0 },
+        end: { x: 0, y: 1 },
+        locations: [0, 1],              
+      })
+    },
+  }),
+};
 
 /* Base Typography sizing and fonts.
  * To control speicfic styles used on different type components (like H1, H2, etc), see "overrides"
@@ -111,4 +130,4 @@ const overrides = {
 }
 
 
-export default { colors, overrides };
+export default { colors, overrides, types };
