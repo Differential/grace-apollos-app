@@ -144,6 +144,10 @@ HOME_FEATURES:
     subtitle:
     type: VerticalCardList
     isFeatured: true
+  - title: Verse of the Day
+    algorithms: [VERSE_OF_THE_DAY]
+    subtitle: Today
+    type: VerticalCardList
   - title:
     algorithms: [CAMPAIGN_ITEMS]
     subtitle: This Week

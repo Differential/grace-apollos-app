@@ -1,3 +1,28 @@
+import React from 'react';
+import { get } from 'lodash';
+
+import { DefaultCard, HighlightCard } from '@apollosproject/ui-kit';
+
+const cardMapper = (props) => {
+  // map typename to the the card we want to render.
+  switch (get(props, '__typename')) {
+    case 'Url':
+      return <HighlightCard 
+        {...props}       
+          theme={{
+            // type: 'no-card-gradient'
+          }}
+        />;
+    case 'MediaContentItem':
+    case 'WeekendContentItem':
+    case 'ContentSeriesContentItem':
+    case 'DevotionalContentItem':
+      return <HighlightCard {...props} />;
+    default:
+      return <DefaultCard {...props} />;
+  }
+};
+
 // import styleOverrides from './styleOverrides';
 // import propOverrides from './propOverrides';
 
@@ -34,6 +59,7 @@ const colors = {
     accent: '#9BCBEB',
   },
 };
+
 
 /* Base Typography sizing and fonts.
  * To control speicfic styles used on different type components (like H1, H2, etc), see "overrides"
@@ -78,5 +104,11 @@ const colors = {
 //   ...styleOverrides,
 //   ...propOverrides,
 // };
+const overrides = {
+  ContentCardComponentMapper: {
+    Component: () => cardMapper
+  },
+}
 
-export default { colors };
+
+export default { colors, overrides };

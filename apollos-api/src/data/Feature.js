@@ -1,6 +1,9 @@
 import { Feature } from '@apollosproject/data-connector-rock';
 import { createGlobalId } from '@apollosproject/server-core';
 import gql from 'graphql-tag';
+import fetch from 'node-fetch';
+import { get } from 'lodash';
+import moment from 'moment';
 
 const {
   schema: baseSchema,
@@ -50,7 +53,40 @@ class dataSource extends FeatureDataSource {
     GRACE_GROUPS: this.graceGroupsAlgorithm.bind(this),
     SINGLE_IMAGE_CARD: this.singleImageCardAlgorithm.bind(this),
     MOST_RECENT_SERMON: this.mostRecentSermonAlgorithm.bind(this),
+    VERSE_OF_THE_DAY: this.verseOfTheDayAlgorithm.bind(this),
   };
+
+  async verseOfTheDayAlgorithm() {
+    const verseOfTheDay = await fetch(
+      `https://developers.youversionapi.com/1.0/verse_of_the_day/${moment().dayOfYear()}?version_id=1`,
+      {
+        headers: {
+          'X-YouVersion-Developer-Token': 'UKe3tMsbC7Rpt55oXjwgI4In__Y',
+          'Accept-Language': 'en',
+          Accept: 'application/json',
+        },
+      }
+    ).then((result) => result.json());
+    const imageUrl = get(verseOfTheDay, 'image.url', '')
+      .replace('{width}', 800)
+      .replace('{height}', 800);
+    console.log({ imageUrl });
+    return [
+      {
+        id: createGlobalId('verse-of-the-day', 'CardListItem'),
+        title: '',
+        subtitle: '',
+        relatedNode: {
+          url: get(verseOfTheDay, 'verse.url'),
+          id: createGlobalId(JSON.stringify({ verseOfTheDay }), 'Url'),
+          __type: 'Url',
+        },
+        image: { sources: [{ uri: imageUrl }] },
+        action: 'OPEN_URL',
+        hasAction: false,
+      },
+    ];
+  }
 
   async mostRecentSermonAlgorithm() {
     const { ContentItem } = this.context.dataSources;
