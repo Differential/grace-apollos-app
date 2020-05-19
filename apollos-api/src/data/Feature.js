@@ -18,6 +18,15 @@ const resolver = {
       }
       return baseResolver.CardListItem.hasAction(root, args, context);
     },
+    labelText: async (root, args, context) => {
+      const isLive = await context.dataSources.ContentItem.isContentActiveLiveStream(
+        { id: root.relatedNode.id }
+      );
+      if (isLive) {
+        return 'Live';
+      }
+      return root.subtitle;
+    },
   },
 };
 

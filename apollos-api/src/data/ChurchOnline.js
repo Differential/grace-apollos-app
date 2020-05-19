@@ -97,6 +97,7 @@ fragment ServiceFields on Service {
         },
       }
     );
+    // TODO: The cookie above won't last forever.
     const { data } = result;
     return {
       isLive: get(data, 'currentService.content.videoStarted', false),
