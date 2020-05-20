@@ -160,8 +160,8 @@ HOME_FEATURES:
         arguments:
           image: https://trygrace.org/GetFile.ashx?guid=3576a570-88e2-4fd2-bd9f-c4f8e2fc1da9
           url: https://trygrace.org/groups
-          subtitle:
-          title:
+          summary: All of our groups are now online! Stay connected with others via Zoom group meetings.
+          title: Online groups
     type: HeroListFeature
   - title: Stay Connected
     algorithms:

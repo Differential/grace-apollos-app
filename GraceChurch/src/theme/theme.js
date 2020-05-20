@@ -1,20 +1,18 @@
 import React from 'react';
 import { get } from 'lodash';
 
-import { DefaultCard, HighlightCard, FeaturedCard } from '@apollosproject/ui-kit';
+import { DefaultCard, HighlightCard } from '@apollosproject/ui-kit';
+import ImageCard from '../ui/ImageCard';
 
 const cardMapper = (props) => {
   // map typename to the the card we want to render.
   switch (get(props, '__typename')) {
     case 'Url':
-      return <FeaturedCard 
-        {...props}       
-          theme={{
-            colors: {
-              primary: 'transparent'
-            }
-          }}
-        />;
+      if (!props.title && !props.subtitle) {
+        return <ImageCard {...props} />;
+      }
+      return <HighlightCard {...props} />;
+
     case 'MediaContentItem':
     case 'WeekendContentItem':
     case 'ContentSeriesContentItem':
@@ -62,21 +60,12 @@ const colors = {
   },
 };
 
-const types = {
-  'no-card-gradient': (theme) => ({
-    ...theme,
-    overlays: {
-      ...theme.overlays,
-      'gradient-bottom': () => ({
-        colors: [
-          'transparent',
-          'transparent',
-        ],
-        start: { x: 0, y: 0 },
-        end: { x: 0, y: 1 },
-        locations: [0, 1],              
-      })
-    },
+const overlays = {
+  'no-overlay': () => () => ({
+    colors: ['transparent', 'transparent'],
+    start: { x: 0, y: 0 },
+    end: { x: 0, y: 1 },
+    locations: [0, 1],
   }),
 };
 
@@ -125,9 +114,8 @@ const types = {
 // };
 const overrides = {
   ContentCardComponentMapper: {
-    Component: () => cardMapper
+    Component: () => cardMapper,
   },
-}
+};
 
-
-export default { colors, overrides, types };
+export default { colors, overrides, overlays };

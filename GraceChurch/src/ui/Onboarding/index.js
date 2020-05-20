@@ -6,16 +6,9 @@ import {
   requestNotifications,
   RESULTS,
 } from 'react-native-permissions';
-import {
-  GradientOverlayImage,
-  styled,
-  BackgroundView,
-} from '@apollosproject/ui-kit';
+import { styled, BackgroundView } from '@apollosproject/ui-kit';
 import {
   AskNotificationsConnected,
-  AskNameConnected,
-  FeaturesConnected,
-  AboutYouConnected,
   LocationFinderConnected,
   OnboardingSwiper,
 } from '@apollosproject/ui-onboarding';
@@ -27,14 +20,10 @@ const FullscreenBackgroundView = styled({
   height: '100%',
 })(BackgroundView);
 
-const StyledGradient = styled({
-  maxHeight: '40%',
-})(GradientOverlayImage);
-
-const Spacer = styled(({ theme: { sizing: { baseUnit }}}) => ({
+const Spacer = styled(() => ({
   maxHeight: '10%',
   flex: 1,
-}))(View)
+}))(View);
 
 function Onboarding({ navigation }) {
   return (
@@ -43,13 +32,13 @@ function Onboarding({ navigation }) {
       <OnboardingSwiper>
         {({ swipeForward }) => (
           <>
-             <LocationFinderConnected
-                onPressPrimary={swipeForward}
-                onNavigate={() => {
-                  navigation.navigate('Location');
-                }}
-                BackgroundComponent={<Spacer />}
-              />
+            <LocationFinderConnected
+              onPressPrimary={swipeForward}
+              onNavigate={() => {
+                navigation.navigate('Location');
+              }}
+              BackgroundComponent={<Spacer />}
+            />
             <AskNotificationsConnected
               onRequestPushPermissions={(update) => {
                 checkNotifications().then((checkRes) => {

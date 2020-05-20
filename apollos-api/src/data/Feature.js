@@ -104,15 +104,16 @@ class dataSource extends FeatureDataSource {
     ];
   }
 
-  async singleImageCardAlgorithm({ title, subtitle, image, url }) {
+  async singleImageCardAlgorithm({ title, subtitle, image, url, summary }) {
     return [
       {
         id: createGlobalId(
-          JSON.stringify({ title, subtitle, image, url }),
-          'ActionListAction'
+          JSON.stringify({ title, subtitle, image, url, summary }),
+          'CardListItem'
         ),
         title,
         subtitle,
+        summary,
         relatedNode: {
           url,
           id: createGlobalId(JSON.stringify({ url }), 'Url'),
