@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import {
   styled,
   withTheme,
-  H5,
+  H2,
   H6,
   HorizontalTileFeed,
   ButtonLink,
@@ -54,12 +54,18 @@ const loadingStateObject = {
   coverImage: [],
 };
 
+const StyledH2 = styled(({ theme }) => ({
+  textTransform: 'uppercase',
+  fontFamily: theme.typography.sans.black.default,
+  fontSize: theme.sizing.baseUnit * 1.5,
+}))(H2);
+
 const TileContentFeed = ({ isLoading, id, name, navigation, content = [] }) =>
   (isLoading || !isEmpty(content)) && (
     <>
       <RowHeader>
         <Name>
-          <H5>{name}</H5>
+          <StyledH2>{name}</StyledH2>
         </Name>
         <AndroidTouchableFix
           onPress={() => {
