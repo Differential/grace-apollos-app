@@ -40,6 +40,10 @@
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
 		FCB3069DB5DD4170B2CAEFC4 /* Inter-UI-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A460FD7884FD4574A818005A /* Inter-UI-MediumItalic.otf */; };
+		A3B78CAB20384147A7FB7439 /* Brandon-Grotesque-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0BB6C7C00A9A4B7DBDD36782 /* Brandon-Grotesque-Black.otf */; };
+		F11B6C13119A4355B48B283F /* Brandon-Grotesque-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0236F877E3474C7F9F0D381C /* Brandon-Grotesque-Light.otf */; };
+		3B494CAA55F74744AC73D1F2 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF24306B8A44F9B353EA89 /* Lato-Italic.ttf */; };
+		B19C88A431E44E83855CD88B /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB51D9AF098B4B4CABD3AB43 /* Lato-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +106,10 @@
 		EC21254B449443F99016EBFD /* Inter-UI-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-UI-Black.otf"; path = "../assets/fonts/Inter-UI-Black.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		0BB6C7C00A9A4B7DBDD36782 /* Brandon-Grotesque-Black.otf */ = {isa = PBXFileReference; name = "Brandon-Grotesque-Black.otf"; path = "../assets/fonts/Brandon-Grotesque-Black.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0236F877E3474C7F9F0D381C /* Brandon-Grotesque-Light.otf */ = {isa = PBXFileReference; name = "Brandon-Grotesque-Light.otf"; path = "../assets/fonts/Brandon-Grotesque-Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3FFF24306B8A44F9B353EA89 /* Lato-Italic.ttf */ = {isa = PBXFileReference; name = "Lato-Italic.ttf"; path = "../assets/fonts/Lato-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CB51D9AF098B4B4CABD3AB43 /* Lato-Regular.ttf */ = {isa = PBXFileReference; name = "Lato-Regular.ttf"; path = "../assets/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +212,10 @@
 				DC74A378C1CC40E4B6192D7F /* Inter-UI-Medium.otf */,
 				A460FD7884FD4574A818005A /* Inter-UI-MediumItalic.otf */,
 				A613256118404CB691DE2C8E /* Inter-UI-Regular.otf */,
+				0BB6C7C00A9A4B7DBDD36782 /* Brandon-Grotesque-Black.otf */,
+				0236F877E3474C7F9F0D381C /* Brandon-Grotesque-Light.otf */,
+				3FFF24306B8A44F9B353EA89 /* Lato-Italic.ttf */,
+				CB51D9AF098B4B4CABD3AB43 /* Lato-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -423,6 +435,10 @@
 				FCB3069DB5DD4170B2CAEFC4 /* Inter-UI-MediumItalic.otf in Resources */,
 				AB3BD177B8A14193A5EEDDF8 /* Inter-UI-Regular.otf in Resources */,
 				82AAE52E24187BB500D1EEC7 /* BootSplash.storyboard in Resources */,
+				A3B78CAB20384147A7FB7439 /* Brandon-Grotesque-Black.otf in Resources */,
+				F11B6C13119A4355B48B283F /* Brandon-Grotesque-Light.otf in Resources */,
+				3B494CAA55F74744AC73D1F2 /* Lato-Italic.ttf in Resources */,
+				B19C88A431E44E83855CD88B /* Lato-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

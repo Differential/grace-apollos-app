@@ -79,6 +79,10 @@
 		<string>Inter-UI-Medium.otf</string>
 		<string>Inter-UI-MediumItalic.otf</string>
 		<string>Inter-UI-Regular.otf</string>
+		<string>Brandon-Grotesque-Black.otf</string>
+		<string>Brandon-Grotesque-Light.otf</string>
+		<string>Lato-Italic.ttf</string>
+		<string>Lato-Regular.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
