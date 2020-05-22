@@ -74,8 +74,6 @@ const overlays = {
  * To control speicfic styles used on different type components (like H1, H2, etc), see "overrides"
  */
 export const typography = {
-  baseFontSize: 16,
-  baseLineHeight: 24, // 1.5 ratio
   ...fontStack,
 };
 
@@ -121,10 +119,10 @@ const overrides = {
   H1: {
     fontFamily: typography.sans.light.default,
   },
-  H2: {
+  H2: ({ helpers: themeHelpers }) => ({
     fontFamily: typography.sans.light.default,
-    fontSize: typography.baseFontSize * 1.5,
-  },
+    fontSize: themeHelpers.rem(1.5),
+  }),
   H3: {
     fontFamily: typography.sans.black.default,
     textTransform: 'uppercase',
@@ -141,11 +139,11 @@ const overrides = {
   ContentCardComponentMapper: {
     Component: () => cardMapper,
   },
-  'HeroListFeature.Subtitle': {
+  'HeroListFeature.Subtitle': ({ helpers: themeHelpers }) => ({
     fontFamily: typography.sans.light.default,
     textTransform: 'capitalize',
-    fontSize: typography.baseFontSize * 1.5,
-  },
+    fontSize: themeHelpers.rem(1.5),
+  }),
 };
 
 export default { colors, overrides, overlays, typography };
