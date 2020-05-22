@@ -59,6 +59,7 @@ const apolloServer = new ApolloServer({
 const app = express();
 
 applyServerMiddleware({ app, dataSources, context });
+
 setupJobs({ app, dataSources, context });
 
 apolloServer.applyMiddleware({ app });
