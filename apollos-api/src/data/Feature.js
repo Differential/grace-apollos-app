@@ -70,7 +70,6 @@ class dataSource extends FeatureDataSource {
     const imageUrl = get(verseOfTheDay, 'image.url', '')
       .replace('{width}', 800)
       .replace('{height}', 800);
-    console.log({ imageUrl });
     return [
       {
         id: createGlobalId('verse-of-the-day', 'CardListItem'),
