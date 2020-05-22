@@ -26,13 +26,17 @@ const Name = styled({
   flexGrow: 1,
 })(View);
 
+const StyledH4 = styled({
+  textTransform: 'uppercase',
+})(H4);
+
 const ActionTable = () => (
   <RockAuthedWebBrowser>
     {(openUrl) => (
       <View>
         <RowHeader>
           <Name>
-            <H4>{'Connect with Apollos'}</H4>
+            <StyledH4>{'Connect'}</StyledH4>
           </Name>
         </RowHeader>
         <TableView>
