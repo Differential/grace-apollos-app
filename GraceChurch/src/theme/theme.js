@@ -119,10 +119,9 @@ const overrides = {
   H1: {
     fontFamily: typography.sans.light.default,
   },
-  H2: ({ helpers: themeHelpers }) => ({
+  H2: {
     fontFamily: typography.sans.light.default,
-    fontSize: themeHelpers.rem(1.5),
-  }),
+  },
   H3: {
     fontFamily: typography.sans.black.default,
     textTransform: 'uppercase',
