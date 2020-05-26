@@ -5,27 +5,8 @@ import { get } from 'lodash';
 
 export { resolver, schema } from '@apollosproject/data-connector-church-online';
 
-export class dataSource extends RESTDataSource {
-  resource = 'LiveStream';
-
-  get baseURL() {
-    return ApollosConfig.CHURCH_ONLINE.URL;
-  }
-
-  get mediaUrls() {
-    return ApollosConfig.CHURCH_ONLINE.MEDIA_URLS;
-  }
-
-  get webViewUrl() {
-    return ApollosConfig.CHURCH_ONLINE.WEB_VIEW_URL;
-  }
-
-  async getLiveStream() {
-    const result = await this.post(
-      'graphql',
-      {
-        operationName: 'CurrentState',
-        query: `query CurrentState {
+const CurrentLivestreamQuery = `
+query CurrentState {
   currentService {
     ...ServiceFields
     __typename
@@ -88,12 +69,35 @@ fragment ServiceFields on Service {
     __typename
   }
   __typename
-}`,
+}`;
+
+export class dataSource extends RESTDataSource {
+  resource = 'LiveStream';
+
+  get baseURL() {
+    return ApollosConfig.CHURCH_ONLINE.URL;
+  }
+
+  get mediaUrls() {
+    return ApollosConfig.CHURCH_ONLINE.MEDIA_URLS;
+  }
+
+  get webViewUrl() {
+    return ApollosConfig.CHURCH_ONLINE.WEB_VIEW_URL;
+  }
+
+  async getLiveStream() {
+    const authResponse = await this.post('auth/guest');
+    const accessToken = authResponse.access_token;
+    const result = await this.post(
+      'graphql',
+      {
+        operationName: 'CurrentState',
+        query: CurrentLivestreamQuery,
       },
       {
         headers: {
-          cookie:
-            '__cfduid=d421f6396a02cbfe04c6e5631d144d52e1589483017; access_token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsaXZlLnRyeWdyYWNlLm9yZyIsImV4cCI6MTU5MDQxODM2Miwib3JnYW5pemF0aW9uX2lkIjoiZGQ3ZTZlMWQtMzk5YS00ZTYyLTgxMzYtMWNhOTEwZjUzNTI3Iiwic3Vic2NyaWJlcl9pZCI6ImQ5NTQxNGVhLWMwZDktNGRlMi1iMTAyLTRhNjc0ZDIwZTlmNyJ9.gPv2acUtNvbY-37VdrKPomJQYS_86cH3RAnCIpZQLKI; refresh_token=dd5e235ffad686de4ddad920f86e8bdbbef612c536d2af9ea29913a536c8a17b; SESSIONID=9818d3cf-96d4-4f92-8fe2-292191a5b279',
+          cookie: `access_token=${accessToken};`,
         },
       }
     );
