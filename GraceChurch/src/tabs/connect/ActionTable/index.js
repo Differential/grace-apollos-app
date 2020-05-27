@@ -41,7 +41,7 @@ const ActionTable = () => (
         </RowHeader>
         <TableView>
           <Touchable
-            onPress={() => openUrl('https://apollosrock.newspring.cc/page/235')}
+            onPress={() => openUrl('https://trygrace.org/communitysupport')}
           >
             <Cell>
               <CellText>Find a serving opportunity</CellText>
@@ -50,7 +50,7 @@ const ActionTable = () => (
           </Touchable>
           <Divider />
           <Touchable
-            onPress={() => openUrl('https://apollosrock.newspring.cc/page/236')}
+            onPress={() => openUrl('https://trygrace.org/stayconnected')}
           >
             <Cell>
               <CellText>Join a small group</CellText>
@@ -58,9 +58,7 @@ const ActionTable = () => (
             </Cell>
           </Touchable>
           <Divider />
-          <Touchable
-            onPress={() => openUrl('https://apollosrock.newspring.cc/page/233')}
-          >
+          <Touchable onPress={() => openUrl('https://trygrace.org/prayer')}>
             <Cell>
               <CellText>I need prayer</CellText>
               <CellIcon name="arrow-next" />
@@ -68,15 +66,15 @@ const ActionTable = () => (
           </Touchable>
         </TableView>
         <TableView>
-          <Touchable
-            onPress={() => NavigationActions.navigate('TestingControlPanel')}
-          >
-            <Cell>
-              <CellIcon name="settings" />
-              <CellText>Open Testing Panel</CellText>
-              <CellIcon name="arrow-next" />
-            </Cell>
-          </Touchable>
+          {/*   <Touchable */}
+          {/*     onPress={() => NavigationActions.navigate('TestingControlPanel')} */}
+          {/*   > */}
+          {/*     <Cell> */}
+          {/*       <CellIcon name="settings" /> */}
+          {/*       <CellText>Open Testing Panel</CellText> */}
+          {/*       <CellIcon name="arrow-next" /> */}
+          {/*     </Cell> */}
+          {/*   </Touchable> */}
         </TableView>
       </View>
     )}

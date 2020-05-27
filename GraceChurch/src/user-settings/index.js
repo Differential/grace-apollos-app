@@ -90,42 +90,42 @@ class UserSettings extends PureComponent {
                             <CellIcon name="arrow-next" />
                           </Cell>
                         </Touchable>
-                        <Divider />
-                        <Touchable
-                          onPress={async () => {
-                            await this.props.navigation.navigate(
-                              'ChangePassword',
-                              {
-                                backgroundColor: this.props.screenProps
-                                  .headerBackgroundColor,
-                                headerTitleColor: this.props.screenProps
-                                  .headerTitleStyle.color,
-                              }
-                            );
-                          }}
-                        >
-                          <Cell>
-                            <CellText>Change Password</CellText>
-                            <CellIcon name="arrow-next" />
-                          </Cell>
-                        </Touchable>
+                        {/* <Divider /> */}
+                        {/* <Touchable */}
+                        {/*   onPress={async () => { */}
+                        {/*     await this.props.navigation.navigate( */}
+                        {/*       'ChangePassword', */}
+                        {/*       { */}
+                        {/*         backgroundColor: this.props.screenProps */}
+                        {/*           .headerBackgroundColor, */}
+                        {/*         headerTitleColor: this.props.screenProps */}
+                        {/*           .headerTitleStyle.color, */}
+                        {/*       } */}
+                        {/*     ); */}
+                        {/*   }} */}
+                        {/* > */}
+                        {/*   <Cell> */}
+                        {/*     <CellText>Change Password</CellText> */}
+                        {/*     <CellIcon name="arrow-next" /> */}
+                        {/*   </Cell> */}
+                        {/* </Touchable> */}
+                        {/* </TableView> */}
+                        {/* <TableView> */}
+                        {/*   <Touchable */}
+                        {/*     onPress={() => */}
+                        {/*       openUrl('https://apollosrock.newspring.cc/') */}
+                        {/*     } */}
+                        {/*   > */}
+                        {/*     <Cell> */}
+                        {/*       <CellText>Give Feedback</CellText> */}
+                        {/*       <CellIcon name="arrow-next" /> */}
+                        {/*     </Cell> */}
+                        {/*   </Touchable> */}
                       </TableView>
                       <TableView>
                         <Touchable
                           onPress={() =>
-                            openUrl('https://apollosrock.newspring.cc/')
-                          }
-                        >
-                          <Cell>
-                            <CellText>Give Feedback</CellText>
-                            <CellIcon name="arrow-next" />
-                          </Cell>
-                        </Touchable>
-                      </TableView>
-                      <TableView>
-                        <Touchable
-                          onPress={() =>
-                            openUrl('https://apollosrock.newspring.cc/')
+                            openUrl('https://trygrace.org/privacy')
                           }
                         >
                           <Cell>
@@ -133,17 +133,17 @@ class UserSettings extends PureComponent {
                             <CellIcon name="arrow-next" />
                           </Cell>
                         </Touchable>
-                        <Divider />
-                        <Touchable
-                          onPress={() =>
-                            openUrl('https://apollosrock.newspring.cc/')
-                          }
-                        >
-                          <Cell>
-                            <CellText>Terms of Use</CellText>
-                            <CellIcon name="arrow-next" />
-                          </Cell>
-                        </Touchable>
+                        {/* <Divider /> */}
+                        {/* <Touchable */}
+                        {/*   onPress={() => */}
+                        {/*     openUrl('https://trygrace.org/privacy') */}
+                        {/*   } */}
+                        {/* > */}
+                        {/*   <Cell> */}
+                        {/*     <CellText>Terms of Use</CellText> */}
+                        {/*     <CellIcon name="arrow-next" /> */}
+                        {/*   </Cell> */}
+                        {/* </Touchable> */}
                       </TableView>
                       <TableView>
                         <Mutation mutation={LOGOUT}>

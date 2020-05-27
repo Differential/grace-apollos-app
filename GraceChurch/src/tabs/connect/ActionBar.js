@@ -1,4 +1,5 @@
 import React from 'react';
+import { Linking } from 'react-native';
 import { ActionBar, ActionBarItem } from '@apollosproject/ui-kit';
 import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
@@ -8,20 +9,20 @@ const Toolbar = ({ navigation }) => (
   <RockAuthedWebBrowser>
     {(openUrl) => (
       <ActionBar>
+        {/* <ActionBarItem */}
+        {/*   onPress={() => navigation.navigate('Passes')} */}
+        {/*   icon="check" */}
+        {/*   label="Check-in" */}
+        {/* /> */}
         <ActionBarItem
-          onPress={() => navigation.navigate('Passes')}
-          icon="check"
-          label="Check-in"
-        />
-        <ActionBarItem
-          onPress={() => openUrl('https://apollosrock.newspring.cc/page/186')}
+          onPress={() => Linking.openURL('https://trygrace.org/give')}
           icon="download"
           label="Give"
         />
         <ActionBarItem
-          onPress={() => navigation.navigate('TestingControlPanel')}
+          onPress={() => openUrl('https://trygrace.org/visit')}
           icon="information"
-          label="Test"
+          label="Visit"
         />
       </ActionBar>
     )}
