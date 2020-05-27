@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { withNavigation } from 'react-navigation';
 import { get } from 'lodash';
 
-import { H3, styled, PaddedView } from '@apollosproject/ui-kit';
+import { H2, styled, PaddedView } from '@apollosproject/ui-kit';
 import { UserAvatarConnected } from '@apollosproject/ui-connected';
 import GET_USER_PROFILE from './getUserProfile';
 
@@ -26,6 +26,10 @@ const Container = styled({
   justifyContent: 'center',
 })(PaddedView);
 
+const StyledH2 = styled(({ theme: { sizing } }) => ({
+  fontSize: sizing.baseUnit * 2,
+}))(H2);
+
 const UserAvatarHeader = ({
   buttonIcon,
   message,
@@ -45,10 +49,10 @@ const UserAvatarHeader = ({
     </PaddedView>
     <GetUserProfile>
       {({ firstName }) => (
-        <H3>
+        <StyledH2>
           {message}
           {firstName ? ` ${firstName}` : ''}!
-        </H3>
+        </StyledH2>
       )}
     </GetUserProfile>
   </Container>

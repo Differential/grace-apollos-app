@@ -3,6 +3,7 @@ import { get } from 'lodash';
 
 import { DefaultCard, HighlightCard } from '@apollosproject/ui-kit';
 import ImageCard from '../ui/ImageCard';
+import fontStack from './fontStack';
 
 const cardMapper = (props) => {
   // map typename to the the card we want to render.
@@ -72,7 +73,9 @@ const overlays = {
 /* Base Typography sizing and fonts.
  * To control speicfic styles used on different type components (like H1, H2, etc), see "overrides"
  */
-// const typography = {};
+export const typography = {
+  ...fontStack,
+};
 
 /* Responsive breakpoints */
 // export const breakpoints = {};
@@ -113,9 +116,33 @@ const overlays = {
 //   ...propOverrides,
 // };
 const overrides = {
+  H1: {
+    fontFamily: typography.sans.light.default,
+  },
+  H2: {
+    fontFamily: typography.sans.light.default,
+  },
+  H3: {
+    fontFamily: typography.sans.black.default,
+    textTransform: 'uppercase',
+  },
+  H4: {
+    fontFamily: typography.sans.black.default,
+  },
+  H5: {
+    fontFamily: typography.sans.regular.default,
+  },
+  H6: {
+    fontFamily: typography.sans.regular.default,
+  },
   ContentCardComponentMapper: {
     Component: () => cardMapper,
   },
+  'HeroListFeature.Subtitle': ({ helpers: themeHelpers }) => ({
+    fontFamily: typography.sans.light.default,
+    textTransform: 'capitalize',
+    fontSize: themeHelpers.rem(1.5),
+  }),
 };
 
-export default { colors, overrides, overlays };
+export default { colors, overrides, overlays, typography };

@@ -28,11 +28,12 @@ const BrandIcon = withTheme(({ theme, color }) => ({
 }))(Icon);
 
 const Title = styled(({ theme, color }) => ({
-  marginBottom: theme.sizing.baseUnit,
+  marginVertical: theme.sizing.baseUnit,
   ...(color ? { color } : {}),
 }))(H1);
 
-const StyledH4 = styled(({ color }) => ({
+const StyledH4 = styled(({ color, theme }) => ({
+  fontFamily: theme.typography.sans.regular.default,
   ...(color ? { color } : {}),
 }))(H4);
 
