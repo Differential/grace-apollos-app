@@ -86,9 +86,23 @@ export class dataSource extends RESTDataSource {
     return ApollosConfig.CHURCH_ONLINE.WEB_VIEW_URL;
   }
 
-  async getLiveStream() {
+  async getAccessToken() {
+    const { Cache } = this.context.dataSources;
+    const cachedAccessToken = await Cache.get({
+      key: ['church-online', 'access-token'],
+    });
+    if (cachedAccessToken) return cachedAccessToken;
     const authResponse = await this.post('auth/guest');
     const accessToken = authResponse.access_token;
+    await Cache.set({
+      key: ['church-online', 'access-token'],
+      data: accessToken,
+    });
+    return accessToken;
+  }
+
+  async getLiveStream() {
+    const accessToken = await this.getAccessToken();
     const result = await this.post(
       'graphql',
       {
