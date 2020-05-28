@@ -1,6 +1,6 @@
 import { Auth } from '@apollosproject/data-connector-rock';
 import { fetch, Request } from 'apollo-server-env';
-import { AuthenticationError, UserInputError } from 'apollo-server';
+import { AuthenticationError } from 'apollo-server';
 
 const {
   resolver,
@@ -30,10 +30,8 @@ class dataSource extends AuthDataSource {
       if (response.status >= 400) throw new AuthenticationError();
       const cookies = response.headers.get('set-cookie');
       const rockCookies = /.ROCK=[a-zA-Z0-9]+;/.exec(cookies);
-      console.log(rockCookies[0]);
       return rockCookies[0];
     } catch (err) {
-      console.log(err);
       throw new AuthenticationError('Invalid Credentials');
     }
   };
