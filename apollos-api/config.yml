@@ -125,9 +125,11 @@ ROCK_MAPPINGS:
   # However, it will not expose the channel itself.
   # These channels are also pulled when indexing searchable content.
   FEED_CONTENT_CHANNEL_IDS:
-    - 7
-    - 3
+    - 4
     - 5
+    - 15
+    - 7
+    - 14
 
   CAMPAIGN_CHANNEL_IDS:
     - 13

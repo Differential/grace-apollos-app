@@ -26,7 +26,7 @@ const handleOnPress = ({ navigation, item }) => {
   });
 };
 
-const keyExtractor = (item) => item && get(item, 'node.id', null);
+const keyExtractor = (item) => console.log(get(item, 'node.id', null)) || item && get(item, 'node.id', null);
 
 const SearchFeed = withNavigation(({ navigation, searchText }) => (
   <Query
