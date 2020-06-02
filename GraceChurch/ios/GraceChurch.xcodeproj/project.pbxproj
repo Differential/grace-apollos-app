@@ -36,6 +36,7 @@
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
 		F11B6C13119A4355B48B283F /* Brandon-Grotesque-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0236F877E3474C7F9F0D381C /* Brandon-Grotesque-Light.otf */; };
+		A1EA0D08EDB34DD1AC52CB3F /* Inter-UI-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4086A5B0F5BB40F4B2BA596E /* Inter-UI-Bold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		E98AC9782C338F13632EF710 /* Pods-GraceChurchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraceChurchTests.release.xcconfig"; path = "Target Support Files/Pods-GraceChurchTests/Pods-GraceChurchTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		4086A5B0F5BB40F4B2BA596E /* Inter-UI-Bold.otf */ = {isa = PBXFileReference; name = "Inter-UI-Bold.otf"; path = "../assets/fonts/Inter-UI-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 				0236F877E3474C7F9F0D381C /* Brandon-Grotesque-Light.otf */,
 				3FFF24306B8A44F9B353EA89 /* Lato-Italic.ttf */,
 				CB51D9AF098B4B4CABD3AB43 /* Lato-Regular.ttf */,
+				4086A5B0F5BB40F4B2BA596E /* Inter-UI-Bold.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				F11B6C13119A4355B48B283F /* Brandon-Grotesque-Light.otf in Resources */,
 				3B494CAA55F74744AC73D1F2 /* Lato-Italic.ttf in Resources */,
 				B19C88A431E44E83855CD88B /* Lato-Regular.ttf in Resources */,
+				A1EA0D08EDB34DD1AC52CB3F /* Inter-UI-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
