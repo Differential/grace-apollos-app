@@ -187,6 +187,7 @@ HOME_FEATURES:
       - type: CONTENT_CHANNEL
         arguments:
           contentChannelId: 7
+          limit: 3
     subtitle: Lives Changed
     type: VerticalCardList
   # - algorithms: [CAMPAIGN_ITEMS]
