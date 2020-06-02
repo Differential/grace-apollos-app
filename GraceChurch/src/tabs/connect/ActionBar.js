@@ -16,13 +16,13 @@ const Toolbar = ({ navigation }) => (
         {/* /> */}
         <ActionBarItem
           onPress={() => Linking.openURL('https://trygrace.org/give')}
-          icon="download"
+          icon="grace-give"
           label="Give"
         />
         <ActionBarItem
-          onPress={() => openUrl('https://trygrace.org/visit')}
-          icon="information"
-          label="Visit"
+          onPress={() => openUrl('https://trygrace.org/serve/')}
+          icon="grace-serve"
+          label="Serve"
         />
       </ActionBar>
     )}
