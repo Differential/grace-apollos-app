@@ -10,6 +10,9 @@ const fontStack = {
     black: {
       default: 'BrandonGrotesque-Black',
     },
+    bold: {
+      default: 'Lato-Regular',
+    },
   },
   ui: {
     regular: 'System',

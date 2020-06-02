@@ -41,19 +41,12 @@ const ActionTable = () => (
         </RowHeader>
         <TableView>
           <Touchable
-            onPress={() => openUrl('https://trygrace.org/communitysupport')}
+            onPress={() =>
+              openUrl('info@trygrace.org', { externalBrowser: true })
+            }
           >
             <Cell>
-              <CellText>Find a serving opportunity</CellText>
-              <CellIcon name="arrow-next" />
-            </Cell>
-          </Touchable>
-          <Divider />
-          <Touchable
-            onPress={() => openUrl('https://trygrace.org/stayconnected')}
-          >
-            <Cell>
-              <CellText>Join a small group</CellText>
+              <CellText>Contact Us</CellText>
               <CellIcon name="arrow-next" />
             </Cell>
           </Touchable>
@@ -64,17 +57,45 @@ const ActionTable = () => (
               <CellIcon name="arrow-next" />
             </Cell>
           </Touchable>
-        </TableView>
-        <TableView>
-          {/*   <Touchable */}
-          {/*     onPress={() => NavigationActions.navigate('TestingControlPanel')} */}
-          {/*   > */}
-          {/*     <Cell> */}
-          {/*       <CellIcon name="settings" /> */}
-          {/*       <CellText>Open Testing Panel</CellText> */}
-          {/*       <CellIcon name="arrow-next" /> */}
-          {/*     </Cell> */}
-          {/*   </Touchable> */}
+          <Divider />
+          <Touchable onPress={() => openUrl('https://trygrace.org/premarital')}>
+            <Cell>
+              <CellText>Pre-marital counseling</CellText>
+              <CellIcon name="arrow-next" />
+            </Cell>
+          </Touchable>
+          <Divider />
+          <Touchable
+            onPress={() => openUrl('https://trygrace.org/babydedication')}
+          >
+            <Cell>
+              <CellText>Baby dedications</CellText>
+              <CellIcon name="arrow-next" />
+            </Cell>
+          </Touchable>
+          <Divider />
+          <Touchable onPress={() => openUrl('https://trygrace.org/arlington')}>
+            <Cell>
+              <CellText>Grace Arlington</CellText>
+              <CellIcon name="arrow-next" />
+            </Cell>
+          </Touchable>
+          <Divider />
+          <Touchable
+            onPress={() => openUrl(' https://trygrace.org/westfallschurch')}
+          >
+            <Cell>
+              <CellText>West Falls</CellText>
+              <CellIcon name="arrow-next" />
+            </Cell>
+          </Touchable>
+          <Divider />
+          <Touchable onPress={() => openUrl('info@trygrace.org')}>
+            <Cell>
+              <CellText>Report an issue</CellText>
+              <CellIcon name="arrow-next" />
+            </Cell>
+          </Touchable>
         </TableView>
       </View>
     )}
