@@ -69,6 +69,7 @@
 	<string>$(PRODUCT_NAME) would like access to your photo gallery (for uploading profile pictures)</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Inter-UI-Bold.otf</string>
 		<string>DroidSerif-Bold.ttf</string>
 		<string>DroidSerif-BoldItalic.ttf</string>
 		<string>DroidSerif-Italic.ttf</string>
