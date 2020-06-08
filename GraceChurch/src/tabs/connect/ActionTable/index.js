@@ -42,7 +42,7 @@ const ActionTable = () => (
         <TableView>
           <Touchable
             onPress={() =>
-              openUrl('info@trygrace.org', { externalBrowser: true })
+              openUrl('mailto:info@trygrace.org', { externalBrowser: true })
             }
           >
             <Cell>
@@ -82,7 +82,7 @@ const ActionTable = () => (
           </Touchable>
           <Divider />
           <Touchable
-            onPress={() => openUrl(' https://trygrace.org/westfallschurch')}
+            onPress={() => openUrl('https://trygrace.org/westfallschurch')}
           >
             <Cell>
               <CellText>West Falls</CellText>
@@ -90,7 +90,7 @@ const ActionTable = () => (
             </Cell>
           </Touchable>
           <Divider />
-          <Touchable onPress={() => openUrl('info@trygrace.org')}>
+          <Touchable onPress={() => openUrl('mailto:info@trygrace.org')}>
             <Cell>
               <CellText>Report an issue</CellText>
               <CellIcon name="arrow-next" />
