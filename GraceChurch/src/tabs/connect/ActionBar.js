@@ -16,7 +16,7 @@ const Toolbar = ({ navigation }) => (
         {/* /> */}
         <ActionBarItem
           onPress={() => Linking.openURL('https://trygrace.org/give')}
-          icon="grace-give"
+          icon="like"
           label="Give"
         />
         <ActionBarItem
