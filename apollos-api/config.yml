@@ -170,18 +170,18 @@ HOME_FEATURES:
           summary: All of our groups are now online! Stay connected with others via Zoom group meetings.
           title: Online groups
     type: HeroListFeature
-  - title: Stay Connected
+  - title:
     algorithms:
       - type: CONTENT_CHANNEL
         arguments:
           contentChannelId: 14
     subtitle: GRACE KIDS
     type: ActionList
-  - title: Stay Connected
-    algorithms:
-      - type: PERSONA_FEED
-    subtitle: FOR YOU
-    type: ActionList
+  # - title: Stay Connected
+  #   algorithms:
+  #     - type: PERSONA_FEED
+  #   subtitle: FOR YOU
+  #   type: ActionList
   - title: Recent stories of
     algorithms:
       - type: CONTENT_CHANNEL
