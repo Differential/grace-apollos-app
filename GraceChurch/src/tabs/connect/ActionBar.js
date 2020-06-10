@@ -20,9 +20,9 @@ const Toolbar = ({ navigation }) => (
           label="Give"
         />
         <ActionBarItem
-          onPress={() => openUrl('https://trygrace.org/serve/')}
+          onPress={() => openUrl('mailto:info@trygrace.org')}
           icon="grace-serve"
-          label="Serve"
+          label="Contact"
         />
       </ActionBar>
     )}
