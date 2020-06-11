@@ -14238,10 +14238,10 @@ react-native-music-control@0.10.8:
   resolved "https://registry.yarnpkg.com/react-native-music-control/-/react-native-music-control-0.10.8.tgz#72272bf9cb1fc0142dc38c99e5f2142fece3c37a"
   integrity sha512-MRPdHpRwl4E2xS4JP2S+XtlFznGrYhizHERKrqE0GnpF/Osei+0fBtOdjHBVu/PkiYS/cwNeUxWdymmpmyQVpg==
 
-react-native-onesignal@3.3.2:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/react-native-onesignal/-/react-native-onesignal-3.3.2.tgz#3c9cb7f8ac919de3f414089613a114406180a309"
-  integrity sha512-SZBGVVWZ5xAe2ALeE2L5HBIh6hfFKjFqARrV8U80zyLFUN8QatRy1eaXKAHgb7wvnCGR8FoNKI8qF+Z4kIKgjg==
+react-native-onesignal@3.7.3:
+  version "3.7.3"
+  resolved "https://registry.yarnpkg.com/react-native-onesignal/-/react-native-onesignal-3.7.3.tgz#95b65ba6b612126127d878382c5a263265faea62"
+  integrity sha512-zBrf6uXQG6D2VSatZ8cxSmvW5YcSNU5eiGL3qdhjp/0BHFXC/ZFN7pdZ3lcgM2Q/ddb9Vtb7+DrycRk1UnRBdQ==
   dependencies:
     invariant "^2.2.2"
 
