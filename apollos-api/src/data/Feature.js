@@ -102,7 +102,7 @@ class dataSource extends FeatureDataSource {
       {
         id: createGlobalId(`${sermon.id}`, 'ActionListAction'),
         title: sermon.title,
-        subtitle: 'Current Message',
+        subtitle: 'Latest Message',
         relatedNode: { ...sermon, __type: ContentItem.resolveType(sermon) },
         image: ContentItem.getCoverImage(sermon),
         action: 'READ_CONTENT',
