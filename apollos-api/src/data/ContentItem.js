@@ -37,7 +37,9 @@ const resolver = contentItemTypes.reduce(
     ...acc,
     [curr]: { ...baseResolver[curr], ...newResolvers },
   }),
-  baseResolver
+  {
+    ...baseResolver,
+  }
 );
 
 export { resolver, schema, dataSource };

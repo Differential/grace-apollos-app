@@ -16,7 +16,6 @@ import {
   Interactions,
   RockConstants,
   Person,
-  ContentChannel,
   Sharable,
   PersonalDevice,
   Template,
@@ -32,6 +31,7 @@ import * as Auth from './Auth';
 import * as Campus from './Campus';
 import * as Feature from './Feature';
 import * as ContentItem from './ContentItem';
+import * as ContentChannel from './ContentChannel';
 import * as Vimeo from './Vimeo';
 // This module is used to attach Rock User updating to the OneSignal module.
 // This module includes a Resolver that overides a resolver defined in `OneSignal`
