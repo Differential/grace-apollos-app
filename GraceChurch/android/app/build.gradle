@@ -147,6 +147,7 @@ android {
         applicationId "org.trygrace.gracecshurch"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
+
         versionCode 24
         versionName "1.4.0"
         ndk {
@@ -158,6 +159,7 @@ android {
                 // Project number pulled from dashboard, local value is ignored.
                 onesignal_google_project_number: 'REMOTE'
         ]
+        multiDexEnabled true
     }
     splits {
         abi {
@@ -200,6 +202,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation 'com.facebook.fresco:animated-gif:2.0.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
 
     if (enableHermes) {
       def hermesPath = "../../node_modules/hermesvm/android/";
