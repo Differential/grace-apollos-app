@@ -25,9 +25,17 @@ const resolver = {
       const isLive = await context.dataSources.ContentItem.isContentActiveLiveStream(
         { id: root.relatedNode.id }
       );
+
       if (isLive) {
         return 'Live';
       }
+
+      if(get(root, 'relatedNode.contentChannel') && get(root, 'relatedNode.contentChannel.name') === root.subtitle){
+        // we have to do this because we can't get attributeValues on expanded attributes
+        const contentChannel = await context.dataSources.ContentChannel.getFromId(root.relatedNode.contentChannel.id);
+        return context.dataSources.ContentChannel.getName(contentChannel);
+      }
+
       return root.subtitle;
     },
   },
