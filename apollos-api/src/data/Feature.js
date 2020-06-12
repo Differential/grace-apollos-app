@@ -1,8 +1,9 @@
 import { Feature } from '@apollosproject/data-connector-rock';
 import { createGlobalId } from '@apollosproject/server-core';
+import ApollosConfig from '@apollosproject/config';
 import gql from 'graphql-tag';
 import fetch from 'node-fetch';
-import { get } from 'lodash';
+import { get, flatten } from 'lodash';
 import moment from 'moment';
 
 const {
@@ -169,6 +170,44 @@ class dataSource extends FeatureDataSource {
         hasAction: false,
       },
     ];
+  }
+
+  async campaignItemsAlgorithm({ limit = 1 } = {}) {
+    const { ContentItem } = this.context.dataSources;
+
+    const channels = await ContentItem.byContentChannelIds(
+      ApollosConfig.ROCK_MAPPINGS.CAMPAIGN_CHANNEL_IDS
+    ).get();
+
+    const items = flatten(
+      await Promise.all(
+        channels.map(async ({ id, title }) => {
+          const childItemsCursor = await ContentItem.getCursorByParentContentItemId(
+            id,
+            { showUnpublished: true }
+          );
+
+          const childItems = await childItemsCursor
+            .top(limit)
+            .expand('ContentChannel')
+            .get();
+
+          return childItems.map((item) => ({
+            ...item,
+            channelSubtitle: title,
+          }));
+        })
+      )
+    );
+    return items.map((item, i) => ({
+      id: createGlobalId(`${item.id}${i}`, 'ActionListAction'),
+      title: item.title,
+      subtitle: get(item, 'contentChannel.name'),
+      relatedNode: { ...item, __type: ContentItem.resolveType(item) },
+      image: ContentItem.getCoverImage(item),
+      action: 'READ_CONTENT',
+      summary: ContentItem.createSummary(item),
+    }));
   }
 
   async graceGroupsAlgorithm() {

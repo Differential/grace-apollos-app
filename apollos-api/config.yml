@@ -157,7 +157,7 @@ HOME_FEATURES:
     algorithms:
       - type: CAMPAIGN_ITEMS
         arguments:
-          limit: 3
+          limit: 6
     subtitle: This Week
     type: VerticalCardList
   - subtitle: Stay Connected

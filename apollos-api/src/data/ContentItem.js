@@ -23,6 +23,39 @@ class dataSource extends ContentItemDataSource {
     return cursor.orderBy('StartDateTime', 'desc');
   };
 
+  getFromIds = (ids = [], filter = this.LIVE_CONTENT) => {
+    if (ids.length === 0) return this.request().empty();
+    if (get(ApollosConfig, 'ROCK.USE_PLUGIN', false)) {
+      // Avoids issue when fetching more than ~10 items
+      // Caused by an Odata node limit.
+      return this.request(
+        `Apollos/GetContentChannelItemsByIds?ids=${ids.join(',')}`
+      ).andFilter(filter());
+    }
+    return this.request()
+      .filterOneOf(ids.map((id) => `Id eq ${id}`))
+      .andFilter(filter());
+  };
+
+  getCursorByParentContentItemId = async (
+    id,
+    { showUnpublished = false } = {}
+  ) => {
+    const associations = await this.request('ContentChannelItemAssociations')
+      .filter(`ContentChannelItemId eq ${id}`)
+      .cache({ ttl: 60 })
+      .get();
+
+    if (!associations || !associations.length) return this.request().empty();
+
+    return this.getFromIds(
+      associations.map(
+        ({ childContentChannelItemId }) => childContentChannelItemId
+      ),
+      showUnpublished ? this.ACTIVE_CONTENT : this.LIVE_CONTENT
+    ).sort(this.DEFAULT_SORT());
+  };
+
   ACTIVE_CONTENT = () => {
     // get a date in the local timezone of the rock instance.
     // will create a timezone formatted string and then strip off the offset
