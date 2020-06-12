@@ -30,9 +30,14 @@ const resolver = {
         return 'Live';
       }
 
-      if(get(root, 'relatedNode.contentChannel') && get(root, 'relatedNode.contentChannel.name') === root.subtitle){
+      if (
+        get(root, 'relatedNode.contentChannel') &&
+        get(root, 'relatedNode.contentChannel.name') === root.subtitle
+      ) {
         // we have to do this because we can't get attributeValues on expanded attributes
-        const contentChannel = await context.dataSources.ContentChannel.getFromId(root.relatedNode.contentChannel.id);
+        const contentChannel = await context.dataSources.ContentChannel.getFromId(
+          root.relatedNode.contentChannel.id
+        );
         return context.dataSources.ContentChannel.getName(contentChannel);
       }
 
@@ -62,7 +67,31 @@ class dataSource extends FeatureDataSource {
     SINGLE_IMAGE_CARD: this.singleImageCardAlgorithm.bind(this),
     MOST_RECENT_SERMON: this.mostRecentSermonAlgorithm.bind(this),
     VERSE_OF_THE_DAY: this.verseOfTheDayAlgorithm.bind(this),
+    DAILY_GRACE: this.dailyGraceAlgorithm.bind(this),
   };
+
+  async dailyGraceAlgorithm() {
+    const { ContentItem } = this.context.dataSources;
+    const dailyGrace = await ContentItem.getDailyGrace();
+    console.log({ dailyGrace });
+    if (dailyGrace) {
+      return [
+        {
+          id: createGlobalId(`${dailyGrace.id}`, 'CardListCard'),
+          title: dailyGrace.title,
+          subtitle: 'Daily Grace',
+          relatedNode: {
+            ...dailyGrace,
+            __type: ContentItem.resolveType(dailyGrace),
+          },
+          image: ContentItem.getCoverImage(dailyGrace),
+          action: 'READ_CONTENT',
+          summary: ContentItem.createSummary(dailyGrace),
+        },
+      ];
+    }
+    return this.verseOfTheDayAlgorithm();
+  }
 
   async verseOfTheDayAlgorithm() {
     const verseOfTheDay = await fetch(

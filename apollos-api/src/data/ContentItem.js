@@ -2,6 +2,7 @@ import ApollosConfig from '@apollosproject/config';
 import { ContentItem } from '@apollosproject/data-connector-rock';
 import sanitizeHTML from '@apollosproject/data-connector-rock/lib/sanitize-html';
 import { get } from 'lodash';
+import moment from 'moment';
 
 const {
   resolver: baseResolver,
@@ -21,6 +22,15 @@ class dataSource extends ContentItemDataSource {
     }
     return cursor.orderBy('StartDateTime', 'desc');
   };
+
+  getDailyGrace = () =>
+    this.request()
+      .andFilter('ContentChannelId eq 16')
+      .andFilter(
+        `StartDateTime eq datetime'${moment().format('YYYY-MM-DD')}T00:00:00'`
+      )
+      .andFilter(this.LIVE_CONTENT())
+      .first();
 }
 
 const newResolvers = {
