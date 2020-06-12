@@ -40,17 +40,6 @@ const ActionTable = () => (
           </Name>
         </RowHeader>
         <TableView>
-          <Touchable
-            onPress={() =>
-              openUrl('mailto:info@trygrace.org', { externalBrowser: true })
-            }
-          >
-            <Cell>
-              <CellText>Contact Us</CellText>
-              <CellIcon name="arrow-next" />
-            </Cell>
-          </Touchable>
-          <Divider />
           <Touchable onPress={() => openUrl('https://trygrace.org/prayer')}>
             <Cell>
               <CellText>I need prayer</CellText>
@@ -58,41 +47,16 @@ const ActionTable = () => (
             </Cell>
           </Touchable>
           <Divider />
-          <Touchable onPress={() => openUrl('https://trygrace.org/premarital')}>
+          <Touchable onPress={() => openUrl('https://trygrace.org/serve')}>
             <Cell>
-              <CellText>Pre-marital counseling</CellText>
+              <CellText>Serve</CellText>
               <CellIcon name="arrow-next" />
             </Cell>
           </Touchable>
           <Divider />
-          <Touchable
-            onPress={() => openUrl('https://trygrace.org/babydedication')}
-          >
+          <Touchable onPress={() => openUrl('https://trygrace.org/events')}>
             <Cell>
-              <CellText>Baby dedications</CellText>
-              <CellIcon name="arrow-next" />
-            </Cell>
-          </Touchable>
-          <Divider />
-          <Touchable onPress={() => openUrl('https://trygrace.org/arlington')}>
-            <Cell>
-              <CellText>Grace Arlington</CellText>
-              <CellIcon name="arrow-next" />
-            </Cell>
-          </Touchable>
-          <Divider />
-          <Touchable
-            onPress={() => openUrl('https://trygrace.org/westfallschurch')}
-          >
-            <Cell>
-              <CellText>West Falls</CellText>
-              <CellIcon name="arrow-next" />
-            </Cell>
-          </Touchable>
-          <Divider />
-          <Touchable onPress={() => openUrl('mailto:info@trygrace.org')}>
-            <Cell>
-              <CellText>Report an issue</CellText>
+              <CellText>Upcoming events</CellText>
               <CellIcon name="arrow-next" />
             </Cell>
           </Touchable>

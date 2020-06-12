@@ -21,7 +21,7 @@ const Toolbar = ({ navigation }) => (
         />
         <ActionBarItem
           onPress={() => openUrl('mailto:info@trygrace.org')}
-          icon="grace-serve"
+          icon="information"
           label="Contact"
         />
       </ActionBar>
