@@ -73,7 +73,6 @@ class dataSource extends FeatureDataSource {
   async dailyGraceAlgorithm() {
     const { ContentItem } = this.context.dataSources;
     const dailyGrace = await ContentItem.getDailyGrace();
-    console.log({ dailyGrace });
     if (dailyGrace) {
       return [
         {
@@ -125,8 +124,18 @@ class dataSource extends FeatureDataSource {
   }
 
   async mostRecentSermonAlgorithm() {
-    const { ContentItem } = this.context.dataSources;
-    const sermon = await ContentItem.getSermonFeed().first();
+    const { ContentItem, LiveStream } = this.context.dataSources;
+    const currentLivestream = await LiveStream.getLiveStream();
+    let sermon;
+
+    // If the livestream is live, let's the upcoming sermon.
+    // The sermon is considered upcoming, because the content team doesn't publish it formally
+    // until after the sermon has aired.
+    if (currentLivestream && currentLivestream.isLive) {
+      sermon = await ContentItem.getUpcomingSermonFeed().first();
+    } else {
+      sermon = await ContentItem.getSermonFeed().first();
+    }
     return [
       {
         id: createGlobalId(`${sermon.id}`, 'ActionListAction'),
