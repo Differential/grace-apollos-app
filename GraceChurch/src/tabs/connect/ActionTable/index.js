@@ -13,7 +13,6 @@ import {
   H4,
 } from '@apollosproject/ui-kit';
 import { RockAuthedWebBrowser } from '@apollosproject/ui-connected';
-import NavigationActions from '../../../NavigationService';
 
 const RowHeader = styled(({ theme }) => ({
   flexDirection: 'row',

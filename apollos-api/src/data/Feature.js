@@ -175,9 +175,13 @@ class dataSource extends FeatureDataSource {
   async campaignItemsAlgorithm({ limit = 1 } = {}) {
     const { ContentItem } = this.context.dataSources;
 
-    const channels = await ContentItem.byContentChannelIds(
-      ApollosConfig.ROCK_MAPPINGS.CAMPAIGN_CHANNEL_IDS
-    ).get();
+    const channels = await (await ContentItem.byPersonaFeed())
+      .andFilter(
+        ApollosConfig.ROCK_MAPPINGS.CAMPAIGN_CHANNEL_IDS.map(
+          (id) => `(ContentChannelId eq ${id})`
+        ).join(' or ')
+      )
+      .get();
 
     const items = flatten(
       await Promise.all(
