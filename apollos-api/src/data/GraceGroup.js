@@ -4,14 +4,18 @@ import gql from 'graphql-tag';
 class GraceGroup extends RockApolloDataSource {
   expanded = true;
 
-  activeGroups() {
+  byActiveGroups() {
     return this.request('/Groups').filter(
       'ParentGroupId eq 15227 and IsActive eq true'
     );
   }
 
-  getUrl({ id }) {
-    return `https://trygrace.org/page/724?GroupId=${id}`;
+  async getUrl({ id }) {
+    const groupForm = (await this.request('/Groups')
+      .filter(`ParentGroupId eq ${id} and IsActive eq true`)
+      .get()).find(({ name }) => name.includes('Form'));
+    const formId = groupForm ? groupForm.id : id;
+    return `https://trygrace.org/page/724?GroupId=${formId}`;
   }
 
   getImage(group) {

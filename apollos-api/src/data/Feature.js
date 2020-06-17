@@ -216,7 +216,7 @@ class dataSource extends FeatureDataSource {
 
   async graceGroupsAlgorithm() {
     const { GraceGroup } = this.context.dataSources;
-    const groups = await GraceGroup.activeGroups().get();
+    const groups = await GraceGroup.byActiveGroups().get();
     return groups.map((group, i) => ({
       id: createGlobalId(`${group.id}${i}`, 'ActionListAction'),
       title: group.name,
