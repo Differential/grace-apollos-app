@@ -182,14 +182,14 @@ HOME_FEATURES:
   #     - type: PERSONA_FEED
   #   subtitle: FOR YOU
   #   type: ActionList
-  - title: Recent stories of
-    algorithms:
-      - type: CONTENT_CHANNEL
-        arguments:
-          contentChannelId: 7
-          limit: 3
-    subtitle: Lives Changed
-    type: VerticalCardList
+  # - title: Recent stories of
+  #   algorithms:
+  #     - type: CONTENT_CHANNEL
+  #       arguments:
+  #         contentChannelId: 7
+  #         limit: 3
+  #   subtitle: Lives Changed
+  #   type: VerticalCardList
   # - algorithms: [CAMPAIGN_ITEMS]
   #   type: VerticalCardList
   #   isFeatured: true
