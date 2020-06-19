@@ -10,6 +10,8 @@ import { MapViewConnected as Location } from '@apollosproject/ui-mapview';
 import { MediaPlayer } from '@apollosproject/ui-media-player';
 import Auth, { ProtectedRoute } from '@apollosproject/ui-auth';
 
+import { AnalyticsConsumer } from '@apollosproject/ui-analytics';
+
 import Providers from './Providers';
 import NavigationService from './NavigationService';
 import ContentSingle from './content-single';
@@ -62,15 +64,39 @@ const AppNavigator = createStackNavigator(
 
 const AppContainer = createAppContainer(AppNavigator);
 
+function getActiveRouteName(navigationState) {
+  if (!navigationState) {
+    return null;
+  }
+  const route = navigationState.routes[navigationState.index];
+  // dive into nested navigators
+  if (route.routes) {
+    return getActiveRouteName(route);
+  }
+  return route.routeName;
+}
+
 const App = () => (
   <Providers>
     <BackgroundView>
-      <AppStatusBar />
-      <AppContainer
-        ref={(navigatorRef) => {
-          NavigationService.setTopLevelNavigator(navigatorRef);
-        }}
-      />
+      <AppStatusBar barStyle="dark-content" />
+      <AnalyticsConsumer>
+        {({ track }) => (
+          <AppContainer
+            ref={(navigatorRef) => {
+              NavigationService.setTopLevelNavigator(navigatorRef);
+            }}
+            onNavigationStateChange={(prevState, currentState) => {
+              const currentScreen = getActiveRouteName(currentState);
+              const prevScreen = getActiveRouteName(prevState);
+
+              if (prevScreen !== currentScreen) {
+                track({ eventName: `Viewed ${currentScreen}` });
+              }
+            }}
+          />
+        )}
+      </AnalyticsConsumer>
       <MediaPlayer />
     </BackgroundView>
   </Providers>
