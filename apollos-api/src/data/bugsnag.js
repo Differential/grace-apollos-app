@@ -27,7 +27,11 @@ RESTDataSource.prototype.didReceiveResponse = function(response, _request) {
           statusText: response.statusText,
           body: response.body,
         },
-        Request: _request,
+        Request: {
+          method: _request.method,
+          url: _request.url,
+          headers: _request.headers,
+        },
       },
     });
   }
