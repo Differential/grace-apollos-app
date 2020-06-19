@@ -20,6 +20,7 @@ import ChangePassword from './user-settings/ChangePassword';
 import LandingScreen from './LandingScreen';
 import UserWebBrowser from './user-web-browser';
 import Onboarding from './ui/Onboarding';
+import './bugsnag';
 
 const AppStatusBar = withTheme(({ theme }) => ({
   barStyle: theme.barStyle,

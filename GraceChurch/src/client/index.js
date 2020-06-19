@@ -10,6 +10,7 @@ import { authLink, buildErrorLink } from '@apollosproject/ui-auth';
 import { resolvers, schema, defaults } from '../store';
 import NavigationService from '../NavigationService';
 
+import bugsnag from '../bugsnag';
 import httpLink from './httpLink';
 import cache, { ensureCacheHydration } from './cache';
 import MARK_CACHE_LOADED from './markCacheLoaded';
@@ -20,6 +21,7 @@ const wipeData = () => cache.writeData({ data: defaults });
 let clearStore;
 let storeIsResetting = false;
 const onAuthError = async () => {
+  bugsnag.notify(new Error('Client Auth Error'));
   if (!storeIsResetting) {
     storeIsResetting = true;
     await clearStore();
@@ -30,11 +32,7 @@ const onAuthError = async () => {
 
 const errorLink = buildErrorLink(onAuthError);
 
-const link = ApolloLink.from([
-  authLink,
-  errorLink,
-  httpLink
-]);
+const link = ApolloLink.from([authLink, errorLink, httpLink]);
 
 export const client = new ApolloClient({
   link,
