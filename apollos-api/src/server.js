@@ -2,7 +2,7 @@ import { ApolloServer } from 'apollo-server-express';
 import ApollosConfig from '@apollosproject/config';
 import express from 'express';
 import { RockLoggingExtension } from '@apollosproject/rock-apollo-data-source';
-import { get } from 'lodash';
+import { get, fromPairs } from 'lodash';
 
 import {
   resolvers,
@@ -13,6 +13,7 @@ import {
   applyServerMiddleware,
   setupJobs,
 } from './data';
+import { report } from './data/bugsnag';
 
 export { resolvers, schema, testSchema };
 
@@ -33,6 +34,43 @@ const cacheOptions = isDev
 
 const { ENGINE } = ApollosConfig;
 
+const plugins = [
+  {
+    requestDidStart() {
+      return {
+        didEncounterErrors({ errors, request }) {
+          const headers = fromPairs(Array.from(request.http.headers.entries()));
+          errors.forEach((error) => {
+            report(
+              error,
+              {
+                'GraphQL Info': {
+                  query: request.query,
+                  location: JSON.stringify(error.locations),
+                  variables: request.variables,
+                  operationName: request.operationName,
+                  headers,
+                },
+                'Auth Error Info': get(
+                  error,
+                  'extensions.exception.userContext'
+                ),
+              },
+              (err) => {
+                const ip = get(headers, 'fastly-client-ip', 'unknown');
+                err.user = {
+                  id: ip,
+                  appVersion: get(headers, 'user-agent', 'unknown'),
+                };
+              }
+            );
+          });
+        },
+      };
+    },
+  },
+];
+
 const apolloServer = new ApolloServer({
   typeDefs: schema,
   resolvers,
@@ -40,8 +78,15 @@ const apolloServer = new ApolloServer({
   context,
   introspection: true,
   extensions,
+  plugins,
+  debug: true,
   formatError: (error) => {
-    console.error(get(error, 'extensions.exception.stacktrace').join('\n'));
+    if (get(error, 'extensions.exception.stacktrace')) {
+      delete error.extensions.exception.stacktrace;
+    }
+    if (get(error, 'extensions.exception.userContext')) {
+      delete error.extensions.exception.userContext;
+    }
     return error;
   },
   playground: {
