@@ -79,6 +79,10 @@ class dataSource extends ContentItemDataSource {
       .orderBy('StartDateTime', 'desc');
   }
 
+  byPersonaFeed(){
+    
+  }
+
   getDailyGrace = () =>
     this.request()
       .andFilter('ContentChannelId eq 16')

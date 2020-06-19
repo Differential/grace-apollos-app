@@ -15,7 +15,6 @@ import {
   Followings,
   Interactions,
   RockConstants,
-  Person,
   Sharable,
   PersonalDevice,
   Template,
@@ -33,6 +32,7 @@ import * as Feature from './Feature';
 import * as ContentItem from './ContentItem';
 import * as ContentChannel from './ContentChannel';
 import * as Vimeo from './Vimeo';
+import * as Person from './Person';
 // This module is used to attach Rock User updating to the OneSignal module.
 // This module includes a Resolver that overides a resolver defined in `OneSignal`
 import * as OneSignalWithRock from './oneSignalWithRock';
