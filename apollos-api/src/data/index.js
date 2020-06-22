@@ -7,7 +7,7 @@ import * as Scripture from '@apollosproject/data-connector-bible';
 
 import * as Cloudinary from '@apollosproject/data-connector-cloudinary';
 import * as OneSignal from '@apollosproject/data-connector-onesignal';
-import * as Search from '@apollosproject/data-connector-algolia-search';
+// import * as Search from '@apollosproject/data-connector-algolia-search';
 import * as Pass from '@apollosproject/data-connector-passes';
 import * as Cache from '@apollosproject/data-connector-redis-cache';
 import * as Sms from '@apollosproject/data-connector-twilio';
@@ -33,6 +33,7 @@ import * as ContentItem from './ContentItem';
 import * as ContentChannel from './ContentChannel';
 import * as Vimeo from './Vimeo';
 import * as Person from './Person';
+import * as Search from './Algolia';
 // This module is used to attach Rock User updating to the OneSignal module.
 // This module includes a Resolver that overides a resolver defined in `OneSignal`
 import * as OneSignalWithRock from './oneSignalWithRock';
