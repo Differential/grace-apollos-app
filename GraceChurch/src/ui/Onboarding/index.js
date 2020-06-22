@@ -12,7 +12,8 @@ import {
   LocationFinderConnected,
   OnboardingSwiper,
 } from '@apollosproject/ui-onboarding';
-import { resetAction } from '../../NavigationService';
+import { Query } from 'react-apollo';
+import { onboardingComplete, WITH_USER_ID } from './onboardingStatus';
 
 const FullscreenBackgroundView = styled({
   position: 'absolute',
@@ -39,31 +40,33 @@ function Onboarding({ navigation }) {
               }}
               BackgroundComponent={<Spacer />}
             />
-            <AskNotificationsConnected
-              onRequestPushPermissions={(update) => {
-                checkNotifications().then((checkRes) => {
-                  if (checkRes.status === RESULTS.DENIED) {
-                    requestNotifications(['alert', 'badge', 'sound']).then(
-                      () => {
-                        update();
+            <Query query={WITH_USER_ID} fetchPolicy="network-only">
+              {({
+                data: { currentUser: { id } = { currentUser: { id: null } } },
+              }) => (
+                <AskNotificationsConnected
+                  onRequestPushPermissions={(update) => {
+                    checkNotifications().then((checkRes) => {
+                      if (checkRes.status === RESULTS.DENIED) {
+                        requestNotifications(['alert', 'badge', 'sound']).then(
+                          () => {
+                            update();
+                          }
+                        );
+                      } else {
+                        openSettings();
                       }
-                    );
-                  } else {
-                    openSettings();
-                  }
-                });
-              }}
-              onPressPrimary={() =>
-                navigation.dispatch(
-                  resetAction({
-                    navigatorName: 'Tabs',
-                    routeName: 'Home',
-                  })
-                )
-              }
-              primaryNavText={'Finish'}
-              BackgroundComponent={<Spacer />}
-            />
+                    });
+                  }}
+                  onPressPrimary={() => {
+                    onboardingComplete({ userId: id });
+                    navigation.replace('Tabs');
+                  }}
+                  primaryNavText={'Finish'}
+                  BackgroundComponent={<Spacer />}
+                />
+              )}
+            </Query>
           </>
         )}
       </OnboardingSwiper>

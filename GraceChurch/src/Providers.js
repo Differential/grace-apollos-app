@@ -9,8 +9,9 @@ import { LiveProvider } from '@apollosproject/ui-connected';
 import { track, identify } from './amplitude';
 
 import NavigationService from './NavigationService';
-import ClientProvider from './client';
+import ClientProvider, { client } from './client';
 import customTheme, { customIcons } from './theme';
+import { checkOnboardingStatusAndNavigate } from './ui/Onboarding/onboardingStatus';
 
 const AppProviders = (props) => (
   <ClientProvider {...props}>
@@ -21,7 +22,12 @@ const AppProviders = (props) => (
       <AuthProvider
         navigateToAuth={() => NavigationService.navigate('Auth')}
         navigate={NavigationService.navigate}
-        closeAuth={() => NavigationService.navigate('Onboarding')}
+        closeAuth={() =>
+          checkOnboardingStatusAndNavigate({
+            client,
+            navigation: NavigationService,
+          })
+        }
       >
         <MediaPlayerProvider>
           <AnalyticsProvider

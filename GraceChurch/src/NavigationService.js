@@ -15,6 +15,10 @@ const navigate = (routeName, params) => {
   );
 };
 
+const dispatch = (...args) => {
+  _navigator.dispatch(...args);
+};
+
 export const resetAction = ({ navigatorName, routeName }) =>
   StackActions.reset({
     index: 0,
@@ -53,4 +57,5 @@ export default {
   resetAction,
   goBack,
   resetToAuth,
+  dispatch,
 };
