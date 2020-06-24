@@ -22,6 +22,7 @@ import {
   Group,
   BinaryFiles,
   Event,
+  PrayerRequest,
 } from '@apollosproject/data-connector-rock';
 import * as LiveStream from './ChurchOnline';
 import * as Theme from './theme';
@@ -68,6 +69,7 @@ const data = {
   Cache,
   GraceGroup,
   Vimeo,
+  PrayerRequest,
 };
 
 const {

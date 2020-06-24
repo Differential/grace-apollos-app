@@ -1,13 +1,12 @@
 import { Feature } from '@apollosproject/data-connector-rock';
 import { createGlobalId } from '@apollosproject/server-core';
 import ApollosConfig from '@apollosproject/config';
-import gql from 'graphql-tag';
 import fetch from 'node-fetch';
 import { get, flatten } from 'lodash';
 import moment from 'moment';
 
 const {
-  schema: baseSchema,
+  schema,
   resolver: baseResolver,
   dataSource: FeatureDataSource,
 } = Feature;
@@ -47,19 +46,6 @@ const resolver = {
   },
 };
 
-const schema = gql`
-  ${baseSchema}
-
-  extend enum ACTION_FEATURE_ACTION {
-    OPEN_URL
-  }
-
-  type Url implements Node {
-    url: String
-    id: ID!
-  }
-`;
-
 class dataSource extends FeatureDataSource {
   ACTION_ALGORITHIMS = {
     // We need to make sure `this` refers to the class, not the `ACTION_ALGORITHIMS` object.
@@ -70,6 +56,14 @@ class dataSource extends FeatureDataSource {
     VERSE_OF_THE_DAY: this.verseOfTheDayAlgorithm.bind(this),
     DAILY_GRACE: this.dailyGraceAlgorithm.bind(this),
   };
+
+  getFromId(args, id, { info }) {
+    const type = id.split(':')[0];
+    const funcArgs = JSON.parse(args);
+    const method = this[`create${type}`].bind(this);
+    this.info = info;
+    return method(funcArgs);
+  }
 
   async dailyGraceAlgorithm() {
     const { ContentItem } = this.context.dataSources;
@@ -125,6 +119,9 @@ class dataSource extends FeatureDataSource {
   }
 
   async mostRecentSermonAlgorithm() {
+    if (this.info) {
+      this.info.cacheControl.setCacheHint({ maxAge: 0 });
+    }
     const { ContentItem, LiveStream } = this.context.dataSources;
     const currentLivestream = await LiveStream.getLiveStream();
     let sermon;
