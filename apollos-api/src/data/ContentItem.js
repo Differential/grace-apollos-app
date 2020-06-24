@@ -14,13 +14,20 @@ class dataSource extends ContentItemDataSource {
   byContentChannelId = (id) => {
     const cursor = this.request()
       .filter(`ContentChannelId eq ${id}`)
-      .andFilter(this.LIVE_CONTENT())
       .cache({ ttl: 60 });
-
+    // Leaders
     if (`${id}` === '10') {
-      return cursor.orderBy('Priority', 'asc');
+      return cursor.andFilter(this.LIVE_CONTENT()).orderBy('Priority', 'asc');
     }
-    return cursor.orderBy('StartDateTime', 'desc');
+    // Messages
+    if (`${id}` === '4') {
+      return cursor
+        .andFilter(this.LIVE_AND_EXPIRED())
+        .orderBy('StartDateTime', 'desc');
+    }
+    return cursor
+      .andFilter(this.LIVE_CONTENT())
+      .orderBy('StartDateTime', 'desc');
   };
 
   getFromIds = (ids = [], filter = this.LIVE_CONTENT) => {
@@ -35,6 +42,20 @@ class dataSource extends ContentItemDataSource {
     return this.request()
       .filterOneOf(ids.map((id) => `Id eq ${id}`))
       .andFilter(filter());
+  };
+
+  getCursorByChildContentItemId = async (id, { showEnded = false }) => {
+    const associations = await this.request('ContentChannelItemAssociations')
+      .filter(`ChildContentChannelItemId eq ${id}`)
+      .cache({ ttl: 60 })
+      .get();
+
+    if (!associations || !associations.length) return this.request().empty();
+
+    return this.getFromIds(
+      associations.map(({ contentChannelItemId }) => contentChannelItemId),
+      showEnded ? this.LIVE_AND_EXPIRED : this.LIVE_CONTENT
+    ).sort(this.DEFAULT_SORT());
   };
 
   getCursorByParentContentItemId = async (
@@ -69,6 +90,66 @@ class dataSource extends ContentItemDataSource {
       ? null
       : filter;
   };
+
+  LIVE_AND_EXPIRED = () => {
+    // get a date in the local timezone of the rock instance.
+    // will create a timezone formatted string and then strip off the offset
+    // should output something like 2019-03-27T12:27:20 which means 12:27pm in New York
+    const date = moment()
+      .tz(ApollosConfig.ROCK.TIMEZONE)
+      .format()
+      .split(/[-+]\d+:\d+/)[0];
+    const filter = `((StartDateTime lt datetime'${date}') or (StartDateTime eq null)) and (((Status eq 'Approved') or (ContentChannel/RequiresApproval eq false)))`;
+    return get(ApollosConfig.ROCK, 'SHOW_INACTIVE_CONTENT', false)
+      ? null
+      : filter;
+  };
+
+  async getCoverImage(root) {
+    const { Cache } = this.context.dataSources;
+    const cachedValue = await Cache.get({
+      key: `contentItem:coverImage:${root.id}`,
+    });
+
+    if (cachedValue) {
+      return cachedValue;
+    }
+
+    let image = null;
+
+    // filter images w/o URLs
+    const ourImages = this.getImages(root).filter(
+      ({ sources }) => sources.length
+    );
+
+    if (ourImages.length) {
+      image = this.pickBestImage({ images: ourImages });
+    }
+
+    // If no image, check parent for image:
+    if (!image) {
+      // The cursor returns a promise which returns a promisee, hence th edouble eawait.
+      const parentItems = await (await this.getCursorByChildContentItemId(
+        root.id,
+        { showEnded: true } // DIFFERENT THAN CORE
+      )).get();
+
+      if (parentItems.length) {
+        const validParentImages = parentItems
+          .flatMap(this.getImages)
+          .filter(({ sources }) => sources.length);
+
+        if (validParentImages && validParentImages.length)
+          image = this.pickBestImage({ images: validParentImages });
+      }
+    }
+
+    if (image != null) {
+      Cache.set({ key: `contentItem:coverImage:${root.id}`, data: image });
+    }
+
+    return image;
+  }
 
   getUpcomingSermonFeed() {
     return this.request()
