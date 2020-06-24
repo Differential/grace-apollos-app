@@ -8,7 +8,7 @@
 	<true/>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applink:apollos-church-api.herokuapp.com</string>
+		<string>applink:grace-church-production.herokuapp.com</string>
 	</array>
 </dict>
 </plist>
