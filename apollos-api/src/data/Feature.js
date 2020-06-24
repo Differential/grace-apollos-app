@@ -1,13 +1,12 @@
 import { Feature } from '@apollosproject/data-connector-rock';
 import { createGlobalId } from '@apollosproject/server-core';
 import ApollosConfig from '@apollosproject/config';
-import gql from 'graphql-tag';
 import fetch from 'node-fetch';
 import { get, flatten } from 'lodash';
 import moment from 'moment';
 
 const {
-  schema: baseSchema,
+  schema,
   resolver: baseResolver,
   dataSource: FeatureDataSource,
 } = Feature;
@@ -46,19 +45,6 @@ const resolver = {
     },
   },
 };
-
-const schema = gql`
-  ${baseSchema}
-
-  extend enum ACTION_FEATURE_ACTION {
-    OPEN_URL
-  }
-
-  type Url implements Node {
-    url: String
-    id: ID!
-  }
-`;
 
 class dataSource extends FeatureDataSource {
   ACTION_ALGORITHIMS = {

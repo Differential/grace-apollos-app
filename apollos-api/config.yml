@@ -25,6 +25,18 @@ ROCK:
   TIMEZONE: 'America/New_York'
   USE_PLUGIN: true
   SHOW_INACTIVE_CONTENT: ${ROCK_SHOW_INACTIVE_CONTENT}
+UNIVERSAL_LINKS:
+  # This should be your app's bundle ID, as found in your info.plist.
+  APPLE_APP_ID: org.trygrace.gracechurch
+  # This should be your app's team ID, as found in Xcode
+  APPLE_TEAM_ID: 2N3ZXZPPAT
+  # Where should a user be redirected if they don't have your app installed?
+  APP_STORE_LINK: https://trygrace.org/
+  PLAY_STORE_LINK: https://trygrace.org/
+  # Your app Id, as found in your app/build.gradle.
+  GOOGLE_APP_ID: org.trygrace.gracechurch
+  # https://docs.getsocial.im/knowledge-base/android-signing-key-sha256/
+  GOOGLE_KEYSTORE_SHA256: 37:19:73:5A:4B:E3:B5:94:CD:3E:9C:76:EF:11:AE:9B:C9:1B:9B:94:F0:EE:05:EE:BE:38:C0:EC:0F:1F:68:D3
 ONE_SIGNAL:
   APP_ID: 50a99e4b-050c-4cb6-a606-4a7895b0fc4e
   REST_KEY: ${ONE_SIGNAL_REST_KEY}
