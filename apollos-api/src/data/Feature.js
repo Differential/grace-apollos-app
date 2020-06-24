@@ -57,6 +57,14 @@ class dataSource extends FeatureDataSource {
     DAILY_GRACE: this.dailyGraceAlgorithm.bind(this),
   };
 
+  getFromId(args, id, { info }) {
+    const type = id.split(':')[0];
+    const funcArgs = JSON.parse(args);
+    const method = this[`create${type}`].bind(this);
+    this.info = info;
+    return method(funcArgs);
+  }
+
   async dailyGraceAlgorithm() {
     const { ContentItem } = this.context.dataSources;
     const dailyGrace = await ContentItem.getDailyGrace();
@@ -111,6 +119,9 @@ class dataSource extends FeatureDataSource {
   }
 
   async mostRecentSermonAlgorithm() {
+    if (this.info) {
+      this.info.cacheControl.setCacheHint({ maxAge: 0 });
+    }
     const { ContentItem, LiveStream } = this.context.dataSources;
     const currentLivestream = await LiveStream.getLiveStream();
     let sermon;

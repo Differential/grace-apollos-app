@@ -23,7 +23,7 @@ const isDev =
 
 const extensions = isDev ? [() => new RockLoggingExtension()] : [];
 
-const cacheOptions = isDev
+const cacheOptions = false
   ? {}
   : {
       cacheControl: {
@@ -42,6 +42,7 @@ const plugins = [
         didEncounterErrors({ errors, request }) {
           const headers = fromPairs(Array.from(request.http.headers.entries()));
           errors.forEach((error) => {
+            isDev && console.log(error);
             report(
               error,
               {
