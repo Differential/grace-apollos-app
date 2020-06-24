@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import gql from 'graphql-tag';
-import { resetAction } from '../../NavigationService';
+import { NavigationService } from '@apollosproject/ui-kit';
 
 export const WITH_USER_ID = gql`
   query currentUserId {
@@ -38,8 +38,9 @@ export const checkOnboardingStatusAndNavigate = async ({
     }
   }
   if (hasOnboarded) {
-    navigation.dispatch(
-      resetAction({
+    // dispatch is not exposed by default, so we need to `getNavigator`
+    navigation.getNavigator().dispatch(
+      NavigationService.resetAction({
         navigatorName: 'Tabs',
         routeName: 'Home',
       })

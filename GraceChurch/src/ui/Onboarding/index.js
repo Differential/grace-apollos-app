@@ -6,12 +6,15 @@ import {
   requestNotifications,
   RESULTS,
 } from 'react-native-permissions';
+
 import { styled, BackgroundView } from '@apollosproject/ui-kit';
+
 import {
   AskNotificationsConnected,
   LocationFinderConnected,
   OnboardingSwiper,
 } from '@apollosproject/ui-onboarding';
+
 import { Query } from 'react-apollo';
 import { onboardingComplete, WITH_USER_ID } from './onboardingStatus';
 

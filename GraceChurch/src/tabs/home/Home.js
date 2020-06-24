@@ -4,7 +4,10 @@ import SafeAreaView from 'react-native-safe-area-view';
 import PropTypes from 'prop-types';
 
 import { styled, BackgroundView } from '@apollosproject/ui-kit';
-import { FeaturesFeedConnected, RockAuthedWebBrowser } from '@apollosproject/ui-connected';
+import {
+  FeaturesFeedConnected,
+  RockAuthedWebBrowser,
+} from '@apollosproject/ui-connected';
 
 const LogoTitle = styled(({ theme }) => ({
   height: theme.sizing.baseUnit * 2.5,
@@ -48,7 +51,7 @@ class Home extends PureComponent {
   render() {
     return (
       <RockAuthedWebBrowser>
-        {(openUrl) => (      
+        {(openUrl) => (
           <BackgroundView>
             <SafeAreaView>
               <FeaturesFeedConnected

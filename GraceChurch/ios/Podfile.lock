@@ -23,7 +23,7 @@ PODS:
     - Protobuf (~> 3.0)
   - google-cast-sdk-no-bluetooth/Core (4.4.7):
     - Protobuf (~> 3.0)
-  - OneSignal (2.13.1)
+  - OneSignal (2.10.1)
   - Permission-Notifications (2.1.5):
     - RNPermissions
   - Permission-PhotoLibrary (2.1.5):
@@ -90,8 +90,8 @@ PODS:
     - React
   - react-native-music-control (0.10.8):
     - React
-  - react-native-onesignal (3.7.3):
-    - OneSignal (= 2.13.1)
+  - react-native-onesignal (3.3.2):
+    - OneSignal (= 2.10.1)
     - React (< 1.0.0, >= 0.13.0)
   - react-native-passkit-wallet (0.1.4):
     - React
@@ -316,7 +316,7 @@ SPEC CHECKSUMS:
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
   google-cast-sdk-no-bluetooth: 197acace9d5a78380bdaef8d45439b2250fa050b
-  OneSignal: fa98eaa90372bb367b6a4a1c1622ffb9832c7600
+  OneSignal: 8fb749fa07f88006403c9b659a570fb7fb74519a
   Permission-Notifications: 231d0e1db2300b686548587d384ba414e6a93332
   Permission-PhotoLibrary: 4d2eff62c8f4b8a27bcf045c0e36f5047efbbf20
   Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9
@@ -333,7 +333,7 @@ SPEC CHECKSUMS:
   react-native-image-picker: e6e06d4315e3c85bad17e4b2002cd29f11d202c8
   react-native-maps: 6e499eee4eabf422ba8b6f94e993cc768bf35153
   react-native-music-control: dcfe5b61e56a15898c4618579cb8ce612c9d21a8
-  react-native-onesignal: 417b2ae5c3148a47a6ef70b6af443186048b2022
+  react-native-onesignal: 8958311abbd9125f26e600914e48833b57321cbf
   react-native-passkit-wallet: 51e3babdaeec4c10b5736786ebd1bfb470fcaa36
   react-native-safari-view: 955d7160d159241b8e9395d12d10ea0ef863dcdd
   react-native-safe-area-context: e380a6f783ccaec848e2f3cc8eb205a62362950d
