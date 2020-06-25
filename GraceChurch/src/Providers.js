@@ -8,7 +8,7 @@ import { NotificationsProvider } from '@apollosproject/ui-notifications';
 import { LiveProvider } from '@apollosproject/ui-connected';
 import { track, identify } from './amplitude';
 
-import ClientProvider from './client';
+import ClientProvider, { client } from './client';
 import customTheme, { customIcons } from './theme';
 import { checkOnboardingStatusAndNavigate } from './ui/Onboarding/onboardingStatus';
 
@@ -23,8 +23,7 @@ const AppProviders = (props) => (
         navigate={NavigationService.navigate}
         closeAuth={() =>
           checkOnboardingStatusAndNavigate({
-            client,
-            navigation: NavigationService,
+            client
           })
         }
       >
