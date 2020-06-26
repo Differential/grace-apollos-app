@@ -22,7 +22,6 @@ export const onboardingComplete = async ({ userId }) => {
 
 export const checkOnboardingStatusAndNavigate = async ({
   client,
-  navigation,
 }) => {
   const { data } = await client.query({ query: WITH_USER_ID });
   let hasOnboarded = false;
@@ -39,13 +38,13 @@ export const checkOnboardingStatusAndNavigate = async ({
   }
   if (hasOnboarded) {
     // dispatch is not exposed by default, so we need to `getNavigator`
-    navigation.getNavigator().dispatch(
+    NavigationService.getNavigator().dispatch(
       NavigationService.resetAction({
         navigatorName: 'Tabs',
         routeName: 'Home',
       })
     );
   } else {
-    navigation.navigate('Onboarding');
+    NavigationService.navigate('Onboarding');
   }
 };

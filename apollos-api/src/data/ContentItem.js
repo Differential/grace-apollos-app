@@ -44,7 +44,7 @@ class dataSource extends ContentItemDataSource {
       .andFilter(filter());
   };
 
-  getCursorByChildContentItemId = async (id, { showEnded = false }) => {
+  getCursorByChildContentItemId = async (id, { showEnded = false } = {}) => {
     const associations = await this.request('ContentChannelItemAssociations')
       .filter(`ChildContentChannelItemId eq ${id}`)
       .cache({ ttl: 60 })
