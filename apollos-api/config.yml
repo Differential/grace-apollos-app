@@ -172,17 +172,15 @@ HOME_FEATURES:
           limit: 6
     subtitle: This Week
     type: VerticalCardList
-  # - subtitle: Stay Connected
-  #   algorithms:
-  #     - type: GRACE_GROUPS
-  #   heroAlgorithms:
-  #     - type: SINGLE_IMAGE_CARD
-  #       arguments:
-  #         image: https://trygrace.org/GetFile.ashx?guid=3576a570-88e2-4fd2-bd9f-c4f8e2fc1da9
-  #         url: https://trygrace.org/groups
-  #         summary: All of our groups are now online! Stay connected with others via Zoom group meetings.
-  #         title: Online groups
-  #   type: HeroListFeature
+  - subtitle: Stay Connected
+    heroAlgorithms:
+      - type: SINGLE_IMAGE_CARD
+        arguments:
+          image: https://trygrace.org/GetFile.ashx?guid=3576a570-88e2-4fd2-bd9f-c4f8e2fc1da9
+          url: https://trygrace.org/groups
+          summary: All of our groups are now online! Stay connected with others via Zoom group meetings.
+          title: Online groups
+    type: HeroListFeature
   - title:
     algorithms:
       - type: CONTENT_CHANNEL
