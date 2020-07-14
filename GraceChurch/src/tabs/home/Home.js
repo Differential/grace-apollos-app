@@ -7,7 +7,17 @@ import { styled, BackgroundView } from '@apollosproject/ui-kit';
 import {
   FeaturesFeedConnected,
   RockAuthedWebBrowser,
+  VerticalCardListFeatureConnected,
 } from '@apollosproject/ui-connected';
+
+import CampaignItemListFeature from './CampaignItemListFeature';
+
+const VerticalCardListFeatureWithCampaignComponent = (props) => (
+  <VerticalCardListFeatureConnected
+    {...props}
+    FeaturedComponent={CampaignItemListFeature}
+  />
+);
 
 const LogoTitle = styled(({ theme }) => ({
   height: theme.sizing.baseUnit * 2.5,
@@ -56,6 +66,9 @@ class Home extends PureComponent {
             <SafeAreaView>
               <FeaturesFeedConnected
                 onPressActionItem={this.handleOnPress({ openUrl })}
+                additionalFeatures={{
+                  VerticalCardListFeature: VerticalCardListFeatureWithCampaignComponent,
+                }}
                 ListHeaderComponent={
                   <LogoTitle source={require('./wordmark.png')} />
                 }

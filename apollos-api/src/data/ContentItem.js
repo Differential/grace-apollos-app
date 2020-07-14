@@ -105,7 +105,15 @@ class dataSource extends ContentItemDataSource {
       : filter;
   };
 
-  async getCoverImage(root) {
+  pickLandingImage({ images }) {
+    const squareImage = images.find(
+      (image) => image.key.toLowerCase().includes('landing') // we want the landing image (sans title)
+    );
+    if (squareImage) return { ...squareImage, __typename: 'ImageMedia' };
+    return { ...images[0], __typename: 'ImageMedia' };
+  }
+
+  async getCoverImage(root, { landingImage = false } = {}) {
     const { Cache } = this.context.dataSources;
     const cachedValue = await Cache.get({
       key: `contentItem:coverImage:${root.id}`,
@@ -122,7 +130,9 @@ class dataSource extends ContentItemDataSource {
       ({ sources }) => sources.length
     );
 
-    if (ourImages.length) {
+    if (ourImages.length && landingImage) {
+      image = this.pickLandingImage({ images: ourImages });
+    } else if (ourImages.length) {
       image = this.pickBestImage({ images: ourImages });
     }
 
@@ -139,8 +149,13 @@ class dataSource extends ContentItemDataSource {
           .flatMap(this.getImages)
           .filter(({ sources }) => sources.length);
 
-        if (validParentImages && validParentImages.length)
-          image = this.pickBestImage({ images: validParentImages });
+        if (validParentImages && validParentImages.length) {
+          if (landingImage) {
+            image = this.pickLandingImage({ images: validParentImages });
+          } else {
+            image = this.pickBestImage({ images: validParentImages });
+          }
+        }
       }
     }
 
