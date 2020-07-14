@@ -1,12 +1,19 @@
 import React from 'react';
 import { get } from 'lodash';
 
-import { DefaultCard, HighlightCard } from '@apollosproject/ui-kit';
+import {
+  DefaultCard,
+  HighlightCard,
+  FeaturedCard,
+} from '@apollosproject/ui-kit';
 import ImageCard from '../ui/ImageCard';
 import fontStack from './fontStack';
 
 const cardMapper = (props) => {
   // map typename to the the card we want to render.
+  if (props.isLive) {
+    return <FeaturedCard {...props} />;
+  }
   switch (get(props, '__typename')) {
     case 'Url':
       if (!props.title && !props.subtitle) {
