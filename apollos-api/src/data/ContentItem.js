@@ -105,7 +105,7 @@ class dataSource extends ContentItemDataSource {
       : filter;
   };
 
-  async getCoverImage(root, { landingImage = false } = {}) {
+  async getCoverImage(root) {
     const { Cache } = this.context.dataSources;
     const cachedValue = await Cache.get({
       key: `contentItem:coverImage:${root.id}`,

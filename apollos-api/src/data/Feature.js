@@ -140,7 +140,7 @@ class dataSource extends FeatureDataSource {
         title: sermon.title,
         subtitle: 'Latest Message',
         relatedNode: { ...sermon, __type: ContentItem.resolveType(sermon) },
-        image: ContentItem.getCoverImage(sermon, { landingImage: false }),
+        image: ContentItem.getCoverImage(sermon),
         action: 'READ_CONTENT',
         summary: ContentItem.createSummary(sermon),
       },
