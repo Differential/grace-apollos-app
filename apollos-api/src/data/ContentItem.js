@@ -122,7 +122,7 @@ class dataSource extends ContentItemDataSource {
       ({ sources }) => sources.length
     );
 
-    if (ourImages.length) {
+    } if (ourImages.length) {
       image = this.pickBestImage({ images: ourImages });
     }
 
@@ -139,8 +139,9 @@ class dataSource extends ContentItemDataSource {
           .flatMap(this.getImages)
           .filter(({ sources }) => sources.length);
 
-        if (validParentImages && validParentImages.length)
+        if (validParentImages && validParentImages.length) {
           image = this.pickBestImage({ images: validParentImages });
+        }
       }
     }
 

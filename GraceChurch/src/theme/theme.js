@@ -11,7 +11,7 @@ import fontStack from './fontStack';
 
 const cardMapper = (props) => {
   // map typename to the the card we want to render.
-  if (props.isLive) {
+  if (props.isFeatured) {
     return <FeaturedCard {...props} />;
   }
   switch (get(props, '__typename')) {
