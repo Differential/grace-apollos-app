@@ -122,7 +122,7 @@ class dataSource extends ContentItemDataSource {
       ({ sources }) => sources.length
     );
 
-    } if (ourImages.length) {
+    if (ourImages.length) {
       image = this.pickBestImage({ images: ourImages });
     }
 
