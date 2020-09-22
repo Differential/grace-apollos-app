@@ -10,7 +10,8 @@ import { track, identify } from './amplitude';
 
 import ClientProvider, { client } from './client';
 import customTheme, { customIcons } from './theme';
-import { checkOnboardingStatusAndNavigate } from './ui/Onboarding/onboardingStatus';
+import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
+
 
 const AppProviders = (props) => (
   <ClientProvider {...props}>
@@ -23,7 +24,8 @@ const AppProviders = (props) => (
         navigate={NavigationService.navigate}
         closeAuth={() =>
           checkOnboardingStatusAndNavigate({
-            client
+            client,
+            navigation: NavigationService,
           })
         }
       >
