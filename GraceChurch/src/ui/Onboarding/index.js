@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import { Query } from 'react-apollo';
 import {
   checkNotifications,
   openSettings,
@@ -7,16 +8,19 @@ import {
   RESULTS,
 } from 'react-native-permissions';
 
-import { styled, BackgroundView } from '@apollosproject/ui-kit';
+import {
+  styled,
+  BackgroundView,
+  NavigationService,
+} from '@apollosproject/ui-kit';
 
 import {
   AskNotificationsConnected,
   LocationFinderConnected,
   OnboardingSwiper,
+  onboardingComplete,
+  WITH_USER_ID,
 } from '@apollosproject/ui-onboarding';
-
-import { Query } from 'react-apollo';
-import { onboardingComplete, WITH_USER_ID } from './onboardingStatus';
 
 const FullscreenBackgroundView = styled({
   position: 'absolute',
@@ -48,6 +52,15 @@ function Onboarding({ navigation }) {
                 data: { currentUser: { id } = { currentUser: { id: null } } },
               }) => (
                 <AskNotificationsConnected
+                  onPressPrimary={() => {
+                    onboardingComplete({ userId: id });
+                    navigation.dispatch(
+                      NavigationService.resetAction({
+                        navigatorName: 'Tabs',
+                        routeName: 'Home',
+                      })
+                    );
+                  }}
                   onRequestPushPermissions={(update) => {
                     checkNotifications().then((checkRes) => {
                       if (checkRes.status === RESULTS.DENIED) {
@@ -60,10 +73,6 @@ function Onboarding({ navigation }) {
                         openSettings();
                       }
                     });
-                  }}
-                  onPressPrimary={() => {
-                    onboardingComplete({ userId: id });
-                    navigation.replace('Tabs');
                   }}
                   primaryNavText={'Finish'}
                   BackgroundComponent={<Spacer />}

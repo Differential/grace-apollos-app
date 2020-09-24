@@ -19,6 +19,7 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* GraceChurchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* GraceChurchTests.m */; };
 		3B494CAA55F74744AC73D1F2 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FFF24306B8A44F9B353EA89 /* Lato-Italic.ttf */; };
+		5E93826DBF7D478A96EFC3D0 /* Inter-UI-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = A9C88372549B4502A21D27DE /* Inter-UI-Medium.otf */; };
 		82AAE52E24187BB500D1EEC7 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82AAE52D24187BB500D1EEC7 /* BootSplash.storyboard */; };
 		82AAE52F24187BB500D1EEC7 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82AAE52D24187BB500D1EEC7 /* BootSplash.storyboard */; };
 		82AAE53024187BB500D1EEC7 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82AAE52D24187BB500D1EEC7 /* BootSplash.storyboard */; };
@@ -84,6 +85,7 @@
 		745C835CA2F1E1EC2425152A /* Pods-GraceChurch-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraceChurch-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-GraceChurch-tvOS/Pods-GraceChurch-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		82AAE52D24187BB500D1EEC7 /* BootSplash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BootSplash.storyboard; path = GraceChurch/BootSplash.storyboard; sourceTree = "<group>"; };
 		A93F9D112A034626A9421759 /* DroidSerif-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DroidSerif-BoldItalic.ttf"; path = "../assets/fonts/DroidSerif-BoldItalic.ttf"; sourceTree = "<group>"; };
+		A9C88372549B4502A21D27DE /* Inter-UI-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-UI-Medium.otf"; path = "../assets/fonts/Inter-UI-Medium.otf"; sourceTree = "<group>"; };
 		AB44FC16DED929081698EDFD /* Pods-GraceChurchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraceChurchTests.debug.xcconfig"; path = "Target Support Files/Pods-GraceChurchTests/Pods-GraceChurchTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ADC3D2DB245545ADB1CAB3FE /* DroidSerif-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DroidSerif-Italic.ttf"; path = "../assets/fonts/DroidSerif-Italic.ttf"; sourceTree = "<group>"; };
 		AE85030F59F256E90D5A4C2B /* Pods-GraceChurch-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraceChurch-tvOS.release.xcconfig"; path = "Target Support Files/Pods-GraceChurch-tvOS/Pods-GraceChurch-tvOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				3FFF24306B8A44F9B353EA89 /* Lato-Italic.ttf */,
 				CB51D9AF098B4B4CABD3AB43 /* Lato-Regular.ttf */,
 				4086A5B0F5BB40F4B2BA596E /* Inter-UI-Bold.otf */,
+				A9C88372549B4502A21D27DE /* Inter-UI-Medium.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				3B494CAA55F74744AC73D1F2 /* Lato-Italic.ttf in Resources */,
 				B19C88A431E44E83855CD88B /* Lato-Regular.ttf in Resources */,
 				A1EA0D08EDB34DD1AC52CB3F /* Inter-UI-Bold.otf in Resources */,
+				5E93826DBF7D478A96EFC3D0 /* Inter-UI-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,8 +461,8 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-GraceChurch/Pods-GraceChurch-resources.sh",
-				"${PODS_ROOT}/google-cast-sdk-no-bluetooth/GoogleCastSDK-ios-4.4.7_static/GoogleCast.framework/GoogleCastCoreResources.bundle",
-				"${PODS_ROOT}/google-cast-sdk-no-bluetooth/GoogleCastSDK-ios-4.4.7_static/GoogleCast.framework/GoogleCastUIResources.bundle",
+				"${PODS_ROOT}/google-cast-sdk-no-bluetooth/GoogleCastSDK-ios-4.5.0_static/GoogleCast.framework/GoogleCastCoreResources.bundle",
+				"${PODS_ROOT}/google-cast-sdk-no-bluetooth/GoogleCastSDK-ios-4.5.0_static/GoogleCast.framework/GoogleCastUIResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -692,7 +696,7 @@
 				INFOPLIST_FILE = GraceChurch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -720,7 +724,7 @@
 				INFOPLIST_FILE = GraceChurch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

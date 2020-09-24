@@ -143,3 +143,9 @@ project.xcworkspace
 
 # CocoaPods
 /ios/Pods/
+
+# Fastlane
+fastlane/report.xml
+
+# symbols
+GraceChurch.app.dSYM.zip
