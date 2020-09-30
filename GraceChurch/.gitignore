@@ -149,3 +149,10 @@ fastlane/report.xml
 
 # symbols
 GraceChurch.app.dSYM.zip
+
+# Google Play authentication key
+key.json
+*.keystore
+
+# shared secrets
+.env.shared

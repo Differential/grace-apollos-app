@@ -51,17 +51,17 @@
     "@apollosproject/config": "^1.6.0-beta.0",
     "@apollosproject/react-native-airplay-btn": "^0.2.0",
     "@apollosproject/ui-analytics": "^1.6.0-beta.0",
-    "@apollosproject/ui-auth": "^1.6.0-beta.0",
-    "@apollosproject/ui-connected": "^1.6.0-beta.0",
+    "@apollosproject/ui-auth": "^1.6.0-beta.1",
+    "@apollosproject/ui-connected": "^1.6.0-beta.1",
     "@apollosproject/ui-fragments": "^1.6.0-beta.0",
-    "@apollosproject/ui-htmlview": "^1.6.0-beta.0",
-    "@apollosproject/ui-kit": "^1.6.0-beta.0",
-    "@apollosproject/ui-mapview": "^1.6.0-beta.0",
+    "@apollosproject/ui-htmlview": "^1.6.0-beta.1",
+    "@apollosproject/ui-kit": "^1.6.0-beta.1",
+    "@apollosproject/ui-mapview": "^1.6.0-beta.1",
     "@apollosproject/ui-media-player": "^1.6.0-beta.0",
     "@apollosproject/ui-notifications": "^1.6.0-beta.0",
     "@apollosproject/ui-onboarding": "^1.6.0-beta.0",
-    "@apollosproject/ui-passes": "^1.6.0-beta.0",
-    "@apollosproject/ui-prayer": "^1.6.0-beta.0",
+    "@apollosproject/ui-passes": "^1.6.0-beta.1",
+    "@apollosproject/ui-prayer": "^1.6.0-beta.1",
     "@apollosproject/ui-scripture": "^1.6.0-beta.0",
     "@apollosproject/ui-storybook": "^1.6.0-beta.0",
     "@react-native-community/async-storage": "^1.5.1",
@@ -125,7 +125,7 @@
     "apollo-storybook-react-native": "0.2.12"
   },
   "devDependencies": {
-    "@apollosproject/eslint-config": "^1.6.0-beta.0",
+    "@apollosproject/eslint-config": "^1.6.0-beta.1",
     "babel-eslint": "10.0.1",
     "codecov": "3.7.2",
     "eslint": "^4.19.1",
@@ -153,7 +153,8 @@
     "react-native-storybook-loader": "1.8.0",
     "react-native-version": "2.6.2",
     "react-test-renderer": "16.8.6",
-    "waait": "1.0.2"
+    "waait": "1.0.2",
+    "babel-plugin-module-resolver": "^4.0.0"
   },
   "rnpm": {
     "assets": [
