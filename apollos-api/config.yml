@@ -16,6 +16,14 @@ APP:
   JOBS_PASSWORD: ${JOBS_PASSWORD}
 VIMEO:
   TOKEN: ${VIMEO_TOKEN}
+REMOTE_CAMPUS:
+  FIELDS:
+    latitude: 38.87006
+    longitude: -77.09631
+    street1: 'No locations near you. '
+    city: "When there's one"
+    state: "we'll let you know!"
+    postalCode: ''
 ROCK:
   API_URL: https://trygrace.org/api
   API_TOKEN: ${ROCK_TOKEN}

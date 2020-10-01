@@ -26,12 +26,12 @@ import {
   BinaryFiles,
   Event,
   PrayerRequest,
+  Campus,
 } from '@apollosproject/data-connector-rock';
 import * as LiveStream from './ChurchOnline';
 import * as Theme from './theme';
 import * as GraceGroup from './GraceGroup';
 import * as Auth from './Auth';
-import * as Campus from './Campus';
 import * as Feature from './Feature';
 import * as ContentItem from './ContentItem';
 import * as ContentChannel from './ContentChannel';
