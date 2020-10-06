@@ -321,7 +321,7 @@
     recompose "^0.30.0"
     rn-placeholder "1.2.0"
 
-"@apollosproject/ui-mapview@^1.6.0-alpha.13":
+"@apollosproject/ui-mapview@1.6.0-alpha.13":
   version "1.6.0-alpha.13"
   resolved "https://registry.yarnpkg.com/@apollosproject/ui-mapview/-/ui-mapview-1.6.0-alpha.13.tgz#0cef07b4782d671ba99842558313a67df5c0196f"
   integrity sha512-SJ+rtAJDt1jAtOLGbSn9WtL+IV+rHIlpOydioIBwt7RG7AbwB+KCIGbf/eklCbQzXrmb0aiYbP1dPSnJNXQDJg==
