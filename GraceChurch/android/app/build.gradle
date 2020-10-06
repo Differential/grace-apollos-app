@@ -143,7 +143,6 @@ android {
     }
 
     defaultConfig {
-<<<<<<< ours
         applicationId "org.trygrace.gracecshurch"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
