@@ -321,10 +321,10 @@
     recompose "^0.30.0"
     rn-placeholder "1.2.0"
 
-"@apollosproject/ui-mapview@^1.6.0-beta.1":
-  version "1.6.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-mapview/-/ui-mapview-1.6.0-beta.1.tgz#7314c235dc98bfe2bb718e1cea85001495365558"
-  integrity sha512-pq5xNgbMiVe39iEqKCNB05W8Hz0iJ6PW7n62QMNxB58OQGicc2NHBtCIyS3vPvD3Qx0MDgDEj6dcvSHUPtECkA==
+"@apollosproject/ui-mapview@^1.6.0-alpha.13":
+  version "1.6.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-mapview/-/ui-mapview-1.6.0-alpha.13.tgz#0cef07b4782d671ba99842558313a67df5c0196f"
+  integrity sha512-SJ+rtAJDt1jAtOLGbSn9WtL+IV+rHIlpOydioIBwt7RG7AbwB+KCIGbf/eklCbQzXrmb0aiYbP1dPSnJNXQDJg==
   dependencies:
     graphql-tag "2.9.2"
     react-apollo "2.5.5"
