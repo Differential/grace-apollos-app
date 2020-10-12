@@ -71,7 +71,7 @@ class dataSource extends FeatureDataSource {
     if (dailyGrace) {
       return [
         {
-          id: createGlobalId(`${dailyGrace.id}`, 'CardListCard'),
+          id: `${dailyGrace.id}`,
           title: dailyGrace.title,
           subtitle: 'Daily Grace',
           relatedNode: {
@@ -103,12 +103,12 @@ class dataSource extends FeatureDataSource {
       .replace('{height}', 800);
     return [
       {
-        id: createGlobalId('verse-of-the-day', 'CardListItem'),
+        id: 'verse-of-the-day',
         title: '',
         subtitle: '',
         relatedNode: {
           url: get(verseOfTheDay, 'verse.url'),
-          id: createGlobalId(JSON.stringify({ verseOfTheDay }), 'Url'),
+          id: JSON.stringify({ verseOfTheDay }),
           __type: 'Url',
         },
         image: { sources: [{ uri: imageUrl }] },
@@ -136,7 +136,7 @@ class dataSource extends FeatureDataSource {
     }
     return [
       {
-        id: createGlobalId(`${sermon.id}`, 'ActionListAction'),
+        id: `${sermon.id}`,
         title: sermon.title,
         subtitle: 'Latest Message',
         relatedNode: { ...sermon, __type: ContentItem.resolveType(sermon) },
@@ -150,16 +150,13 @@ class dataSource extends FeatureDataSource {
   async singleImageCardAlgorithm({ title, subtitle, image, url, summary }) {
     return [
       {
-        id: createGlobalId(
-          JSON.stringify({ title, subtitle, image, url, summary }),
-          'CardListItem'
-        ),
+        id: JSON.stringify({ title, subtitle, image, url, summary }),
         title,
         subtitle,
         summary,
         relatedNode: {
           url,
-          id: createGlobalId(JSON.stringify({ url }), 'Url'),
+          id: JSON.stringify({ url }),
           __type: 'Url',
         },
         image: { sources: [{ uri: image }] },
@@ -201,7 +198,7 @@ class dataSource extends FeatureDataSource {
       )
     );
     return items.map((item, i) => ({
-      id: createGlobalId(`${item.id}${i}`, 'ActionListAction'),
+      id: `${item.id}${i}`,
       title: item.title,
       subtitle: get(item, 'contentChannel.name'),
       relatedNode: { ...item, __type: ContentItem.resolveType(item) },
@@ -215,7 +212,7 @@ class dataSource extends FeatureDataSource {
     const { GraceGroup } = this.context.dataSources;
     const groups = await GraceGroup.byActiveGroups().get();
     return groups.map((group, i) => ({
-      id: createGlobalId(`${group.id}${i}`, 'ActionListAction'),
+      id: `${group.id}${i}`,
       title: group.name,
       subtitle: group.description,
       relatedNode: {
