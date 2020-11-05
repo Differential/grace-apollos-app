@@ -15,7 +15,8 @@
     "setup:api": "cd apollos-api && yarn install",
     "nuke": "./scripts/boom.sh && yarn nuke:node && yarn nuke:cache",
     "nuke:node": "rm -rdf ./node_modules packages/*/node_modules && yarn cache clean && yarn",
-    "nuke:cache": "watchman watch-del-all && ./node_modules/.bin/lerna run start --scope GraceChurch --stream -- --reset-cache"
+    "nuke:cache": "watchman watch-del-all && ./node_modules/.bin/lerna run start --scope GraceChurch --stream -- --reset-cache",
+    "secrets": "./scripts/secrets.sh"
   },
   "private": true,
   "devDependencies": {
