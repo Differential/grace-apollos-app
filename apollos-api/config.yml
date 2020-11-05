@@ -167,15 +167,15 @@ ROCK_MAPPINGS:
   MOBILE_DEVICE_TYPE_ID: 512
 
 HOME_FEATURES:
-  - algorithms: [DAILY_PRAYER]
-    isCard: false
-    type: PrayerList
-    title: Daily Prayer
   - title:
     algorithms: [MOST_RECENT_SERMON]
     subtitle:
     type: VerticalCardList
     isFeatured: true
+  - algorithms: [DAILY_PRAYER]
+    isCard: false
+    type: PrayerList
+    title: Daily Prayer
   - algorithms: [DAILY_GRACE]
     subtitle: Today
     type: VerticalCardList
