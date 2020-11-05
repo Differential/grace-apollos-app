@@ -138,7 +138,7 @@ ROCK_MAPPINGS:
 
   # Apollos will pull these content channels and expose them in the app on the discover screen.
   DISCOVER_CONTENT_CHANNEL_IDS:
-    - 16    
+    - 16
     - 4
     - 10
     - 15
@@ -167,6 +167,10 @@ ROCK_MAPPINGS:
   MOBILE_DEVICE_TYPE_ID: 512
 
 HOME_FEATURES:
+  - algorithms: [DAILY_PRAYER]
+    isCard: false
+    type: PrayerList
+    title: Daily Prayer
   - title:
     algorithms: [MOST_RECENT_SERMON]
     subtitle:
