@@ -165,6 +165,7 @@ class dataSource extends FeatureDataSource {
           (id) => `(ContentChannelId eq ${id})`
         ).join(' or ')
       )
+      .sort([{ field: 'Priority', direction: 'desc' }])
       .get();
 
     const items = flatten(
