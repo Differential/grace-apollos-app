@@ -17,7 +17,7 @@ import * as Sms from '@apollosproject/data-connector-twilio';
 import {
   Followings,
   Interactions,
-  RockConstants,
+  // RockConstants,
   Sharable,
   PersonalDevice,
   Template,
@@ -38,6 +38,7 @@ import * as ContentChannel from './ContentChannel';
 import * as Vimeo from './Vimeo';
 import * as Person from './Person';
 import * as Search from './Algolia';
+import * as RockConstants from './RockConstants';
 // This module is used to attach Rock User updating to the OneSignal module.
 // This module includes a Resolver that overides a resolver defined in `OneSignal`
 import * as OneSignalWithRock from './oneSignalWithRock';
