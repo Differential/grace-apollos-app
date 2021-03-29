@@ -55,7 +55,46 @@ class dataSource extends FeatureDataSource {
     MOST_RECENT_SERMON: this.mostRecentSermonAlgorithm.bind(this),
     VERSE_OF_THE_DAY: this.verseOfTheDayAlgorithm.bind(this),
     DAILY_GRACE: this.dailyGraceAlgorithm.bind(this),
+    FEATURED_CAMPAIGN: this.featuredCampaignAlgorithm.bind(this),
   };
+
+  async featuredCampaignAlgorithm({ limit = 1 } = {}) {
+    const { ContentItem } = this.context.dataSources;
+
+    const channels = await ContentItem.byContentChannelIds(
+      ApollosConfig.ROCK_MAPPINGS.PROMO_CAMPAIGN_CHANNEL_IDS
+    ).get();
+
+    const items = flatten(
+      await Promise.all(
+        channels.map(async ({ id, title }) => {
+          const childItemsCursor = await ContentItem.getCursorByParentContentItemId(
+            id
+          );
+
+          const childItems = await childItemsCursor
+            .top(limit)
+            .expand('ContentChannel')
+            .get();
+
+          return childItems.map((item) => ({
+            ...item,
+            channelSubtitle: title,
+          }));
+        })
+      )
+    );
+
+    return items.map((item, i) => ({
+      id: `${item.id}${i}`,
+      title: item.title,
+      subtitle: get(item, 'contentChannel.name'),
+      relatedNode: { ...item, __type: ContentItem.resolveType(item) },
+      image: ContentItem.getCoverImage(item),
+      action: 'READ_CONTENT',
+      summary: ContentItem.createSummary(item),
+    }));
+  }
 
   async dailyGraceAlgorithm() {
     const { ContentItem } = this.context.dataSources;

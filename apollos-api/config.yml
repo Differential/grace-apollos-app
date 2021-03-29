@@ -167,6 +167,9 @@ ROCK_MAPPINGS:
 
   MOBILE_DEVICE_TYPE_ID: 512
 
+  PROMO_CAMPAIGN_CHANNEL_IDS:
+    - 19
+
 HOME_FEATURES:
   - title:
     algorithms: [MOST_RECENT_SERMON]
@@ -179,6 +182,9 @@ HOME_FEATURES:
     title: Daily Prayer
   - algorithms: [DAILY_GRACE]
     subtitle: Today
+    type: VerticalCardList
+  - algorithms: [FEATURED_CAMPAIGN]
+    subtitle: Featured
     type: VerticalCardList
   - title:
     algorithms:
