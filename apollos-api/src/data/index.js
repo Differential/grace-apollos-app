@@ -27,6 +27,7 @@ import {
   Event,
   PrayerRequest,
   Campus,
+  ActionAlgorithm,
 } from '@apollosproject/data-connector-rock';
 import * as LiveStream from './ChurchOnline';
 import * as Theme from './theme';
@@ -70,6 +71,7 @@ const data = {
   Group,
   BinaryFiles,
   Feature,
+  ActionAlgorithm,
   Event,
   Cache,
   GraceGroup,

@@ -4,7 +4,24 @@ enum ACTION_FEATURE_ACTION {
   READ_CONTENT
   READ_EVENT
   OPEN_URL
+  OPEN_AUTHENTICATED_URL
   OPEN_NODE
+  OPEN_CHANNEL
+}
+
+type ActionBarAction {
+  id: ID!
+  icon: String
+  title: String
+  action: ACTION_FEATURE_ACTION
+  relatedNode: Node
+}
+
+type ActionBarFeature implements Feature & Node {
+  id: ID!
+  order: Int
+  title: String
+  actions: [ActionBarAction]
 }
 
 type ActionListAction {
@@ -151,6 +168,7 @@ interface ContentChildNode {
 interface ContentItem {
   id: ID!
   title(hyphenated: Boolean): String
+  publishDate: String
   coverImage: ImageMedia
   images: [ImageMedia]
   videos: [VideoMedia]
@@ -195,6 +213,7 @@ interface ContentParentNode {
 type ContentSeriesContentItem implements ContentItem & Node & ContentNode & Card & VideoNode & AudioNode & ContentChildNode & ContentParentNode & ThemedNode & ProgressNode & LikableNode & ShareableNode & FeaturesNode {
   id: ID!
   title(hyphenated: Boolean): String
+  publishDate: String
   coverImage: ImageMedia
   images: [ImageMedia]
   videos: [VideoMedia]
@@ -211,7 +230,8 @@ type ContentSeriesContentItem implements ContentItem & Node & ContentNode & Card
   isLiked: Boolean
   likedCount: Int
   sharing: SharableContentItem
-  features: [Feature]
+  features: [Feature] @deprecated(reason: "Use featureFeed")
+  featureFeed: FeatureFeed
 }
 
 type Device implements Node {
@@ -223,6 +243,7 @@ type Device implements Node {
 type DevotionalContentItem implements ContentItem & Node & ContentNode & Card & VideoNode & AudioNode & ContentChildNode & ContentParentNode & ThemedNode & ScriptureNode & LikableNode & ShareableNode {
   id: ID!
   title(hyphenated: Boolean): String
+  publishDate: String
   coverImage: ImageMedia
   images: [ImageMedia]
   videos: [VideoMedia]
@@ -260,8 +281,14 @@ type FeatureAction {
   title: String
 }
 
-interface FeaturesNode {
+type FeatureFeed implements Node {
+  id: ID!
   features: [Feature]
+}
+
+interface FeaturesNode {
+  features: [Feature] @deprecated(reason: "Use featureFeed")
+  featureFeed: FeatureFeed
 }
 
 enum GENDER {
@@ -305,6 +332,7 @@ type HorizontalCardListFeature implements Feature & Node {
   title: String
   subtitle: String
   cards: [CardListItem]
+  primaryAction: FeatureAction
 }
 
 type ImageMedia implements Media {
@@ -371,6 +399,7 @@ interface Media {
 type MediaContentItem implements ContentItem & Node & ContentNode & Card & VideoNode & AudioNode & ContentChildNode & ContentParentNode & ThemedNode & ScriptureNode & LikableNode & ShareableNode {
   id: ID!
   title(hyphenated: Boolean): String
+  publishDate: String
   coverImage: ImageMedia
   images: [ImageMedia]
   videos: [VideoMedia]
@@ -519,7 +548,9 @@ type Query {
   userPass: Pass
   search(query: String!, first: Int, after: String): SearchResultsConnection
   campuses(location: CampusLocationInput): [Campus]
-  userFeedFeatures: [Feature]
+  userFeedFeatures: [Feature] @deprecated(reason: "Use homeFeedFeatures or discoverFeedFeatures")
+  homeFeedFeatures(campusId: ID): FeatureFeed
+  discoverFeedFeatures: FeatureFeed
 }
 
 type RockPersonDetails {
@@ -618,6 +649,7 @@ enum ThemeType {
 type UniversalContentItem implements ContentItem & Node & ContentNode & Card & VideoNode & AudioNode & ContentChildNode & ContentParentNode & ThemedNode & LikableNode & ShareableNode {
   id: ID!
   title(hyphenated: Boolean): String
+  publishDate: String
   coverImage: ImageMedia
   images: [ImageMedia]
   videos: [VideoMedia]
@@ -701,6 +733,7 @@ type WebviewFeature implements Feature & Node {
 type WeekendContentItem implements ContentItem & Node & ContentNode & Card & VideoNode & AudioNode & ContentChildNode & ContentParentNode & ThemedNode & LikableNode & LiveNode & ShareableNode & FeaturesNode {
   id: ID!
   title(hyphenated: Boolean): String
+  publishDate: String
   coverImage: ImageMedia
   images: [ImageMedia]
   videos: [VideoMedia]
@@ -715,6 +748,7 @@ type WeekendContentItem implements ContentItem & Node & ContentNode & Card & Vid
   likedCount: Int
   liveStream: LiveStream
   sharing: SharableContentItem
-  features: [Feature]
+  features: [Feature] @deprecated(reason: "Use featureFeed")
+  featureFeed: FeatureFeed
 }
 

@@ -65,7 +65,7 @@
 		0236F877E3474C7F9F0D381C /* Brandon-Grotesque-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Brandon-Grotesque-Light.otf"; path = "../assets/fonts/Brandon-Grotesque-Light.otf"; sourceTree = "<group>"; };
 		0BB6C7C00A9A4B7DBDD36782 /* Brandon-Grotesque-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Brandon-Grotesque-Black.otf"; path = "../assets/fonts/Brandon-Grotesque-Black.otf"; sourceTree = "<group>"; };
 		0D480D95FC7F4569B8B934E3 /* libRCTOneSignal.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTOneSignal.a; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* Grace Church.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grace Church.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* GraceChurch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraceChurch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = GraceChurch/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = GraceChurch/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = GraceChurch/Images.xcassets; sourceTree = "<group>"; };
@@ -252,7 +252,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* Grace Church.app */,
+				13B07F961A680F5B00A75B9A /* GraceChurch.app */,
 				00E356EE1AD99517003FC87E /* GraceChurchTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* GraceChurch-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* GraceChurch-tvOSTests.xctest */,
@@ -299,7 +299,7 @@
 			);
 			name = GraceChurch;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* Grace Church.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* GraceChurch.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* GraceChurch-tvOS */ = {
@@ -703,7 +703,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.trygrace.gracechurch;
-				PRODUCT_NAME = "Grace Church";
+				PRODUCT_NAME = GraceChurch;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -731,7 +731,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.trygrace.gracechurch;
-				PRODUCT_NAME = "Grace Church";
+				PRODUCT_NAME = GraceChurch;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
