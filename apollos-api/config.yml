@@ -194,7 +194,7 @@ HOME_FEATURES:
       - type: CAMPAIGN_ITEMS
         arguments:
           limit: 6
-    subtitle: This Week
+    subtitle: Upcoming
     type: VerticalCardList
   - subtitle: Stay Connected
     heroAlgorithms:
