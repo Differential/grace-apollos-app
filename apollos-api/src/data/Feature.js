@@ -56,6 +56,7 @@ class dataSource extends FeatureDataSource {
     VERSE_OF_THE_DAY: this.verseOfTheDayAlgorithm.bind(this),
     DAILY_GRACE: this.dailyGraceAlgorithm.bind(this),
     FEATURED_CAMPAIGN: this.featuredCampaignAlgorithm.bind(this),
+    CAMPAIGN_ITEMS: this.campaignItemsAlgorithm.bind(this),
   };
 
   async featuredCampaignAlgorithm({ limit = 1 } = {}) {
