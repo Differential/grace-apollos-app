@@ -179,7 +179,7 @@ HOME_FEATURES:
   - algorithms:
       - type: DAILY_PRAYER
         arguments:
-          - numberDaysSincePrayer: 7
+          numberDaysSincePrayer: 7
     isCard: false
     type: PrayerList
     title: Daily Prayer
