@@ -62,7 +62,7 @@ ALGOLIA:
   # https://www.algolia.com/doc/api-reference/settings-api-parameters/
   CONFIGURATION:
     searchableAttributes:
-      - title
+      - subtitle
       - unordered(summary)
     #customRankings:
     # NOT CURRENTLY INCLUDED
@@ -185,46 +185,46 @@ HOME_FEATURES:
           numberDaysSincePrayer: 7
     isCard: false
     type: PrayerList
-    title: Daily Prayers
+    subtitle: Daily Prayers
   - algorithms: [DAILY_GRACE]
-    title: Daily Scripture
+    subtitle: Daily Scripture
     type: VerticalCardList
   - algorithms:
       - type: CONTENT_CHANNEL
         arguments:
           contentChannelId: 21
-    title: Today's Message Outline
+    subtitle: Today's Message Outline
     type: VerticalCardList
   - algorithms: [FEATURED_CAMPAIGN]
-    title: Featured
+    subtitle: Featured
     type: VerticalCardList
   - algorithms:
       - type: CAMPAIGN_ITEMS
         arguments:
           limit: 6
-    title: Upcoming
+    subtitle: Upcoming
     type: VerticalCardList
-  - title: Stay Connected
+  - subtitle: Stay Connected
     heroAlgorithms:
       - type: SINGLE_IMAGE_CARD
         arguments:
           image: https://trygrace.org/GetFile.ashx?guid=3576a570-88e2-4fd2-bd9f-c4f8e2fc1da9
           url: https://trygrace.org/groups
           summary: All of our groups are now online! Stay connected with others via Zoom group meetings.
-          title: Online groups
+          subtitle: Online groups
     type: HeroListFeature
   - algorithms:
       - type: CONTENT_CHANNEL
         arguments:
           contentChannelId: 14
-    title: GRACE KIDS
+    subtitle: GRACE KIDS
     type: ActionList
-  # - title: Stay Connected
+  # - subtitle: Stay Connected
   #   algorithms:
   #     - type: PERSONA_FEED
   #   subtitle: FOR YOU
   #   type: ActionList
-  # - title: Recent stories of
+  # - subtitle: Recent stories of
   #   algorithms:
   #     - type: CONTENT_CHANNEL
   #       arguments:
@@ -235,18 +235,18 @@ HOME_FEATURES:
   # - algorithms: [CAMPAIGN_ITEMS]
   #   type: VerticalCardList
   #   isFeatured: true
-  # - title: FOR YOU
+  # - subtitle: FOR YOU
   #   algorithms: [SERMON_CHILDREN, PERSONA_FEED]
   #   subtitle: Explore what God calls you to today
   #   type: ActionList
   # - algorithms: [PERSONA_FEED]
   #   subtitle: Continue
   #   type: HorizontalCardList
-  # - title: RECOMMENDED
+  # - subtitle: RECOMMENDED
   #   algorithms: [SERMON_CHILDREN]
   #   subtitle: For Him
   #   type: VerticalCardList
-  # - title: BULLETIN
+  # - subtitle: BULLETIN
   #   subtitle: What's happening at apollos?
   #   type: ActionList
   #   algorithms:
