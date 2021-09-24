@@ -62,7 +62,7 @@ ALGOLIA:
   # https://www.algolia.com/doc/api-reference/settings-api-parameters/
   CONFIGURATION:
     searchableAttributes:
-      - title
+      - subtitle
       - unordered(summary)
     #customRankings:
     # NOT CURRENTLY INCLUDED
@@ -139,11 +139,15 @@ ROCK_MAPPINGS:
 
   # Apollos will pull these content channels and expose them in the app on the discover screen.
   DISCOVER_CONTENT_CHANNEL_IDS:
-    - 16
-    - 4
-    - 10
-    - 15
-    - 7
+    # - 16 # Daily Grace
+    # - 4 # Messages
+    - 14 # Grace Kids
+    - 22 # Community
+    - 23 # Compassion
+    - 25 # Resources
+    - 7 # Stories
+    - 15 # News
+    - 10 # Leaders
 
   # Apollos will pull content items from these channels and expose them on the user feed
   # However, it will not expose the channel itself.
@@ -171,8 +175,7 @@ ROCK_MAPPINGS:
     - 19
 
 HOME_FEATURES:
-  - title:
-    algorithms: [MOST_RECENT_SERMON]
+  - algorithms: [MOST_RECENT_SERMON]
     subtitle:
     type: VerticalCardList
     isFeatured: true
@@ -182,15 +185,20 @@ HOME_FEATURES:
           numberDaysSincePrayer: 7
     isCard: false
     type: PrayerList
-    title: Daily Prayer
+    subtitle: Daily Prayers
   - algorithms: [DAILY_GRACE]
-    subtitle: Today
+    subtitle: Daily Scripture
+    type: VerticalCardList
+  - algorithms:
+      - type: CONTENT_CHANNEL
+        arguments:
+          contentChannelId: 21
+    subtitle: Today's Message Outline
     type: VerticalCardList
   - algorithms: [FEATURED_CAMPAIGN]
     subtitle: Featured
     type: VerticalCardList
-  - title:
-    algorithms:
+  - algorithms:
       - type: CAMPAIGN_ITEMS
         arguments:
           limit: 6
@@ -203,21 +211,20 @@ HOME_FEATURES:
           image: https://trygrace.org/GetFile.ashx?guid=3576a570-88e2-4fd2-bd9f-c4f8e2fc1da9
           url: https://trygrace.org/groups
           summary: All of our groups are now online! Stay connected with others via Zoom group meetings.
-          title: Online groups
+          subtitle: Online groups
     type: HeroListFeature
-  - title:
-    algorithms:
+  - algorithms:
       - type: CONTENT_CHANNEL
         arguments:
           contentChannelId: 14
     subtitle: GRACE KIDS
     type: ActionList
-  # - title: Stay Connected
+  # - subtitle: Stay Connected
   #   algorithms:
   #     - type: PERSONA_FEED
   #   subtitle: FOR YOU
   #   type: ActionList
-  # - title: Recent stories of
+  # - subtitle: Recent stories of
   #   algorithms:
   #     - type: CONTENT_CHANNEL
   #       arguments:
@@ -228,18 +235,18 @@ HOME_FEATURES:
   # - algorithms: [CAMPAIGN_ITEMS]
   #   type: VerticalCardList
   #   isFeatured: true
-  # - title: FOR YOU
+  # - subtitle: FOR YOU
   #   algorithms: [SERMON_CHILDREN, PERSONA_FEED]
   #   subtitle: Explore what God calls you to today
   #   type: ActionList
   # - algorithms: [PERSONA_FEED]
   #   subtitle: Continue
   #   type: HorizontalCardList
-  # - title: RECOMMENDED
+  # - subtitle: RECOMMENDED
   #   algorithms: [SERMON_CHILDREN]
   #   subtitle: For Him
   #   type: VerticalCardList
-  # - title: BULLETIN
+  # - subtitle: BULLETIN
   #   subtitle: What's happening at apollos?
   #   type: ActionList
   #   algorithms:
