@@ -140,7 +140,7 @@ ROCK_MAPPINGS:
   # Apollos will pull these content channels and expose them in the app on the discover screen.
   DISCOVER_CONTENT_CHANNEL_IDS:
     # - 16 # Daily Grace
-    # - 4 # Messages
+    - 4 # Messages
     - 14 # Grace Kids
     - 22 # Community
     - 23 # Compassion
@@ -213,49 +213,6 @@ HOME_FEATURES:
           summary: All of our groups are now online! Stay connected with others via Zoom group meetings.
           subtitle: Online groups
     type: HeroListFeature
-  - algorithms:
-      - type: CONTENT_CHANNEL
-        arguments:
-          contentChannelId: 14
-    subtitle: GRACE KIDS
-    type: ActionList
-  # - subtitle: Stay Connected
-  #   algorithms:
-  #     - type: PERSONA_FEED
-  #   subtitle: FOR YOU
-  #   type: ActionList
-  # - subtitle: Recent stories of
-  #   algorithms:
-  #     - type: CONTENT_CHANNEL
-  #       arguments:
-  #         contentChannelId: 7
-  #         limit: 3
-  #   subtitle: Lives Changed
-  #   type: VerticalCardList
-  # - algorithms: [CAMPAIGN_ITEMS]
-  #   type: VerticalCardList
-  #   isFeatured: true
-  # - subtitle: FOR YOU
-  #   algorithms: [SERMON_CHILDREN, PERSONA_FEED]
-  #   subtitle: Explore what God calls you to today
-  #   type: ActionList
-  # - algorithms: [PERSONA_FEED]
-  #   subtitle: Continue
-  #   type: HorizontalCardList
-  # - subtitle: RECOMMENDED
-  #   algorithms: [SERMON_CHILDREN]
-  #   subtitle: For Him
-  #   type: VerticalCardList
-  # - subtitle: BULLETIN
-  #   subtitle: What's happening at apollos?
-  #   type: ActionList
-  #   algorithms:
-  #     - type: CONTENT_CHANNEL
-  #       arguments:
-  #         contentChannelId: 13
-  #     - type: UPCOMING_EVENTS
-  # - algorithms: [USER_FEED]
-  #   type: VerticalCardList
 
 # Default mapping of field types -> ids. There's probably no reason to edit this.
 ROCK_CONSTANTS:
