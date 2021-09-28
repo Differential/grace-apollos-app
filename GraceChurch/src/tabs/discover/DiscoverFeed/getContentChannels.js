@@ -6,7 +6,7 @@ export default gql`
     contentChannels {
       id
       name
-      childContentItemsConnection(first: 3) {
+      childContentItemsConnection(first: 5) {
         edges {
           node {
             id
