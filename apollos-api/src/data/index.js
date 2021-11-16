@@ -21,7 +21,7 @@ import {
   Sharable,
   PersonalDevice,
   Template,
-  AuthSms,
+  // AuthSms,
   Group,
   BinaryFiles,
   Event,
@@ -33,6 +33,7 @@ import * as LiveStream from './ChurchOnline';
 import * as Theme from './theme';
 import * as GraceGroup from './GraceGroup';
 import * as Auth from './Auth';
+import * as AuthSms from './AuthSMS';
 import * as Feature from './Feature';
 import * as ContentItem from './ContentItem';
 import * as ContentChannel from './ContentChannel';

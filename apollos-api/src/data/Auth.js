@@ -35,6 +35,24 @@ class dataSource extends AuthDataSource {
       throw new AuthenticationError('Invalid Credentials');
     }
   };
+
+  createUserLogin = async (props = {}) => {
+    try {
+      const { email, password, personId } = props;
+
+      return await this.post('/UserLogins', {
+        PersonId: personId,
+        EntityTypeId: 27, // A default setting we use in Rock-person-creation-flow
+        UserName: email,
+        PlainTextPassword: password,
+        LastLoginDateTime: `${moment().toISOString()}`,
+        // If this value is false, logging in is impossible.
+        IsConfirmed: true,
+      });
+    } catch (err) {
+      throw new Error('Unable to create user login!');
+    }
+  };
 }
 
 export { resolver, schema, dataSource, contextMiddleware };
