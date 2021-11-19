@@ -16,25 +16,25 @@ or alternatively using `brew install fastlane`
 
 # Available Actions
 ## iOS
-### ios certificates
+### ios certs
 ```
-fastlane ios certificates
+fastlane ios certs
 ```
-Fetch certificates and provisioning profiles
+Generate new provisioning profiles and certificates for app and push notifications
 ### ios deploy
 ```
 fastlane ios deploy
 ```
-Push a new beta build to TestFlight
+Push a new internal build to TestFlight
+### ios production
+```
+fastlane ios production
+```
+Promote the most recent Testflight version to production
 
 ----
 
 ## Android
-### android bump_version_code
-```
-fastlane android bump_version_code
-```
-Bumps Android versionCode
 ### android deploy
 ```
 fastlane android deploy
