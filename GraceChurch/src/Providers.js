@@ -1,46 +1,23 @@
-import querystring from 'querystring';
-import PropTypes from 'prop-types';
-import { NavigationService } from '@apollosproject/ui-kit';
+import React from 'react';
+import ApollosConfig from '@apollosproject/config';
+import { Providers, NavigationService } from '@apollosproject/ui-kit';
 import { AuthProvider } from '@apollosproject/ui-auth';
 import { AnalyticsProvider } from '@apollosproject/ui-analytics';
+import { MediaPlayerProvider } from '@apollosproject/ui-media-player';
 import { NotificationsProvider } from '@apollosproject/ui-notifications';
-import {
-  LiveProvider,
-  ACCEPT_FOLLOW_REQUEST,
-} from '@apollosproject/ui-connected';
-import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
+import { LiveProvider } from '@apollosproject/ui-connected';
+import { track, identify } from './amplitude';
 
 import ClientProvider, { client } from './client';
+import customTheme, { customIcons } from './theme';
+import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
 
-const AppProviders = ({ children }) => (
-  <ClientProvider>
+
+const AppProviders = (props) => (
+  <ClientProvider {...props}>
     <NotificationsProvider
-      // TODO deprecated prop
+      oneSignalKey={ApollosConfig.ONE_SIGNAL_KEY}
       navigate={NavigationService.navigate}
-      handleExternalLink={(url) => {
-        const path = url.split('app-link/')[1];
-        const [route, location] = path.split('/');
-        if (route === 'content') {
-          NavigationService.navigate('ContentSingle', { itemId: location });
-        }
-        if (route === 'nav') {
-          const [component, params] = location.split('?');
-          const args = querystring.parse(params);
-          NavigationService.navigate(
-            // turns "home" into "Home"
-            component[0].toUpperCase() + component.substring(1),
-            args
-          );
-        }
-      }}
-      actionMap={{
-        // accept a follow request when someone taps "accept" in a follow request push notification
-        acceptFollowRequest: ({ requestPersonId }) =>
-          client.mutate({
-            mutation: ACCEPT_FOLLOW_REQUEST,
-            variables: { personId: requestPersonId },
-          }),
-      }}
     >
       <AuthProvider
         navigateToAuth={() => NavigationService.navigate('Auth')}
@@ -52,16 +29,24 @@ const AppProviders = ({ children }) => (
           })
         }
       >
-        <AnalyticsProvider>
-          <LiveProvider>{children}</LiveProvider>
-        </AnalyticsProvider>
+        <MediaPlayerProvider>
+          <AnalyticsProvider
+            trackFunctions={[track]}
+            identifyFunctions={[identify]}
+            useServerAnalytics={false}
+          >
+            <LiveProvider>
+              <Providers
+                themeInput={customTheme}
+                iconInput={customIcons}
+                {...props}
+              />
+            </LiveProvider>
+          </AnalyticsProvider>
+        </MediaPlayerProvider>
       </AuthProvider>
     </NotificationsProvider>
   </ClientProvider>
 );
-
-AppProviders.propTypes = {
-  children: PropTypes.shape({}),
-};
 
 export default AppProviders;
