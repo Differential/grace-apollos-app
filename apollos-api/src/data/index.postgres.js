@@ -7,9 +7,9 @@ import {
 
 import * as Analytics from '@apollosproject/data-connector-analytics';
 import * as Scripture from '@apollosproject/data-connector-bible';
-// import * as LiveStream from '@apollosproject/data-connector-church-online';
+import * as LiveStream from '@apollosproject/data-connector-church-online';
 import * as Cloudinary from '@apollosproject/data-connector-cloudinary';
-// import * as Search from '@apollosproject/data-connector-algolia-search';
+import * as Search from '@apollosproject/data-connector-algolia-search';
 import * as Pass from '@apollosproject/data-connector-passes';
 import * as Cache from '@apollosproject/data-connector-redis-cache';
 import * as Sms from '@apollosproject/data-connector-twilio';
@@ -56,7 +56,7 @@ import {
   PrayerRequest as PostgresPrayerRequest,
 } from '@apollosproject/data-connector-postgres';
 
-import * as LiveStream from './ChurchOnline';
+// import * as LiveStream from './ChurchOnline';
 import * as Theme from './theme';
 import * as GraceGroup from './GraceGroup';
 import * as Auth from './Auth';
@@ -66,7 +66,7 @@ import * as RockContentItem from './ContentItem';
 import * as ContentChannel from './ContentChannel';
 import * as Vimeo from './Vimeo';
 // import * as Person from './Person';
-import * as Search from './Algolia';
+// import * as Search from './Algolia';
 import * as RockConstants from './RockConstants';
 
 // This modules ties together certain updates so they occurs in both Rock and Postgres.

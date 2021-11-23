@@ -103,11 +103,11 @@ PODS:
     - React
   - react-native-safe-area-context (0.3.6):
     - React
-  - react-native-video (5.0.2):
-    - React
-    - react-native-video/Video (= 5.0.2)
-  - react-native-video/Video (5.0.2):
-    - React
+  - react-native-video (5.2.0):
+    - React-Core
+    - react-native-video/Video (= 5.2.0)
+  - react-native-video/Video (5.2.0):
+    - React-Core
   - react-native-webview (7.6.0):
     - React
   - React-RCTActionSheet (0.60.5):
@@ -144,14 +144,14 @@ PODS:
     - React
   - RNCAsyncStorage (1.9.0):
     - React
-  - RNDateTimePicker (2.4.0):
+  - RNDateTimePicker (2.6.2):
     - React
   - RNDeviceInfo (4.0.1):
     - React
-  - RNGestureHandler (1.6.1):
-    - React
-  - RNInAppBrowser (3.4.0):
-    - React
+  - RNGestureHandler (1.10.3):
+    - React-Core
+  - RNInAppBrowser (3.6.3):
+    - React-Core
   - RNPermissions (2.1.5):
     - React
   - RNScreens (1.0.0-alpha.23):
@@ -324,9 +324,9 @@ SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   BugsnagReactNative: 10fc11d9a29800052b3747eb45e7c903b3b057d5
   BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
-  DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
+  DoubleConversion: 831926d9b8bf8166fd87886c4abab286c2422662
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
-  glog: 1f3da668190260b06b429bb211bfbee5cd790c28
+  glog: 5337263514dd6f09803962437687240c5dc39aa4
   google-cast-sdk-no-bluetooth: a01e9da91e15059e2d4b40ce98bd85240e23db8c
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   MetarouterAnalytics: 3ca7bffe49c8fddbe8f5bd3a92fbfd00e6b7c08b
@@ -351,7 +351,7 @@ SPEC CHECKSUMS:
   react-native-passkit-wallet: 51e3babdaeec4c10b5736786ebd1bfb470fcaa36
   react-native-safari-view: 955d7160d159241b8e9395d12d10ea0ef863dcdd
   react-native-safe-area-context: e380a6f783ccaec848e2f3cc8eb205a62362950d
-  react-native-video: d01ed7ff1e38fa7dcc6c15c94cf505e661b7bfd0
+  react-native-video: a4c2635d0802f983594b7057e1bce8f442f0ad28
   react-native-webview: db4682f1698ab4b17a5e88f951031d203ff8aea8
   React-RCTActionSheet: b0f1ea83f4bf75fb966eae9bfc47b78c8d3efd90
   React-RCTAnimation: 359ba1b5690b1e87cc173558a78e82d35919333e
@@ -368,10 +368,10 @@ SPEC CHECKSUMS:
   RNAnalytics: 93b68dbcf5ee073410700ca2515d02396ee53958
   RNBootSplash: fbf76a4bf1c03e9acd1dd08ce064847f26d6d8bf
   RNCAsyncStorage: 453cd7c335ec9ba3b877e27d02238956b76f3268
-  RNDateTimePicker: c4285bfdd87430f1e575b81a4742b7586a09d53e
+  RNDateTimePicker: 968ccf716b3b6aee07849641966005924de5c0f9
   RNDeviceInfo: 687c1b2ab6d86ff1ca1208783320cd144138c7f2
-  RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
-  RNInAppBrowser: c1a0dad2734458d79bcb6c8f4297ba8658a1da9f
+  RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
+  RNInAppBrowser: 3ff3a3b8f458aaf25aaee879d057352862edf357
   RNPermissions: ad71dd4f767ec254f2cd57592fbee02afee75467
   RNScreens: f28b48b8345f2f5f39ed6195518291515032a788
   RNSVG: 8ba35cbeb385a52fd960fd28db9d7d18b4c2974f
