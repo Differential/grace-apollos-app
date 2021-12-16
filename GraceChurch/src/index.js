@@ -89,10 +89,8 @@ const LandingToAuth = () => {
 const CustomOnboarding = () => (
   <Onboarding
     slides={[
-      (props) => <LocationFinderConnected {...props} Component={AskLocation} />,
-      (props) => (
-        <AskNotificationsConnected {...props} Component={AskNotifications} />
-      ),
+      (props) => <LocationFinderConnected {...props} />,
+      (props) => <AskNotificationsConnected {...props} />,
       ,
     ]}
   />
