@@ -16,7 +16,7 @@ import {
   BackgroundView,
   withTheme,
   NavigationService,
-  // Providers as ThemeProvider,
+  Providers as ThemeProvider,
 } from '@apollosproject/ui-kit';
 import Passes from '@apollosproject/ui-passes';
 import { MapViewConnected as Location } from '@apollosproject/ui-mapview';
@@ -33,14 +33,6 @@ import {
 import Providers from './Providers';
 import Tabs from './tabs';
 import customTheme, { customIcons } from './theme';
-import * as ThemeProviders from './Providers';
-import ContentSingle from './content-single';
-import NodeSingle from './node-single';
-import Event from './event';
-import PersonalDetails from './user-settings/PersonalDetails';
-import ChangePassword from './user-settings/ChangePassword';
-import LandingScreen from './LandingScreen';
-import UserWebBrowser from './user-web-browser';
 import Onboarding from './ui/Onboarding';
 import './bugsnag';
 
