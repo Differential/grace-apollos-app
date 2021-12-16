@@ -1,6 +1,6 @@
 import ApollosConfig from '@apollosproject/config';
 import { ContentItem } from '@apollosproject/data-connector-rock';
-import sanitizeHTML from '@apollosproject/data-connector-rock/lib/sanitize-html';
+import sanitizeHTML from 'sanitize-html';
 import { get } from 'lodash';
 import moment from 'moment';
 
