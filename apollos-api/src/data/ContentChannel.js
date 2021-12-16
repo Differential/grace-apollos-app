@@ -6,21 +6,21 @@ const { schema } = ContentChannel;
 class dataSource extends ContentChannel.dataSource {
   expanded = true;
 
-  getName({ name, attributeValues }) {
+  getName = ({ name, attributeValues }) => {
     const titleOverride = get(attributeValues, 'apollosName.value', '');
     if (titleOverride !== '') {
       return titleOverride;
     }
     return name;
-  }
+  };
 }
 
 const resolver = {
   ...ContentChannel.resolver,
   ContentChannel: {
     ...ContentChannel.resolver.ContentChannel,
-    name: (root, args, { dataSources: { ContentChannel } }) =>
-      ContentChannel.getName(root),
+    name: (root, args, { dataSources }) =>
+      dataSources.ContentChannel.getName(root),
   },
 };
 
