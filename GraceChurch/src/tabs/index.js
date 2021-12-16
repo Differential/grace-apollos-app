@@ -77,6 +77,9 @@ const HomeTab = createFeatureFeedTab({
   },
   tabName: "Home",
   feedName: "HOME",
+  additionalFeatures: {
+    VerticalCardListFeature: VerticalCardListFeatureWithCampaignComponent,
+  },
 });
 
 const ReadTab = createFeatureFeedTab({

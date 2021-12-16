@@ -303,9 +303,9 @@ PODS:
     - React
   - react-native-geolocation (2.0.2):
     - React
-  - react-native-geolocation-service (5.1.1):
+  - react-native-geolocation-service (5.2.0):
     - React
-  - react-native-image-picker (3.1.4):
+  - react-native-image-picker (3.8.1):
     - React-Core
   - react-native-maps (0.27.1):
     - React
@@ -318,16 +318,16 @@ PODS:
     - React
   - react-native-safari-view (1.0.0):
     - React
-  - react-native-safe-area-context (3.0.7):
-    - React
-  - react-native-splash-screen (3.2.0):
-    - React
+  - react-native-safe-area-context (3.3.2):
+    - React-Core
+  - react-native-splash-screen (3.3.0):
+    - React-Core
   - react-native-video (5.2.0):
     - React-Core
     - react-native-video/Video (= 5.2.0)
   - react-native-video/Video (5.2.0):
     - React-Core
-  - react-native-webview (11.4.1):
+  - react-native-webview (11.15.0):
     - React-Core
   - React-perflogger (0.66.1)
   - React-RCTActionSheet (0.66.1):
@@ -400,11 +400,11 @@ PODS:
     - React
   - RNCAsyncStorage (1.12.1):
     - React-Core
-  - RNCMaskedView (0.1.10):
+  - RNCMaskedView (0.1.11):
     - React
-  - RNCPicker (1.9.4):
+  - RNCPicker (1.16.8):
     - React-Core
-  - RNDateTimePicker (3.0.4):
+  - RNDateTimePicker (3.5.2):
     - React-Core
   - RNDeviceInfo (4.0.1):
     - React
@@ -414,7 +414,7 @@ PODS:
     - React-Core
   - RNPermissions (2.2.2):
     - React-Core
-  - RNReanimated (2.2.3):
+  - RNReanimated (2.3.1):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -440,7 +440,6 @@ PODS:
     - React-RCTNetwork
     - React-RCTSettings
     - React-RCTText
-    - React-RCTVibration
     - ReactCommon/turbomodule/core
     - Yoga
   - RNScreens (3.2.0):
@@ -723,17 +722,17 @@ SPEC CHECKSUMS:
   react-native-apollos-player: 4ddfa7a5acdd5b5d1015d63c0724a033dfea7166
   react-native-config: 55548054279d92e0e4566ea15a8b9b81028ec342
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
-  react-native-geolocation-service: f33626f1ae12381ca2ae60f98b2f5edd676bf95a
-  react-native-image-picker: 28d8d1f5a643119876b8b2c7d4d1dcfb2b232dd4
+  react-native-geolocation-service: 7c9436da6dfdecd9526c62eac62ea2bc3f0cc8ea
+  react-native-image-picker: 31971f6184e7c1dcb4fc1f122e1ba2c3fb11ef1e
   react-native-maps: f4b89da81626ad7f151a8bfcb79733295d31ce5c
   react-native-music-control: 93b521377efdf2e49b46ccade8457f9503359b38
   react-native-onesignal: 50b047c674b79ba700218338fdefb45220da4db5
   react-native-passkit-wallet: 51e3babdaeec4c10b5736786ebd1bfb470fcaa36
   react-native-safari-view: 955d7160d159241b8e9395d12d10ea0ef863dcdd
-  react-native-safe-area-context: ef6f16c66b0797ecae1bf86c103dfb3dc16fc33d
-  react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
+  react-native-safe-area-context: 584dc04881deb49474363f3be89e4ca0e854c057
+  react-native-splash-screen: 4312f786b13a81b5169ef346d76d33bc0c6dc457
   react-native-video: a4c2635d0802f983594b7057e1bce8f442f0ad28
-  react-native-webview: 4024b67e9c91810450a5960dff60ae708fd5acd1
+  react-native-webview: e89bf2dba26a04cda967814df3ed1be99f291233
   React-perflogger: fcac6090a80e3d967791b4c7f1b1a017f9d4a398
   React-RCTActionSheet: caf5913d9f9e605f5467206cf9d1caa6d47d7ad6
   React-RCTAnimation: 6539e3bf594f6a529cd861985ba6548286ae1ead
@@ -749,19 +748,19 @@ SPEC CHECKSUMS:
   rn-fetch-blob: 651b8d076b43d0d7aa294a3d9ec16c00aab8bef9
   RNAirplay: 75777dd55dafbd3687703c3eb9c290ea6cc43248
   RNCAsyncStorage: b03032fdbdb725bea0bd9e5ec5a7272865ae7398
-  RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
-  RNCPicker: 2c31098349f499e7ab4da6c1ce26f7537d271062
-  RNDateTimePicker: 3d1931e387248cb8f1d1d33740d4a1a82dfe622a
+  RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
+  RNCPicker: 0991c56da7815c0cf946d6f63cf920b25296e5f6
+  RNDateTimePicker: 7658208086d86d09e1627b5c34ba0cf237c60140
   RNDeviceInfo: 687c1b2ab6d86ff1ca1208783320cd144138c7f2
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNInAppBrowser: 48b95ba7a4eaff5cc223bca338d3e319561dbd1b
   RNPermissions: 5df468064df661a4c8c017e2791ce90d7695eea5
-  RNReanimated: b04ef2a4f0cb61b062bbcf033f84a9e470f4f60b
+  RNReanimated: da3860204e5660c0dd66739936732197d359d753
   RNScreens: c277bfc4b5bb7c2fe977d19635df6f974f95dfd6
   RNSVG: 8ba35cbeb385a52fd960fd28db9d7d18b4c2974f
   Yoga: 2b4a01651f42a32f82e6cef3830a3ba48088237f
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 3a9e3364a1efa0639827493168e640f344113998
+PODFILE CHECKSUM: 49ef4b756b2821e2bfe750947de00de313143c59
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.10.1

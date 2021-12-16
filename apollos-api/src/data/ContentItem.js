@@ -30,6 +30,25 @@ class dataSource extends ContentItemDataSource {
       .orderBy('StartDateTime', 'desc');
   };
 
+  byContentChannelIds = (ids = []) => {
+    const cursor = this.request()
+      .filterOneOf(ids.map((id) => `ContentChannelId eq ${id}`))
+      .cache({ ttl: 60 });
+    // Leaders
+    if (ids.includes(10)) {
+      return cursor.andFilter(this.LIVE_CONTENT()).orderBy('Priority', 'asc');
+    }
+    // Messages
+    if (ids.includes(4)) {
+      return cursor
+        .andFilter(this.LIVE_AND_EXPIRED())
+        .orderBy('StartDateTime', 'desc');
+    }
+    return cursor
+      .andFilter(this.LIVE_CONTENT())
+      .orderBy('StartDateTime', 'desc');
+  };
+
   getFromIds = (ids = [], filter = this.LIVE_CONTENT) => {
     if (ids.length === 0) return this.request().empty();
     if (get(ApollosConfig, 'ROCK.USE_PLUGIN', false)) {
