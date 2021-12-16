@@ -1,36 +1,45 @@
-import { useEffect } from "react";
-import { Image, View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import { createNativeStackNavigator } from "react-native-screens/native-stack";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { useEffect } from 'react';
+import { Image, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { createNativeStackNavigator } from 'react-native-screens/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
   NavigationService,
   withTheme,
   useTheme,
   Icon,
   Touchable,
-} from "@apollosproject/ui-kit";
-import { useApolloClient } from "@apollo/client";
+} from '@apollosproject/ui-kit';
+import { useApolloClient } from '@apollo/client';
 import {
   createFeatureFeedTab,
   UserAvatarConnected,
   ConnectScreenConnected,
-} from "@apollosproject/ui-connected";
-import { checkOnboardingStatusAndNavigate } from "@apollosproject/ui-onboarding";
-import ActionTable from "../ui/ActionTable";
-import ActionBar from "../ui/ActionBar";
-import tabBarIcon from "./tabBarIcon";
+  VerticalCardListFeatureConnected,
+} from '@apollosproject/ui-connected';
+import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
+import ActionTable from '../ui/ActionTable';
+import ActionBar from '../ui/ActionBar';
+import CampaignItemListFeature from '../ui/CampaignItemListFeature';
+import tabBarIcon from './tabBarIcon';
+
+const VerticalCardListFeatureWithCampaignComponent = (props) => (
+  <VerticalCardListFeatureConnected
+    {...props}
+    FeaturedComponent={CampaignItemListFeature}
+  />
+);
 
 const HeaderLogo = withTheme(({ theme }) => ({
   style: {
     height: theme.sizing.baseUnit * 2.5,
-    width: "70%",
-    resizeMode: "contain",
+    width: '70%',
+    resizeMode: 'contain',
   },
   source:
-    theme.type === "light"
-      ? require("./wordmark.png")
-      : require("./wordmark.dark.png"),
+    theme.type === 'light'
+      ? require('./wordmark.png')
+      : require('./wordmark.dark.png'),
 }))(Image);
 
 const ProfileButton = () => {
@@ -38,7 +47,7 @@ const ProfileButton = () => {
   return (
     <Touchable
       onPress={() => {
-        navigation.navigate("UserSettingsNavigator");
+        navigation.navigate('UserSettingsNavigator');
       }}
     >
       <View>
@@ -54,7 +63,7 @@ const SearchButton = () => {
   return (
     <Touchable
       onPress={() => {
-        navigation.navigate("Search");
+        navigation.navigate('Search');
       }}
     >
       <Icon
@@ -75,8 +84,8 @@ const HomeTab = createFeatureFeedTab({
     headerLeft: ProfileButton,
     headerLargeTitle: false,
   },
-  tabName: "Home",
-  feedName: "HOME",
+  tabName: 'Home',
+  feedName: 'HOME',
   additionalFeatures: {
     VerticalCardListFeature: VerticalCardListFeatureWithCampaignComponent,
   },
@@ -86,8 +95,8 @@ const ReadTab = createFeatureFeedTab({
   options: {
     headerLeft: ProfileButton,
   },
-  tabName: "Discover",
-  feedName: "READ",
+  tabName: 'Discover',
+  feedName: 'READ',
 });
 
 const CustomConnectScreen = () => (
@@ -103,7 +112,7 @@ const ConnectTabStackNavigator = () => (
     }}
   >
     <ConnectTabStack.Screen
-      name={"Connect"}
+      name={'Connect'}
       component={CustomConnectScreen}
       options={{
         headerLeft: ProfileButton,
@@ -131,18 +140,18 @@ const TabNavigator = () => {
       <Screen
         name="Home"
         component={HomeTab}
-        options={{ tabBarIcon: tabBarIcon("home") }}
+        options={{ tabBarIcon: tabBarIcon('home') }}
       />
       <Screen
         name="Discover"
         component={ReadTab}
-        options={{ tabBarIcon: tabBarIcon("sections") }}
+        options={{ tabBarIcon: tabBarIcon('sections') }}
       />
       <Screen
         name="Connect"
         component={ConnectTabStackNavigator}
         options={{
-          tabBarIcon: tabBarIcon("profile"),
+          tabBarIcon: tabBarIcon('profile'),
         }}
       />
     </Navigator>

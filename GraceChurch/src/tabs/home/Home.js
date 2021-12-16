@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import { PureComponent } from 'react';
 import { Image } from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
 import PropTypes from 'prop-types';
@@ -39,31 +39,33 @@ class Home extends PureComponent {
     }),
   };
 
-  handleOnPress = ({ openUrl }) => ({ action, relatedNode }) => {
-    const { navigation } = this.props;
-    if (action === 'READ_CONTENT') {
-      navigation.navigate('ContentSingle', {
-        itemId: relatedNode.id,
-        transitionKey: 2,
-      });
-    }
-    if (action === 'READ_EVENT') {
-      navigation.navigate('Event', {
-        eventId: relatedNode.id,
-        transitionKey: 2,
-      });
-    }
-    if (action === 'OPEN_NODE') {
-      console.warn(relatedNode);
-      this.props.navigation.navigate('NodeSingle', {
-        nodeId: relatedNode.id,
-        transitionKey: 2,
-      });
-    }
-    if (action === 'OPEN_URL') {
-      openUrl(relatedNode.url);
-    }
-  };
+  handleOnPress =
+    ({ openUrl }) =>
+    ({ action, relatedNode }) => {
+      const { navigation } = this.props;
+      if (action === 'READ_CONTENT') {
+        navigation.navigate('ContentSingle', {
+          itemId: relatedNode.id,
+          transitionKey: 2,
+        });
+      }
+      if (action === 'READ_EVENT') {
+        navigation.navigate('Event', {
+          eventId: relatedNode.id,
+          transitionKey: 2,
+        });
+      }
+      if (action === 'OPEN_NODE') {
+        console.warn(relatedNode);
+        this.props.navigation.navigate('NodeSingle', {
+          nodeId: relatedNode.id,
+          transitionKey: 2,
+        });
+      }
+      if (action === 'OPEN_URL') {
+        openUrl(relatedNode.url);
+      }
+    };
 
   render() {
     return (
@@ -74,7 +76,8 @@ class Home extends PureComponent {
               <FeaturesFeedConnected
                 onPressActionItem={this.handleOnPress({ openUrl })}
                 additionalFeatures={{
-                  VerticalCardListFeature: VerticalCardListFeatureWithCampaignComponent,
+                  VerticalCardListFeature:
+                    VerticalCardListFeatureWithCampaignComponent,
                 }}
                 ListHeaderComponent={
                   <LogoTitle source={require('./wordmark.png')} />
