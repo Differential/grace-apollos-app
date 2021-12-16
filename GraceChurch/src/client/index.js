@@ -1,15 +1,15 @@
-import { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { ApolloProvider, ApolloClient, ApolloLink, gql } from '@apollo/client';
-import { getVersion, getApplicationName } from 'react-native-device-info';
+import { useEffect } from "react";
+import PropTypes from "prop-types";
+import { ApolloProvider, ApolloClient, ApolloLink, gql } from "@apollo/client";
+import { getVersion, getApplicationName } from "react-native-device-info";
 
-import { authLink, buildErrorLink } from '@apollosproject/ui-auth';
-import { updatePushId } from '@apollosproject/ui-notifications';
+import { authLink, buildErrorLink } from "@apollosproject/ui-auth";
+import { updatePushId } from "@apollosproject/ui-notifications";
 
-import { NavigationService } from '@apollosproject/ui-kit';
+import { NavigationService } from "@apollosproject/ui-kit";
 
-import httpLink from './httpLink';
-import cache, { ensureCacheHydration } from './cache';
+import httpLink from "./httpLink";
+import cache, { ensureCacheHydration } from "./cache";
 
 const wipeData = () =>
   cache.writeQuery({
@@ -20,7 +20,7 @@ const wipeData = () =>
       }
     `,
     data: {
-      __typename: 'Query',
+      __typename: "Query",
       cacheLoaded: false,
       isLoggedIn: false,
     },
@@ -54,10 +54,10 @@ export const client = new ApolloClient({
     watchQuery: {
       nextFetchPolicy(lastFetchPolicy) {
         if (
-          lastFetchPolicy === 'cache-and-network' ||
-          lastFetchPolicy === 'network-only'
+          lastFetchPolicy === "cache-and-network" ||
+          lastFetchPolicy === "network-only"
         ) {
-          return 'cache-first';
+          return "cache-first";
         }
         return lastFetchPolicy;
       },

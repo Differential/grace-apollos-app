@@ -30,10 +30,14 @@ import {
   SearchScreenConnected,
   UserSettingsConnected,
 } from "@apollosproject/ui-connected";
+import {
+  Onboarding,
+  LocationFinderConnected,
+  AskNotificationsConnected,
+} from "@apollosproject/ui-onboarding";
 import Providers from "./Providers";
 import Tabs from "./tabs";
 import customTheme, { customIcons } from "./theme";
-import Onboarding from "./ui/Onboarding";
 //import './bugsnag';
 
 enableScreens(); // improves performance for react-navigation
@@ -81,6 +85,18 @@ const LandingToAuth = () => {
   const navigation = useNavigation();
   return <Landing onPressPrimary={() => navigation.navigate("Auth")} />;
 };
+
+const CustomOnboarding = () => (
+  <Onboarding
+    slides={[
+      (props) => <LocationFinderConnected {...props} Component={AskLocation} />,
+      (props) => (
+        <AskNotificationsConnected {...props} Component={AskNotifications} />
+      ),
+      ,
+    ]}
+  />
+);
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -144,7 +160,7 @@ const App = () => (
             />
             <Screen
               name="Onboarding"
-              component={Onboarding}
+              component={CustomOnboarding}
               options={{
                 gestureEnabled: false,
                 stackPresentation: "push",
