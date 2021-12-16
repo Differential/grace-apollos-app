@@ -1,40 +1,40 @@
 /* eslint-disable react/jsx-handler-names */
 
-import { StatusBar } from 'react-native';
+import { StatusBar } from "react-native";
 import {
   NavigationContainer,
   useNavigation,
   DarkTheme,
   DefaultTheme,
-} from '@react-navigation/native';
-import { createNativeStackNavigator } from 'react-native-screens/native-stack';
-import SplashScreen from 'react-native-splash-screen';
-import 'react-native-gesture-handler'; // required for react-navigation
-import { enableScreens } from 'react-native-screens';
+} from "@react-navigation/native";
+import { createNativeStackNavigator } from "react-native-screens/native-stack";
+import SplashScreen from "react-native-splash-screen";
+import "react-native-gesture-handler"; // required for react-navigation
+import { enableScreens } from "react-native-screens";
 
 import {
   BackgroundView,
   withTheme,
   NavigationService,
   Providers as ThemeProvider,
-} from '@apollosproject/ui-kit';
-import Passes from '@apollosproject/ui-passes';
-import { MapViewConnected as Location } from '@apollosproject/ui-mapview';
-import Auth, { ProtectedRoute } from '@apollosproject/ui-auth';
-import { Landing } from '@apollosproject/ui-onboarding';
-import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+} from "@apollosproject/ui-kit";
+import Passes from "@apollosproject/ui-passes";
+import { MapViewConnected as Location } from "@apollosproject/ui-mapview";
+import Auth, { ProtectedRoute } from "@apollosproject/ui-auth";
+import { Landing } from "@apollosproject/ui-onboarding";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
 import {
   ContentSingleConnected,
   ContentFeedConnected,
   SearchScreenConnected,
   UserSettingsConnected,
-} from '@apollosproject/ui-connected';
-import Providers from './Providers';
-import Tabs from './tabs';
-import customTheme, { customIcons } from './theme';
-import Onboarding from './ui/Onboarding';
-import './bugsnag';
+} from "@apollosproject/ui-connected";
+import Providers from "./Providers";
+import Tabs from "./tabs";
+import customTheme, { customIcons } from "./theme";
+import Onboarding from "./ui/Onboarding";
+//import './bugsnag';
 
 enableScreens(); // improves performance for react-navigation
 
@@ -62,10 +62,10 @@ const WrappedContentSingleConnected = (props) => (
 
 const ThemedNavigationContainer = withTheme(({ theme, ...props }) => ({
   theme: {
-    ...(theme.type === 'dark' ? DarkTheme : DefaultTheme),
-    dark: theme.type === 'dark',
+    ...(theme.type === "dark" ? DarkTheme : DefaultTheme),
+    dark: theme.type === "dark",
     colors: {
-      ...(theme.type === 'dark' ? DarkTheme.colors : DefaultTheme.colors),
+      ...(theme.type === "dark" ? DarkTheme.colors : DefaultTheme.colors),
       primary: theme.colors.secondary,
       background: theme.colors.background.screen,
       card: theme.colors.background.paper,
@@ -79,7 +79,7 @@ const ThemedNavigationContainer = withTheme(({ theme, ...props }) => ({
 
 const LandingToAuth = () => {
   const navigation = useNavigation();
-  return <Landing onPressPrimary={() => navigation.navigate('Auth')} />;
+  return <Landing onPressPrimary={() => navigation.navigate("Auth")} />;
 };
 
 const { Navigator, Screen } = createNativeStackNavigator();
@@ -94,7 +94,7 @@ const App = () => (
       >
         <Providers>
           <Navigator
-            screenOptions={{ headerShown: false, stackPresentation: 'modal' }}
+            screenOptions={{ headerShown: false, stackPresentation: "modal" }}
           >
             <Screen
               name="ProtectedRoute"
@@ -105,23 +105,23 @@ const App = () => (
               component={Tabs}
               options={{
                 gestureEnabled: false,
-                stackPresentation: 'push',
+                stackPresentation: "push",
               }}
             />
             <Screen
               name="ContentSingle"
               component={WrappedContentSingleConnected}
               options={{
-                title: 'Content',
-                stackPresentation: 'fullScreenModal',
+                title: "Content",
+                stackPresentation: "fullScreenModal",
               }}
             />
             <Screen
               component={ContentFeedConnected}
               name="ContentFeed"
               options={({ route }) => ({
-                title: route.params.itemTitle || 'Content Feed',
-                stackPresentation: 'push',
+                title: route.params.itemTitle || "Content Feed",
+                stackPresentation: "push",
               })}
             />
             <Screen
@@ -129,25 +129,25 @@ const App = () => (
               component={Auth}
               options={{
                 gestureEnabled: false,
-                stackPresentation: 'push',
+                stackPresentation: "push",
               }}
             />
             <Screen
               name="Location"
               component={Location}
-              options={{ title: 'Campuses' }}
+              options={{ title: "Campuses" }}
             />
             <Screen
               name="Passes"
               component={Passes}
-              options={{ title: 'Check-In Pass' }}
+              options={{ title: "Check-In Pass" }}
             />
             <Screen
               name="Onboarding"
               component={Onboarding}
               options={{
                 gestureEnabled: false,
-                stackPresentation: 'push',
+                stackPresentation: "push",
               }}
             />
             <Screen name="LandingScreen" component={LandingToAuth} />
