@@ -1,16 +1,16 @@
-import { InMemoryCache } from "@apollo/client/cache";
-import AsyncStorage from "@react-native-community/async-storage";
-import { CachePersistor } from "apollo3-cache-persist";
-import ApollosConfig from "@apollosproject/config";
+import { InMemoryCache } from '@apollo/client/cache';
+import AsyncStorage from '@react-native-community/async-storage';
+import { CachePersistor } from 'apollo3-cache-persist';
+import ApollosConfig from '@apollosproject/config';
 
 // We reset our apollo cache based an env value and static number.
 // In the future, we should also look at resetting the app when an error occurs related to Apollo.
 // You can also increment this number to force a manual reset of the cache.
 const SCHEMA_VERSION = `${ApollosConfig.SCHEMA_VERSION}-1`; // Must be a string.
-const SCHEMA_VERSION_KEY = "apollo-schema-version";
+const SCHEMA_VERSION_KEY = 'apollo-schema-version';
 
 const nodeCacheRedirect = (_, { id }, { getCacheKey }) =>
-  id ? getCacheKey({ __typename: id.split(":")[0], id }) : null;
+  id ? getCacheKey({ __typename: id.split(':')[0], id }) : null;
 
 const cache = new InMemoryCache({
   possibleTypes: ApollosConfig.TYPEMAP,
@@ -44,7 +44,7 @@ export const ensureCacheHydration = (async () => {
       } catch (restoreError) {
         // If the restore fails, we want to do our best to purge the cache.
         await persistor.purge();
-        console.error("Error restoring cache, purging the cache", restoreError);
+        console.error('Error restoring cache, purging the cache', restoreError);
       }
     } else {
       // Otherwise, we'll want to purge the outdated persisted cache
@@ -53,7 +53,7 @@ export const ensureCacheHydration = (async () => {
       await AsyncStorage.setItem(SCHEMA_VERSION_KEY, SCHEMA_VERSION);
     }
   } catch (error) {
-    console.error("Error restoring or purging Apollo cache", error);
+    console.error('Error restoring or purging Apollo cache', error);
   }
 })();
 
