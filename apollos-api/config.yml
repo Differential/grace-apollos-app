@@ -249,6 +249,145 @@ TABS:
             summary: All of our groups are now online! Stay connected with others via Zoom group meetings.
             subtitle: Online groups
       type: HeroListFeature
+  READ:
+    - algorithms:
+      - type: CONTENT_FEED
+        arguments:
+          channelIds:
+            - 4
+      type: HorizontalCardList
+      title: Messages
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'View All'
+        relatedNode:
+          __typename: ContentChannel
+          id: 4
+          name: Messages
+    - algorithms:
+      - type: CONTENT_FEED
+        arguments:
+          channelIds:
+            - 14
+      type: HorizontalCardList
+      title: Grace Kids
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'View All'
+        relatedNode:
+          __typename: ContentChannel
+          id: 14
+          name: Grace Kids
+    - algorithms:
+      - type: CONTENT_FEED
+        arguments:
+          channelIds:
+            - 22
+      type: HorizontalCardList
+      title: Community
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'View All'
+        relatedNode:
+          __typename: ContentChannel
+          id: 22
+          name: Community
+    - algorithms:
+      - type: CONTENT_FEED
+        arguments:
+          channelIds:
+            - 23
+      type: HorizontalCardList
+      title: Compassion
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'View All'
+        relatedNode:
+          __typename: ContentChannel
+          id: 23
+          name: Compassion
+    - algorithms:
+      - type: CONTENT_FEED
+        arguments:
+          channelIds:
+            - 7
+      type: HorizontalCardList
+      title: Stories
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'View All'
+        relatedNode:
+          __typename: ContentChannel
+          id: 7
+          name: Stories
+    - algorithms:
+      - type: CONTENT_FEED
+        arguments:
+          channelIds:
+            - 15
+      type: HorizontalCardList
+      title: News
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'View All'
+        relatedNode:
+          __typename: ContentChannel
+          id: 15
+          name: News
+    - algorithms:
+      - type: CONTENT_FEED
+        arguments:
+          channelIds:
+            - 10
+      type: HorizontalCardList
+      title: Leaders
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'View All'
+        relatedNode:
+          __typename: ContentChannel
+          id: 10
+          name: Leaders
+  CONNECT:
+    - type: ActionBar
+      actions:
+        [
+          {
+            title: Give,
+            icon: like,
+            action: OPEN_URL,
+            relatedNode: { __typename: Url, url: 'https://trygrace.org/give' },
+          },
+          {
+            title: Contact,
+            icon: information,
+            action: OPEN_URL,
+            relatedNode: { __typename: Url, url: 'mailto:info@trygrace.org' },
+          },
+        ]
+    - type: ActionTable
+      title: Connect
+      actions:
+        [
+          {
+            title: I Need Prayer,
+            action: OPEN_URL,
+            relatedNode: { __typename: Url, url: 'https://trygrace.org/prayer' },
+          },
+          {
+            title: Serve,
+            action: OPEN_URL,
+            relatedNode: { __typename: Url, url: 'https://trygrace.org/serve' },
+          },
+          {
+            title: Upcoming Events,
+            action: OPEN_URL,
+            relatedNode: { __typename: Url, url: 'https://trygrace.org/events' },
+          },
+        ]
+
+
+
 
 # Default mapping of field types -> ids. There's probably no reason to edit this.
 ROCK_CONSTANTS:

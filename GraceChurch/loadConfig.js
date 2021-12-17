@@ -1,20 +1,19 @@
 import ApollosConfig from '@apollosproject/config';
 import FRAGMENTS from '@apollosproject/ui-fragments';
-import gql from 'graphql-tag';
+import fragmentTypes from './src/client/fragmentTypes.json';
 
-ApollosConfig.loadJs({
-  FRAGMENTS: {
-    ...FRAGMENTS,
-    RELATED_NODE_FRAGMENT: gql`
-      fragment RelatedFeatureNodeFragment on Node {
-        id
-        ... on Url {
-          url
-        }
-        ... on GraceGroup {
-          url
-        }
-      }
-    `,
-  },
+// Create a map all the interfaces each type implements.
+// If UniversalContentItem implements Node, Card, and ContentNode,
+// our typemap would be { UniversalContentItem: ['Node', 'Card', 'ContentNode'] }
+//
+// Used with Apollo Client cache resolver as well as internal Apollos UI functions
+const TYPEMAP = {};
+fragmentTypes.__schema.types.forEach((supertype) => {
+  if (supertype.possibleTypes) {
+    TYPEMAP[supertype.name] = [
+      ...supertype.possibleTypes.map((subtype) => subtype.name),
+    ];
+  }
 });
+
+ApollosConfig.loadJs({ FRAGMENTS, TYPEMAP });

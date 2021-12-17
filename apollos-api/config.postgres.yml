@@ -10,66 +10,34 @@
 APP:
   # This variable is used for generating deep links.
   # It should match whatver is in your Info.plist `CFBundleURLTypes`
-  DEEP_LINK_HOST: GraceChurch
+  DEEP_LINK_HOST: ${DEEP_LINK_HOST}
+  UNIVERSAL_LINK_HOST: ${UNIVERSAL_LINK_HOST}
   ROOT_API_URL: ${ROOT_URL}
   JOBS_USERNAME: ${JOBS_USERNAME}
   JOBS_PASSWORD: ${JOBS_PASSWORD}
-VIMEO:
-  TOKEN: ${VIMEO_TOKEN}
-REMOTE_CAMPUS:
-  FIELDS:
-    latitude: 38.87006
-    longitude: -77.09631
-    street1: 'No locations near you. '
-    city: "When there's one"
-    state: "we'll let you know!"
-    postalCode: ''
+DATABASE:
+  URL: ${DATABASE_URL}
+BUGSNAG:
+  API_KEY: ${BUGSNAG_KEY}
 ROCK:
-  API_URL: https://trygrace.org/api
+  URL: ${ROCK_URL}
   API_TOKEN: ${ROCK_TOKEN}
-  IMAGE_URL: https://trygrace.org/GetImage.ashx
-  SHARE_URL: https://trygrace.org
-  # This should match the timezone of the Rock server
-  TIMEZONE: 'America/New_York'
-  USE_PLUGIN: true
-  SHOW_INACTIVE_CONTENT: ${ROCK_SHOW_INACTIVE_CONTENT}
-  VERSION: 11.4
 UNIVERSAL_LINKS:
-  # This should be your app's bundle ID, as found in your info.plist.
-  APPLE_APP_ID: org.trygrace.gracechurch
-  # This should be your app's team ID, as found in Xcode
-  APPLE_TEAM_ID: 2N3ZXZPPAT
-  # Where should a user be redirected if they don't have your app installed?
-  APP_STORE_LINK: https://trygrace.org/
-  PLAY_STORE_LINK: https://trygrace.org/
-  # Your app Id, as found in your app/build.gradle.
-  GOOGLE_APP_ID: org.trygrace.gracechurch
-  # https://docs.getsocial.im/knowledge-base/android-signing-key-sha256/
-  GOOGLE_KEYSTORE_SHA256: 37:19:73:5A:4B:E3:B5:94:CD:3E:9C:76:EF:11:AE:9B:C9:1B:9B:94:F0:EE:05:EE:BE:38:C0:EC:0F:1F:68:D3
+  APPLE_APP_ID: ${APPLE_APP_ID}
+  APPLE_TEAM_ID: ${APPLE_TEAM_ID}
+  APP_STORE_LINK: ${IOS_REDIRECT}
+  PLAY_STORE_LINK: ${ANDROID_REDIRECT}
+  GOOGLE_APP_ID: ${GOOGLE_APP_ID}
+  GOOGLE_KEYSTORE_SHA256: ${GOOGLE_KEYSTORE_SHA256}
 ONE_SIGNAL:
-  APP_ID: 50a99e4b-050c-4cb6-a606-4a7895b0fc4e
+  APP_ID: ${ONE_SIGNAL_APP_ID}
   REST_KEY: ${ONE_SIGNAL_REST_KEY}
 CHURCH_ONLINE:
-  URL: https://live.trygrace.org/
-  MEDIA_URLS: []
-  WEB_VIEW_URL: https://live.trygrace.org/
+  URL: ${CHURCH_ONLINE_URL}
+  WEB_VIEW_URL: https://apollos.online.church/
 ALGOLIA:
   APPLICATION_ID: ${ALGOLIASEARCH_APPLICATION_ID}
   API_KEY: ${ALGOLIASEARCH_API_KEY}
-  # TODO: should we support multiple indices? how
-  SEARCH_INDEX: ContentItem_${ALGOLIA_ENV}
-  # Configure Algolia custom settings here
-  # https://www.algolia.com/doc/api-reference/settings-api-parameters/
-  CONFIGURATION:
-    searchableAttributes:
-      - subtitle
-      - unordered(summary)
-    #customRankings:
-    # NOT CURRENTLY INCLUDED
-    # This just demonstrates what's possible
-    # To include likedCount (or any other field) override search package
-    # and add field to config below
-    #- desc(likedCount)
 TWILIO:
   ACCOUNT_SID: ${TWILIO_ACCOUNT_SID}
   AUTH_TOKEN: ${TWILIO_AUTH_TOKEN}
@@ -82,248 +50,195 @@ PASS:
     SIGNER_CERT: ${PASS_SIGNER_CERT}
     SIGNER_KEY: ${PASS_SIGNER_KEY}
     SIGNER_KEY_PASSPHRASE: ${PASS_SIGNER_PASSPHRASE}
-ANALYTICS:
-  # Filling out these fields will automatically enable analytics tracking
-  # on the accompanying service
-  SEGMENT_KEY:
-  GA_ID:
-  USE_ROCK: false
-BUGSNAG:
-  API_KEY: ${BUGSNAG_API_KEY}
 BIBLE_API:
   KEY: ${BIBLE_API_KEY}
   BIBLE_ID:
     WEB: '9879dbb7cfe39e4d-01'
     KJV: 'de4e12af7f28f599-02'
 CLOUDINARY:
-  # Cloudinary is used to improve image loading
-  # value should look something like
-  # cloudinary://123123123:adkfnla_adASDv_adAS@test
   URL: ${CLOUDINARY_URL}
-ENGINE:
-  API_KEY: ${ENGINE_API_KEY}
-  SCHEMA_TAG: ${ENGINE_SCHEMA_TAG}
 
-# This key holds various properties that allow our GraphQL server to map to your Rock Instance
-ROCK_MAPPINGS:
-  INTERACTIONS:
-    # Name of the InteractionChannel that will be created per EntityType
-    CHANNEL_NAME: Grace Church App
-    # Prefix for the name of the InteractionComponent that will be created per Entity
-    COMPONENT_NAME: Grace Church Component
-    # 512 is "Mobile App"
-    CHANNEL_MEDIUM_TYPE_ID: 512
+CONTENT:
+  SERMON_CHANNEL_ID: cbc0994a-97f1-471a-a7d5-4eff59d8a389
+  TYPES:
+    - ContentSeriesContentItem
+    - DevotionalContentItem
+    - MediaContentItem
+    - UniversalContentItem
+    - WeekendContentItem
+    - ContentItem
 
-  CONTENT_ITEM:
-    ContentSeriesContentItem:
-      # When resolving "ContentSeriesContentItem" look in rock for a "ContentChannelItem"
-      EntityType: ContentChannelItem
-      # Used to define the subset of content channels types that use this specific type.
-      ContentChannelTypeId: [6, 11]
-    DevotionalContentItem:
-      EntityType: ContentChannelItem
-      # ContentChannelTypeId: [1]
-    MediaContentItem:
-      EntityType: ContentChannelItem
-    UniversalContentItem:
-      EntityType: ContentChannelItem
-    WeekendContentItem:
-      ContentChannelId: [5]
-      EntityType: ContentChannelItem
-    ContentItem:
-      EntityType: ContentChannelItem
-
-  DATAVIEW_CATEGORIES:
-    # Id of the category used to store all persona dataviews
-    PersonaId: 267
-
-  # Apollos will pull these content channels and expose them in the app on the discover screen.
-  DISCOVER_CONTENT_CHANNEL_IDS:
-    # - 16 # Daily Grace
-    - 4 # Messages
-    - 14 # Grace Kids
-    - 22 # Community
-    - 23 # Compassion
-    - 25 # Resources
-    - 7 # Stories
-    - 15 # News
-    - 10 # Leaders
-
-  # Apollos will pull content items from these channels and expose them on the user feed
-  # However, it will not expose the channel itself.
-  # These channels are also pulled when indexing searchable content.
-  FEED_CONTENT_CHANNEL_IDS:
-    - 4
-    - 5
-    - 15
-    - 7
-    - 14
-    - 16
-
-  CAMPAIGN_CHANNEL_IDS:
-    - 13
-
-  SERMON_CHANNEL_ID: 5
-
-  SERVING_GROUP_TYPE_ID: 23
-  COMMUNITY_GROUP_TYPE_ID: 25
-  FAMILY_GROUP_TYPE_ID: 10
-
-  MOBILE_DEVICE_TYPE_ID: 512
-
-  PROMO_CAMPAIGN_CHANNEL_IDS:
-    - 19
+SUGGESTED_FOLLOWS:
+  - email: vincent@differential.com
+  - email: conrad@differential.com
 
 TABS:
   HOME:
-    - algorithms: [MOST_RECENT_SERMON]
-      subtitle:
-      type: VerticalCardList
-      isFeatured: true
+    - type: ActionBar
+      title: Welcome to Apollos
+      actions:
+        [
+          {
+            title: Check In,
+            icon: check,
+            action: OPEN_URL,
+            relatedNode: { __typename: Url, url: 'https://www.google.com' },
+          },
+        ]
     - algorithms:
-        - type: DAILY_PRAYER
-          arguments:
-            numberDaysSincePrayer: 7
+      - type: CONTENT_FEED
+        arguments:
+          channelIds:
+            - c7f43eb9-2200-4267-ab28-871e0d5e785f
+            - 3dfe7149-136b-4134-bd91-fdd935ef2221
+      type: HeroList
+      primaryAction:
+        # Right now, you hardcode exactly what GraphQL should return.
+        # Long term, we hope to have a more sophisticated mechanism for driving this field
+        action: OPEN_NODE
+        title: 'Read More'
+        relatedNode:
+          __typename: UniversalContentItem
+          id: a2c42d1d-98c8-46fb-aeea-603bc569cf7d
+    - algorithms: [DAILY_PRAYER]
       isCard: false
       type: PrayerList
-      subtitle: Daily Prayers
-    - algorithms: [DAILY_GRACE]
-      subtitle: Daily Scripture
-      type: VerticalCardList
-    - algorithms:
-        - type: CONTENT_CHANNEL
-          arguments:
-            contentChannelId: 21
-      subtitle: Today's Message Outline
-      type: VerticalCardList
-    - algorithms: [FEATURED_CAMPAIGN]
-      subtitle: Featured
-      type: VerticalCardList
+      title: Daily Prayer
     - algorithms:
         - type: CAMPAIGN_ITEMS
-          arguments:
-            limit: 6
-      subtitle: Upcoming
+          channelIds:
+            - 4b23ebc9-248e-4092-99f9-8829e1b6f1cc
+      type: HeroList
+      isFeatured: true
+      subtitle: Featured
+    - title: FOR YOU
+      algorithms: [SERMON_CHILDREN, PERSONA_FEED]
+      subtitle: Explore what God calls you to today
+      type: ActionList
+    - algorithms: [SERIES_IN_PROGRESS]
+      subtitle: Continue
+      type: HorizontalCardList
+    - title: RECOMMENDED
+      algorithms: [SERMON_CHILDREN]
+      subtitle: For Him
       type: VerticalCardList
-    - subtitle: Stay Connected
-      heroAlgorithms:
-        - type: SINGLE_IMAGE_CARD
+    - title: BULLETIN
+      subtitle: What's happening at apollos?
+      type: ActionList
+      algorithms:
+        - type: CONTENT_FEED
           arguments:
-            image: https://trygrace.org/GetFile.ashx?guid=3576a570-88e2-4fd2-bd9f-c4f8e2fc1da9
-            url: https://trygrace.org/groups
-            summary: All of our groups are now online! Stay connected with others via Zoom group meetings.
-            subtitle: Online groups
-      type: HeroListFeature
+            channelIds:
+              - 13
+        - type: UPCOMING_EVENTS
 
-# Default mapping of field types -> ids. There's probably no reason to edit this.
-ROCK_CONSTANTS:
-  TEXT: 1
-  MULTI_SELECT: 2
-  BOOLEAN: 3
-  COLOR: 4
-  SINGLE_SELECT: 6
-  INTEGER: 7
-  PAGE_REFERENCE: 8
-  IMAGE: 10
-  DATE: 11
-  DECIMAL: 14
-  DEFINED_TYPE: 15
-  DEFINED_VALUE: 16
-  PERSON: 18
-  HTML: 20
-  MEMO: 21
-  GROUP_TYPES: 22
-  GROUP: 23
-  CAMPUSES: 26
-  ENTITY_TYPE: 29
-  CAMPUS: 30
-  EMAIL_TEMPLATE: 31
-  FILE: 32
-  GROUP_TYPE: 33
-  KEY_VALUE_LIST: 34
-  BINARY_FILE_TYPE: 35
-  WORKFLOW_TYPE: 36
-  BINARY_FILE: 37
-  FINANCIAL_ACCOUNT: 38
-  FINANCIAL_ACCOUNTS: 39
-  COMPONENT: 40
-  COMPONENTS: 41
-  CATEGORIES: 42
-  GROUP_ROLE: 43
-  CATEGORY: 44
-  LOCATION: 45
-  DATE_RANGE: 46
-  DECIMAL_RANGE: 47
-  INTEGER_RANGE: 48
-  TIME: 49
-  GROUP_LOCATION_TYPE: 50
-  CODE_EDITOR: 51
-  PERSON_BADGES: 52
-  SITE: 53
-  COMMUNICATION_TEMPLATE: 54
-  DAY_OF_WEEK: 55
-  DAYS_OF_WEEK: 56
-  REMOTE_AUTHS: 57
-  COMPARISON: 58
-  METRIC_ENTITY: 59
-  WORKFLOW_ACTIVITY: 60
-  WORKFLOW_ATTRIBUTE: 61
-  METRICS: 62
-  ENTITY: 63
-  METRIC_CATEGORIES: 64
-  WORKFLOW_TEXT_OR_ATTRIBUTE: 65
-  SLIDING_DATE_RANGE: 66
-  GROUP_TYPE_GROUP: 67
-  SECURITY_ROLE: 68
-  VALUE_LIST: 69
-  CURRENCY: 70
-  EMAIL: 71
-  URL_LINK: 72
-  WORKFLOW_TYPES: 73
-  ATTRIBUTE: 74
-  SCHEDULES: 75
-  CONTENT_CHANNEL: 76
-  AUDIO_FILE: 77
-  AUDIO_URL: 78
-  VIDEO_FILE: 79
-  VIDEO_URL: 80
-  ENCRYPTED_TEXT: 81
-  FILTER_DATE: 82
-  DATE_TIME: 83
-  DEFINED_VALUE_RANGE: 84
-  RATING: 85
-  SYSTEM_EMAIL: 86
-  FINANCIAL_GATEWAY: 87
-  GROUP_AND_ROLE: 88
-  NOTE_TYPE: 89
-  NOTE_TYPES: 90
-  EVENT_CALENDAR: 91
-  EVENT_ITEM: 92
-  CONNECTION_ACTIVITY_TYPE: 93
-  CONNECTION_OPPORTUNITY: 94
-  CONNECTION_REQUEST: 95
-  CONNECTION_STATE: 96
-  CONNECTION_STATUS: 97
-  CONNECTION_TYPE: 98
-  CONNECTION_TYPES: 99
-  MERGE_TEMPLATE: 100
-  RANGE_SLIDER: 101
-  BINARY_FILE_TYPES: 102
-  MARKDOWN: 103
-  DATA_VIEW: 104
-  PHONE_NUMBER: 105
-  SCHEDULE: 106
-  LAVA_COMMANDS: 107
-  ADDRESS: 108
-  BENEVOLENCE_REQUEST: 109
-  CONTENT_CHANNEL_TYPES: 110
-  WORKFLOW: 111
-  SSN: 112
-  MATRIX: 113
-  LAVA: 114
-  DATA_VIEWS: 115
-  COMMUNICATION_PREFERENCE: 116
-  INTERACTION_CHANNEL: 117
-  GROUP_MEMBER: 118
-  TIME_ZONE: 119
-  LABEL: 120
+  READ:
+    - algorithms:
+        - type: CONTENT_FEED
+          arguments:
+            channelIds:
+              - c7f43eb9-2200-4267-ab28-871e0d5e785f
+            limit: 3
+      type: HorizontalCardList
+      subtitle: Podcast Messages
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'Read More'
+        relatedNode:
+          __typename: ContentChannel
+          apollosId: ContentChannel:f4a5890c-4af5-4d9f-afe3-5d1c6aa85419
+          title: Podcast Messages
+    - algorithms:
+        - type: CONTENT_FEED
+          arguments:
+            channelIds:
+              - d9da719f-84ef-4cf0-9875-22fea4bf09eb
+            limit: 3
+      type: HorizontalCardList
+      subtitle: Devotionals
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'Read More'
+        relatedNode:
+          __typename: ContentChannel
+          apollosId: ContentChannel:d9da719f-84ef-4cf0-9875-22fea4bf09eb
+          title: Devotionals
+
+  WATCH:
+    - algorithms:
+        - type: LATEST_SERIES_CHILDREN
+          arguments:
+            channelId: 8f0a93f5-ccec-4cc1-8fd8-06afe5982f7b
+      type: HeroList
+      title: Catch up
+      subtitle: Latest Series
+    - algorithms:
+        - type: CONTENT_FEED
+          arguments:
+            channelIds:
+              - f4a5890c-4af5-4d9f-afe3-5d1c6aa85419
+      type: VerticalCardList
+      subtitle: All series
+    - algorithms:
+        - type: CONTENT_FEED
+          arguments:
+            channelIds:
+              - 8f0a93f5-ccec-4cc1-8fd8-06afe5982f7b
+            limit: 3
+      type: HorizontalCardList
+      subtitle: Sermons
+    - algorithms:
+        - type: CONTENT_FEED
+          arguments:
+            channelIds:
+              - f4a5890c-4af5-4d9f-afe3-5d1c6aa85419
+            limit: 3
+      type: HorizontalCardList
+      subtitle: Podcasts
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'Read More'
+        relatedNode:
+          __typename: ContentChannel
+          apollosId: ContentChannel:f4a5890c-4af5-4d9f-afe3-5d1c6aa85419
+          title: Podcasts
+    - algorithms:
+        - type: CONTENT_FEED
+          arguments:
+            channelIds:
+              - f4a5890c-4af5-4d9f-afe3-5d1c6aa85419
+            limit: 3
+      type: HorizontalCardList
+      title: Videos
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'Read More'
+        relatedNode:
+          __typename: ContentChannel
+          apollosId: ContentChannel:f4a5890c-4af5-4d9f-afe3-5d1c6aa85419
+          title: Videos
+
+  PRAY:
+    - algorithms: [DAILY_PRAYER]
+      isCard: false
+      type: PrayerList
+      title: Daily Prayer
+    - type: VerticalPrayerList
+      title: Your Prayers
+  CONNECT:
+    - type: FollowPeople
+    - type: ActionTable
+      title: Connect to Apollos
+      actions:
+        [
+          {
+            title: Google,
+            action: OPEN_URL,
+            relatedNode: { __typename: Url, url: 'https://www.google.com' },
+          },
+          {
+            title: Facebook,
+            action: OPEN_URL,
+            relatedNode: { __typename: Url, url: 'https://www.facebook.com' },
+          },
+        ]

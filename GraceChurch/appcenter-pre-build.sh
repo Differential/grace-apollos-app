@@ -16,5 +16,3 @@ echo Using "$VERSION_CODE" as build number
 echo $VERSION_CODE
 plutil -replace CFBundleVersion -string "$VERSION_CODE" $(pwd)/ios/apolloschurchapp/Info.plist
 sed -i "" 's/versionCode [^"]*/versionCode '$VERSION_CODE'/' $(pwd)/android/app/build.gradle
-
-yarn generate-stories

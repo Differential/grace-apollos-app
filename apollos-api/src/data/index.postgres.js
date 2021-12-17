@@ -16,23 +16,23 @@ import * as Sms from '@apollosproject/data-connector-twilio';
 import {
   Followings,
   Interactions as RockInteractions,
-  // RockConstants,
+  RockConstants,
   Sharable,
-  // Auth,
+  Auth,
   PersonalDevice,
   Template,
-  // AuthSms,
+  AuthSms,
   Group,
   BinaryFiles,
   FeatureFeed,
   Event,
-  PrayerRequest,
   Person as RockPerson,
-  // ContentItem as RockContentItem,
+  ContentItem as RockContentItem,
   Campus as RockCampus,
-  // ContentChannel,
-  // Feature as RockFeature,
+  ContentChannel,
+  Feature as RockFeature,
   ActionAlgorithm as RockActionAlgorithm,
+  PrayerRequest as RockPrayerRequest,
 } from '@apollosproject/data-connector-rock';
 
 import {
@@ -56,18 +56,7 @@ import {
   PrayerRequest as PostgresPrayerRequest,
 } from '@apollosproject/data-connector-postgres';
 
-// import * as LiveStream from './ChurchOnline';
 import * as Theme from './theme';
-import * as GraceGroup from './GraceGroup';
-import * as Auth from './Auth';
-import * as AuthSms from './AuthSMS';
-import * as RockFeature from './Feature';
-import * as RockContentItem from './ContentItem';
-import * as ContentChannel from './ContentChannel';
-import * as Vimeo from './Vimeo';
-// import * as Person from './Person';
-// import * as Search from './Algolia';
-import * as RockConstants from './RockConstants';
 
 // This modules ties together certain updates so they occurs in both Rock and Postgres.
 // Will be eliminated in the future through an enhancement to the Shovel
@@ -76,6 +65,7 @@ import {
   OneSignal,
   PostgresDefaultCampusOverride,
   RockDefaultCampusOverride,
+  PrayerRequest,
 } from './rockWithPostgres';
 
 const postgresContentModules = {
@@ -88,10 +78,14 @@ const postgresContentModules = {
   ContentItem: PostgresContentItem,
   ContentItemsConnection,
   ContentChannel: ContentItemCategory,
-  PrayerRequest: PostgresPrayerRequest,
   RockCampus: { dataSource: RockCampus.dataSource },
   Campus,
   PostgresDefaultCampusOverride,
+  RockPrayerRequest: {
+    dataSource: RockPrayerRequest.dataSource,
+  },
+  PostgresPrayerRequest,
+  PrayerRequest,
 };
 
 const rockContentModules = {
@@ -101,7 +95,6 @@ const rockContentModules = {
   Feature: RockFeature,
   ContentItem: RockContentItem,
   ContentChannel,
-  PrayerRequest,
   PostgresCampus: {
     // essentially everything but the resolvers
     dataSource: Campus.dataSource,
@@ -110,6 +103,7 @@ const rockContentModules = {
   },
   Campus: RockCampus,
   RockDefaultCampusOverride,
+  PrayerRequest: RockPrayerRequest,
 };
 
 const data = {
@@ -131,8 +125,6 @@ const data = {
   RockConstants,
   Sharable,
   Analytics,
-  GraceGroup,
-  Vimeo,
   PersonalDevice,
   Pass,
   Search,

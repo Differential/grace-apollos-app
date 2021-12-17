@@ -1,35 +1,26 @@
 {
   "name": "apollos-templates",
   "scripts": {
-    "start": "yarn watch:client & lerna run start --parallel",
-    "watch:client": "(cd GraceChurch && yarn wml start)",
-    "link-packages": "watchman watch-del-all && lerna run link-packages --parallel",
-    "link-doctor": "node ./scripts/link-doctor.js",
-    "unlink-packages": "lerna run unlink-packages --parallel",
+    "setup": "lerna run setup",
+    "start": "lerna run start:dev --parallel",
     "lint": "lerna run lint --stream",
     "test": "lerna run test --stream",
     "ios": "lerna run ios --parallel",
+    "android": "lerna run android --parallel",
     "pods": "lerna run pods --parallel",
-    "setup": "yarn install && yarn setup:client && yarn setup:api",
-    "setup:client": "cd GraceChurch && yarn install",
-    "setup:api": "cd apollos-api && yarn install",
-    "nuke": "./scripts/boom.sh && yarn nuke:node && yarn nuke:cache",
-    "nuke:node": "rm -rdf ./node_modules packages/*/node_modules && yarn cache clean && yarn",
-    "nuke:cache": "watchman watch-del-all && ./node_modules/.bin/lerna run start --scope GraceChurch --stream -- --reset-cache",
-    "secrets": "./scripts/secrets.sh"
+    "postinstall": "lerna run postinstall --parallel",
+    "bump": "./scripts/bump.sh"
   },
   "private": true,
   "devDependencies": {
     "lerna": "^3.20.2",
-    "wml": "^0.0.83",
-    "yalc": "^1.0.0-pre.35",
     "chalk": "^4.0.0"
   },
   "dependencies": {},
   "workspaces": {
     "packages": [
       "GraceChurch",
-      "apollos-api"
+      "apollos-church-api"
     ],
     "nohoist": [
       "*",
@@ -38,3 +29,4 @@
     ]
   }
 }
+
