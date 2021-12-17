@@ -203,28 +203,43 @@ TABS:
             # subtitle: Online groups
       type: HeroListFeature
   WATCH:
-    - algorithms: [MOST_RECENT_SERMON]
-      subtitle: Latest Message
+    # - algorithms: [MOST_RECENT_SERMON]
+    #   subtitle: Latest Message
+    #   type: HeroList
+    #   isFeatured: true
+    - algorithms:
+      - type: CONTENT_FEED
+        arguments:
+          channelIds:
+            - 5
+          limit: 4
       type: HeroList
-      isFeatured: true
-  READ:
-    - algorithms: [FEATURED_CAMPAIGN]
-      title: Featured
-      type: VerticalCardList
+      subtitle: Latest Message
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'Recent Messages'
+        relatedNode:
+          __typename: ContentChannel
+          id: 5
+          name: 'Messages'
     - algorithms:
       - type: CONTENT_FEED
         arguments:
           channelIds:
             - 4
       type: HorizontalCardList
-      title: Messages
+      subtitle: All Series
       primaryAction:
         action: OPEN_CHANNEL
         title: 'View All'
         relatedNode:
           __typename: ContentChannel
           id: 4
-          name: Messages
+          name: All Series
+  READ: # Explore Tab
+    - algorithms: [FEATURED_CAMPAIGN]
+      title: Featured
+      type: VerticalCardList
     - algorithms:
       - type: CONTENT_FEED
         arguments:
