@@ -139,7 +139,7 @@ class dataSource extends FeatureDataSource {
       {
         id: 'verse-of-the-day',
         title,
-        subtitle: '',
+        subtitle: 'Read & Reflect',
         relatedNode: {
           url: get(verseOfTheDay, 'verse.url'),
           id: JSON.stringify({ verseOfTheDay }),

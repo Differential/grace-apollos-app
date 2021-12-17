@@ -163,6 +163,9 @@ const overrides = {
   'ui-onboarding.Landing.Title': {
     marginTop: 32,
   },
+  'ui-kit.ChannelLabel.Wrapper': (theme) => ({
+    paddingBottom: theme.sizing.baseUnit * 0.5,
+  }),
 };
 
 export default { colors, overrides, overlays, typography };
