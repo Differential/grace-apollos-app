@@ -64,7 +64,7 @@ const SearchButton = () => {
     >
       <Icon
         name="search"
-        size={theme.sizing.baseUnit * 2}
+        size={theme.sizing.baseUnit * 1.5}
         fill={theme.colors.primary}
       />
     </Touchable>
@@ -76,7 +76,6 @@ const HomeTab = createFeatureFeedTab({
   screenOptions: {
     headerHideShadow: true,
     headerCenter: HeaderLogo,
-    headerRight: SearchButton,
     headerLeft: ProfileButton,
     headerLargeTitle: false,
   },
@@ -88,6 +87,9 @@ const HomeTab = createFeatureFeedTab({
 });
 
 const ReadTab = createFeatureFeedTab({
+  screenOptions: {
+    headerRight: SearchButton,
+  },
   options: {
     headerLeft: ProfileButton,
   },

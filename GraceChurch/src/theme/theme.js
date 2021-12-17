@@ -160,6 +160,9 @@ const overrides = {
     BackgroundComponent: () => <FullScreenImage />,
     textColor: 'white',
   },
+  'ui-onboarding.Landing.Title': {
+    marginTop: 32,
+  },
 };
 
 export default { colors, overrides, overlays, typography };
