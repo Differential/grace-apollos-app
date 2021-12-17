@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { Image, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
   NavigationService,
@@ -14,12 +13,9 @@ import { useApolloClient } from '@apollo/client';
 import {
   createFeatureFeedTab,
   UserAvatarConnected,
-  ConnectScreenConnected,
   VerticalCardListFeatureConnected,
 } from '@apollosproject/ui-connected';
 import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
-import ActionTable from '../ui/ActionTable';
-import ActionBar from '../ui/ActionBar';
 import CampaignItemListFeature from '../ui/CampaignItemListFeature';
 import tabBarIcon from './tabBarIcon';
 

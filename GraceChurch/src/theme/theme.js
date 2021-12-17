@@ -1,33 +1,33 @@
-import React from "react";
-import { StyleSheet } from "react-native";
-import { get } from "lodash";
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { get } from 'lodash';
 
 import {
   DefaultCard,
   HighlightCard,
   FeaturedCard,
   styled,
-} from "@apollosproject/ui-kit";
-import ImageCard from "../ui/ImageCard";
-import fontStack from "./fontStack";
-import FullScreenBackgroundImage from "../ui/FullScreenBackgroundImage";
+} from '@apollosproject/ui-kit';
+import ImageCard from '../ui/ImageCard';
+import fontStack from './fontStack';
+import FullScreenBackgroundImage from '../ui/FullScreenBackgroundImage';
 
 const cardMapper = (props) => {
   // map typename to the the card we want to render.
   if (props.isFeatured) {
     return <FeaturedCard {...props} />;
   }
-  switch (get(props, "__typename")) {
-    case "Url":
+  switch (get(props, '__typename')) {
+    case 'Url':
       if (!props.title && !props.subtitle) {
         return <ImageCard {...props} />;
       }
       return <HighlightCard {...props} />;
 
-    case "MediaContentItem":
-    case "WeekendContentItem":
-    case "ContentSeriesContentItem":
-    case "DevotionalContentItem":
+    case 'MediaContentItem':
+    case 'WeekendContentItem':
+    case 'ContentSeriesContentItem':
+    case 'DevotionalContentItem':
       return <HighlightCard {...props} />;
     default:
       return <DefaultCard {...props} />;
@@ -47,33 +47,33 @@ const cardMapper = (props) => {
  * on a per-component basis with "overrides"
  */
 const colors = {
-  primary: "#2F97A0",
-  secondary: "#1C3B6B",
+  primary: '#2F97A0',
+  secondary: '#1C3B6B',
 
-  screen: "#FAFAFA",
-  paper: "#FFFFFF",
-  alert: "#C64F55",
+  screen: '#FAFAFA',
+  paper: '#FFFFFF',
+  alert: '#C64F55',
 
   // Dark shades
-  darkPrimary: "#323232",
-  darkSecondary: "#505050",
-  darkTertiary: "#B8B8B8",
+  darkPrimary: '#323232',
+  darkSecondary: '#505050',
+  darkTertiary: '#B8B8B8',
 
   // Light shades
-  lightPrimary: "#F8F8F8",
-  lightSecondary: "#E3E3E3",
-  lightTertiary: "#DCDCDC",
+  lightPrimary: '#F8F8F8',
+  lightSecondary: '#E3E3E3',
+  lightTertiary: '#DCDCDC',
 
   // Statics
-  wordOfChrist: "#8b0000", // only used in Scripture.
+  wordOfChrist: '#8b0000', // only used in Scripture.
   background: {
-    accent: "#9BCBEB",
+    accent: '#9BCBEB',
   },
 };
 
 const overlays = {
-  "no-overlay": () => () => ({
-    colors: ["transparent", "transparent"],
+  'no-overlay': () => () => ({
+    colors: ['transparent', 'transparent'],
     start: { x: 0, y: 0 },
     end: { x: 0, y: 1 },
     locations: [0, 1],
@@ -127,7 +127,7 @@ export const typography = {
 // };
 
 const FullScreenImage = styled({
-  resizeMode: "cover",
+  resizeMode: 'cover',
   ...StyleSheet.absoluteFill,
 })(FullScreenBackgroundImage);
 
@@ -140,7 +140,7 @@ const overrides = {
   },
   H3: {
     fontFamily: typography.sans.black.default,
-    textTransform: "uppercase",
+    textTransform: 'uppercase',
   },
   H4: {
     fontFamily: typography.sans.black.default,
@@ -154,14 +154,14 @@ const overrides = {
   ContentCardComponentMapper: {
     Component: () => cardMapper,
   },
-  "HeroListFeature.Subtitle": ({ helpers: themeHelpers }) => ({
+  'HeroListFeature.Subtitle': ({ helpers: themeHelpers }) => ({
     fontFamily: typography.sans.light.default,
-    textTransform: "capitalize",
+    textTransform: 'capitalize',
     fontSize: themeHelpers.rem(1.5),
   }),
-  "ui-onboarding.Landing": {
+  'ui-onboarding.Landing': {
     BackgroundComponent: () => <FullScreenImage />,
-    textColor: "white",
+    textColor: 'white',
   },
 };
 
