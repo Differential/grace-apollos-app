@@ -117,8 +117,12 @@ const TabNavigator = () => {
       navigateHome: false,
     });
   }, [client]);
+
+  const theme = useTheme();
+  let activeColor = theme.colors.primary;
+
   return (
-    <Navigator lazy>
+    <Navigator lazy tabBarOptions={{ activeTintColor: activeColor }}>
       <Screen
         name="Home"
         component={HomeTab}
