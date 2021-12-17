@@ -249,13 +249,6 @@ TABS:
             summary: All of our groups are now online! Stay connected with others via Zoom group meetings.
             subtitle: Online groups
       type: HeroListFeature
-    #- 4 # Messages
-    #- 14 # Grace Kids
-    #- 22 # Community
-    #- 23 # Compassion
-    #- 7 # Stories
-    #- 15 # News
-    #- 10 # Leaders
   READ:
     - algorithms:
       - type: CONTENT_FEED
@@ -355,6 +348,44 @@ TABS:
           __typename: ContentChannel
           id: 10
           name: Leaders
+  CONNECT:
+    - type: ActionBar
+      actions:
+        [
+          {
+            title: Give,
+            icon: like,
+            action: OPEN_URL,
+            relatedNode: { __typename: Url, url: 'https://trygrace.org/give' },
+          },
+          {
+            title: Contact,
+            icon: information,
+            action: OPEN_URL,
+            relatedNode: { __typename: Url, url: 'mailto:info@trygrace.org' },
+          },
+        ]
+    - type: ActionTable
+      title: Connect
+      actions:
+        [
+          {
+            title: I Need Prayer,
+            action: OPEN_URL,
+            relatedNode: { __typename: Url, url: 'https://trygrace.org/prayer' },
+          },
+          {
+            title: Serve,
+            action: OPEN_URL,
+            relatedNode: { __typename: Url, url: 'https://trygrace.org/serve' },
+          },
+          {
+            title: Upcoming Events,
+            action: OPEN_URL,
+            relatedNode: { __typename: Url, url: 'https://trygrace.org/events' },
+          },
+        ]
+
 
 
 
