@@ -29,7 +29,7 @@ const VerticalCardListFeatureWithCampaignComponent = (props) => (
 const HeaderLogo = withTheme(({ theme }) => ({
   style: {
     height: theme.sizing.baseUnit * 2.5,
-    width: '70%',
+    width: '50%',
     resizeMode: 'contain',
   },
   source:
