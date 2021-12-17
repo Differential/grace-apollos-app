@@ -171,10 +171,6 @@ ROCK_MAPPINGS:
 
 TABS:
   HOME:
-    - algorithms: [MOST_RECENT_SERMON]
-      subtitle:
-      type: VerticalCardList
-      isFeatured: true
     - algorithms:
         - type: DAILY_PRAYER
           arguments:
@@ -191,9 +187,6 @@ TABS:
             contentChannelId: 21
       title: Today's Message Outline
       type: VerticalCardList
-    - algorithms: [FEATURED_CAMPAIGN]
-      title: Featured
-      type: VerticalCardList
     - algorithms:
         - type: CAMPAIGN_ITEMS
           arguments:
@@ -209,7 +202,15 @@ TABS:
             summary: All of our groups are now online! Stay connected with others via Zoom group meetings.
             # subtitle: Online groups
       type: HeroListFeature
+  WATCH:
+    - algorithms: [MOST_RECENT_SERMON]
+      subtitle: Latest Message
+      type: HeroList
+      isFeatured: true
   READ:
+    - algorithms: [FEATURED_CAMPAIGN]
+      title: Featured
+      type: VerticalCardList
     - algorithms:
       - type: CONTENT_FEED
         arguments:
