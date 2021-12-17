@@ -181,26 +181,26 @@ TABS:
             numberDaysSincePrayer: 7
       isCard: false
       type: PrayerList
-      title: Daily Prayers
+      subtitle: Daily Prayers
     - algorithms: [DAILY_GRACE]
-      title: Daily Scripture
+      subtitle: Daily Scripture
       type: VerticalCardList
     - algorithms:
         - type: CONTENT_CHANNEL
           arguments:
             contentChannelId: 21
-      title: Today's Message Outline
+      subtitle: Today's Message Outline
       type: VerticalCardList
     - algorithms: [FEATURED_CAMPAIGN]
-      title: Featured
+      subtitle: Featured
       type: VerticalCardList
     - algorithms:
         - type: CAMPAIGN_ITEMS
           arguments:
             limit: 6
-      title: Upcoming
+      subtitle: Upcoming
       type: VerticalCardList
-    - title: Stay Connected
+    - subtitle: Stay Connected
       heroAlgorithms:
         - type: SINGLE_IMAGE_CARD
           arguments:
