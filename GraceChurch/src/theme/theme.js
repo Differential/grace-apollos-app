@@ -49,8 +49,8 @@ const colors = {
   primary: '#2F97A0',
   secondary: '#1C3B6B',
 
-  screen: '#FAFAFA',
-  paper: '#FFFFFF',
+  // screen: '#FAFAFA',
+  // paper: '#FFFFFF',
   alert: '#C64F55',
 
   // Dark shades
