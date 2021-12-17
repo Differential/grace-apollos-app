@@ -9,7 +9,7 @@ jobs:
   ios:
     defaults:
       run:
-        working-directory: apolloschurchapp
+        working-directory: GraceChurch
 
     runs-on: macos-latest
 
@@ -19,7 +19,7 @@ jobs:
         fetch-depth: 0
 
     - name: Check For App Changes
-      run: if [[ $(git diff HEAD~1 apolloschurchapp) == "" ]]; then exit; fi
+      run: if [[ $(git diff HEAD~1 GraceChurch) == "" ]]; then exit; fi
 
     - name: Setup Node
       uses: actions/setup-node@v2
@@ -48,7 +48,7 @@ jobs:
   android:
     defaults:
       run:
-        working-directory: apolloschurchapp
+        working-directory: GraceChurch
 
     runs-on: macos-latest
 
@@ -58,7 +58,7 @@ jobs:
         fetch-depth: 0
 
     - name: Check For App Changes
-      run: if [[ $(git diff HEAD~1 apolloschurchapp) == "" ]]; then exit; fi
+      run: if [[ $(git diff HEAD~1 GraceChurch) == "" ]]; then exit; fi
 
     - name: Setup Node
       uses: actions/setup-node@v2
