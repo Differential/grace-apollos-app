@@ -134,7 +134,7 @@ class dataSource extends FeatureDataSource {
       .replace('{width}', 800)
       .replace('{height}', 800);
     const title = get(verseOfTheDay, 'verse.human_reference', '');
-    console.log(verseOfTheDay);
+
     return [
       {
         id: 'verse-of-the-day',
