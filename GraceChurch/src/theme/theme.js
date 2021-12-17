@@ -160,9 +160,12 @@ const overrides = {
     BackgroundComponent: () => <FullScreenImage />,
     textColor: 'white',
   },
-  'ui-onboarding.Landing.Title': {
-    marginTop: 32,
-  },
+  'ui-onboarding.Landing.Title': (theme) => ({
+    marginTop: theme.sizing.baseUnit * 2,
+  }),
+  'ui-kit.inputs.Search.styles.TextInputWrapper': (theme) => ({
+    paddingLeft: theme.sizing.baseUnit,
+  }),
 };
 
 export default { colors, overrides, overlays, typography };
