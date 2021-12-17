@@ -1,3 +1,4 @@
+export Badge from './Badge';
 export BrandIcon from './BrandIcon';
 export Explore from './Explore';
 export GraceGive from './GraceGive';
