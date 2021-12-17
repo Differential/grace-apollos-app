@@ -133,10 +133,12 @@ class dataSource extends FeatureDataSource {
     const imageUrl = get(verseOfTheDay, 'image.url', '')
       .replace('{width}', 800)
       .replace('{height}', 800);
+    const title = get(verseOfTheDay, 'verse.human_reference', '');
+    console.log(verseOfTheDay);
     return [
       {
         id: 'verse-of-the-day',
-        title: '',
+        title,
         subtitle: '',
         relatedNode: {
           url: get(verseOfTheDay, 'verse.url'),

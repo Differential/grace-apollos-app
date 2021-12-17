@@ -64,7 +64,7 @@ const SearchButton = () => {
     >
       <Icon
         name="search"
-        size={theme.sizing.baseUnit * 2}
+        size={theme.sizing.baseUnit * 1.5}
         fill={theme.colors.primary}
       />
     </Touchable>
