@@ -89,7 +89,7 @@ class dataSource extends FeatureDataSource {
     return items.map((item, i) => ({
       id: `${item.id}${i}`,
       title: item.title,
-      subtitle: get(item, 'contentChannel.name'),
+      subtitle: '',
       relatedNode: { ...item, __type: ContentItem.resolveType(item) },
       image: ContentItem.getCoverImage(item),
       action: 'READ_CONTENT',
@@ -139,7 +139,7 @@ class dataSource extends FeatureDataSource {
       {
         id: 'verse-of-the-day',
         title,
-        subtitle: '',
+        subtitle: 'Read & Reflect',
         relatedNode: {
           url: get(verseOfTheDay, 'verse.url'),
           id: JSON.stringify({ verseOfTheDay }),
@@ -233,7 +233,7 @@ class dataSource extends FeatureDataSource {
     return items.map((item, i) => ({
       id: `${item.id}${i}`,
       title: item.title,
-      subtitle: get(item, 'contentChannel.name'),
+      subtitle: '',
       relatedNode: { ...item, __type: ContentItem.resolveType(item) },
       image: ContentItem.getCoverImage(item),
       action: 'READ_CONTENT',

@@ -160,6 +160,9 @@ const overrides = {
     BackgroundComponent: () => <FullScreenImage />,
     textColor: 'white',
   },
+  'ui-kit.ChannelLabel.Wrapper': (theme) => ({
+    paddingBottom: theme.sizing.baseUnit * 0.5,
+  }),
   'ui-onboarding.Landing.Title': (theme) => ({
     marginTop: theme.sizing.baseUnit * 2,
   }),

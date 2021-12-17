@@ -171,36 +171,29 @@ ROCK_MAPPINGS:
 
 TABS:
   HOME:
-    - algorithms: [MOST_RECENT_SERMON]
-      subtitle:
-      type: VerticalCardList
-      isFeatured: true
     - algorithms:
         - type: DAILY_PRAYER
           arguments:
             numberDaysSincePrayer: 7
       isCard: false
       type: PrayerList
-      title: Daily Prayers
+      subtitle: Daily Prayers
     - algorithms: [DAILY_GRACE]
-      title: Daily Scripture
+      subtitle: Daily Scripture
       type: VerticalCardList
     - algorithms:
         - type: CONTENT_CHANNEL
           arguments:
             contentChannelId: 21
-      title: Today's Message Outline
-      type: VerticalCardList
-    - algorithms: [FEATURED_CAMPAIGN]
-      title: Featured
+      subtitle: Today's Message Outline
       type: VerticalCardList
     - algorithms:
         - type: CAMPAIGN_ITEMS
           arguments:
             limit: 6
-      title: Upcoming
+      subtitle: Upcoming
       type: VerticalCardList
-    - title: Stay Connected
+    - subtitle: Stay Connected
       heroAlgorithms:
         - type: SINGLE_IMAGE_CARD
           arguments:
@@ -209,28 +202,51 @@ TABS:
             summary: All of our groups are now online! Stay connected with others via Zoom group meetings.
             # subtitle: Online groups
       type: HeroListFeature
-  READ:
+  WATCH:
+    # - algorithms: [MOST_RECENT_SERMON]
+    #   subtitle: Latest Message
+    #   type: HeroList
+    #   isFeatured: true
+    - algorithms:
+      - type: CONTENT_FEED
+        arguments:
+          channelIds:
+            - 5
+          limit: 4
+      type: HeroList
+      subtitle: Latest Message
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'Recent Messages'
+        relatedNode:
+          __typename: ContentChannel
+          id: 5
+          name: 'Messages'
     - algorithms:
       - type: CONTENT_FEED
         arguments:
           channelIds:
             - 4
       type: HorizontalCardList
-      title: Messages
+      subtitle: All Series
       primaryAction:
         action: OPEN_CHANNEL
         title: 'View All'
         relatedNode:
           __typename: ContentChannel
           id: 4
-          name: Messages
+          name: All Series
+  READ: # Explore Tab
+    - algorithms: [FEATURED_CAMPAIGN]
+      subtitle: Featured
+      type: VerticalCardList
     - algorithms:
       - type: CONTENT_FEED
         arguments:
           channelIds:
             - 14
       type: HorizontalCardList
-      title: Grace Kids
+      subtitle: Grace Kids
       primaryAction:
         action: OPEN_CHANNEL
         title: 'View All'
@@ -244,7 +260,7 @@ TABS:
           channelIds:
             - 22
       type: HorizontalCardList
-      title: Community
+      subtitle: Community
       primaryAction:
         action: OPEN_CHANNEL
         title: 'View All'
@@ -258,7 +274,7 @@ TABS:
           channelIds:
             - 23
       type: HorizontalCardList
-      title: Compassion
+      subtitle: Compassion
       primaryAction:
         action: OPEN_CHANNEL
         title: 'View All'
@@ -270,9 +286,23 @@ TABS:
       - type: CONTENT_FEED
         arguments:
           channelIds:
+            - 25
+      type: HorizontalCardList
+      subtitle: Resources
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'View All'
+        relatedNode:
+          __typename: ContentChannel
+          id: 25
+          name: Resources
+    - algorithms:
+      - type: CONTENT_FEED
+        arguments:
+          channelIds:
             - 7
       type: HorizontalCardList
-      title: Stories
+      subtitle: Stories
       primaryAction:
         action: OPEN_CHANNEL
         title: 'View All'
@@ -286,7 +316,7 @@ TABS:
           channelIds:
             - 15
       type: HorizontalCardList
-      title: News
+      subtitle: News
       primaryAction:
         action: OPEN_CHANNEL
         title: 'View All'
@@ -300,7 +330,7 @@ TABS:
           channelIds:
             - 10
       type: HorizontalCardList
-      title: Leaders
+      subtitle: Leaders
       primaryAction:
         action: OPEN_CHANNEL
         title: 'View All'
@@ -312,6 +342,10 @@ TABS:
     - type: ActionBar
       actions:
         [
+          # {
+          #   title: Check-in,
+          #   icon: badge,
+          # },
           {
             title: Give,
             icon: like,
@@ -345,9 +379,6 @@ TABS:
             relatedNode: { __typename: Url, url: 'https://trygrace.org/events' },
           },
         ]
-
-
-
 
 # Default mapping of field types -> ids. There's probably no reason to edit this.
 ROCK_CONSTANTS:

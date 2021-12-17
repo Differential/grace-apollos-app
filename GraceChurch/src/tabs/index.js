@@ -86,15 +86,23 @@ const HomeTab = createFeatureFeedTab({
   },
 });
 
-const ReadTab = createFeatureFeedTab({
+const ExploreTab = createFeatureFeedTab({
   screenOptions: {
     headerRight: SearchButton,
   },
   options: {
     headerLeft: ProfileButton,
   },
-  tabName: 'Discover',
+  tabName: 'Explore',
   feedName: 'READ',
+});
+
+const WatchTab = createFeatureFeedTab({
+  options: {
+    headerLeft: ProfileButton,
+  },
+  tabName: 'Watch',
+  feedName: 'WATCH',
 });
 
 const ConnectTab = createFeatureFeedTab({
@@ -128,12 +136,17 @@ const TabNavigator = () => {
       <Screen
         name="Home"
         component={HomeTab}
-        options={{ tabBarIcon: tabBarIcon('home') }}
+        options={{ tabBarIcon: tabBarIcon('house') }}
       />
       <Screen
-        name="Discover"
-        component={ReadTab}
-        options={{ tabBarIcon: tabBarIcon('sections') }}
+        name="Watch"
+        component={WatchTab}
+        options={{ tabBarIcon: tabBarIcon('watch') }}
+      />
+      <Screen
+        name="Explore"
+        component={ExploreTab}
+        options={{ tabBarIcon: tabBarIcon('explore') }}
       />
       <Screen
         name="Connect"
