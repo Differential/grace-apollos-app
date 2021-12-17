@@ -81,7 +81,6 @@ const overlays = {
  * To control speicfic styles used on different type components (like H1, H2, etc), see "overrides"
  */
 export const typography = {
-  baseUnitSize: 16,
   ...fontStack,
 };
 
@@ -161,12 +160,12 @@ const overrides = {
     BackgroundComponent: () => <FullScreenImage />,
     textColor: 'white',
   },
-  'ui-onboarding.Landing.Title': {
-    marginTop: typography.baseUnitSize * 2,
-  },
-  'ui-kit.inputs.Search.styles.TextInputWrapper': {
-    paddingLeft: typography.baseUnitSize,
-  },
+  'ui-onboarding.Landing.Title': (theme) => ({
+    marginTop: theme.sizing.baseUnit * 2,
+  }),
+  'ui-kit.inputs.Search.styles.TextInputWrapper': (theme) => ({
+    paddingLeft: theme.sizing.baseUnit,
+  }),
 };
 
 export default { colors, overrides, overlays, typography };
