@@ -5,12 +5,9 @@
     </style>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
-    </style>
-
-    <style name="BootTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowBackground">@drawable/bootsplash</item>
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 
 </resources>

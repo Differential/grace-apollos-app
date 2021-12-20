@@ -8,7 +8,7 @@
   "scripts": {
     "setup": "./scripts/init.sh",
     "ios": "react-native run-ios",
-    "android": "SIM=\"$($HOME/Library/Android/sdk/emulator/emulator -list-avds | sed -n 1p)\" && $HOME/Library/Android/sdk/emulator/emulator -avd \"${SIM}\" & react-native run-android",
+    "android": "SIM=\"$($HOME/Library/Android/sdk/emulator/emulator -list-avds | sed -n 1p)\" && $HOME/Library/Android/sdk/emulator/emulator -avd \"${SIM}\" & react-native run-android --appId org.trygrace.gracecshurch",
     "lint": "eslint .",
     "postinstall": "jetify && yarn pods",
     "bump": "yarn version --patch",
