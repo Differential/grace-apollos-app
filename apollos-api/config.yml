@@ -169,6 +169,46 @@ ROCK_MAPPINGS:
   PROMO_CAMPAIGN_CHANNEL_IDS:
     - 19
 
+HOME_FEATURES:
+   - algorithms: [MOST_RECENT_SERMON]
+     subtitle:
+     type: VerticalCardList
+     isFeatured: true
+   - algorithms:
+       - type: DAILY_PRAYER
+         arguments:
+           numberDaysSincePrayer: 7
+     isCard: false
+     type: PrayerList
+     subtitle: Daily Prayers
+   - algorithms: [DAILY_GRACE]
+     subtitle: Daily Scripture
+     type: VerticalCardList
+   - algorithms:
+       - type: CONTENT_CHANNEL
+         arguments:
+           contentChannelId: 21
+     subtitle: Today's Message Outline
+     type: VerticalCardList
+   - algorithms: [FEATURED_CAMPAIGN]
+     subtitle: Featured
+     type: VerticalCardList
+   - algorithms:
+       - type: CAMPAIGN_ITEMS
+         arguments:
+           limit: 6
+     subtitle: Upcoming
+     type: VerticalCardList
+   - subtitle: Stay Connected
+     heroAlgorithms:
+       - type: SINGLE_IMAGE_CARD
+         arguments:
+           image: https://trygrace.org/GetFile.ashx?guid=3576a570-88e2-4fd2-bd9f-c4f8e2fc1da9
+           url: https://trygrace.org/groups
+           summary: All of our groups are now online! Stay connected with others via Zoom group meetings.
+           subtitle: Online groups
+     type: HeroListFeature
+
 TABS:
   HOME:
     - algorithms:
