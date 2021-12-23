@@ -9,8 +9,13 @@ import {
   ACCEPT_FOLLOW_REQUEST,
 } from '@apollosproject/ui-connected';
 import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
+import { Amplitude } from '@amplitude/react-native';
+import ApollosConfig from '@apollosproject/config';
 
 import ClientProvider, { client } from './client';
+
+const amplitude = Amplitude.getInstance();
+amplitude.init(ApollosConfig.AMPLITUDE_API_KEY);
 
 const AppProviders = ({ children }) => (
   <ClientProvider>
@@ -52,7 +57,12 @@ const AppProviders = ({ children }) => (
           })
         }
       >
-        <AnalyticsProvider>
+        <AnalyticsProvider
+          trackFunctions={[
+            ({ eventName, properties }) =>
+              amplitude.logEvent(eventName, properties),
+          ]}
+        >
           <LiveProvider>{children}</LiveProvider>
         </AnalyticsProvider>
       </AuthProvider>
