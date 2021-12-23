@@ -60,9 +60,9 @@
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like to use your camera (for uploading profile pictures)</string>
 	<key>NSLocationAlwaysUsageDescription</key>
- 	<string>$(PRODUCT_NAME) would like to use your location for determining your closest campus</string>
- 	<key>NSLocationWhenInUseUsageDescription</key>
- 	<string>$(PRODUCT_NAME) would like to use your location for determining your closest campus</string>
+	<string>$(PRODUCT_NAME) would like to use your location for determining your closest campus</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>$(PRODUCT_NAME) would like to use your location for determining your closest campus</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like to use your location for determining your closest campus</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -100,5 +100,10 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>bugsnag</key>
+	<dict>
+		<key>apiKey</key>
+		<string>690ae2779fa71eb2787ee441989736cd</string>
+	</dict>
 </dict>
 </plist>
