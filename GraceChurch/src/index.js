@@ -41,8 +41,6 @@ import customTheme, { customIcons } from './theme';
 import Bugsnag from '@bugsnag/react-native';
 
 Bugsnag.start();
-Bugsnag.notify(new Error('Test error'));
-
 enableScreens(); // improves performance for react-navigation
 
 const AppStatusBar = withTheme(({ theme }) => ({
