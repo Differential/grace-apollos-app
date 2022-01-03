@@ -9,6 +9,7 @@ import {
   ACCEPT_FOLLOW_REQUEST,
 } from '@apollosproject/ui-connected';
 import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
+import { track, identify } from './amplitude';
 
 import ClientProvider, { client } from './client';
 
@@ -52,7 +53,11 @@ const AppProviders = ({ children }) => (
           })
         }
       >
-        <AnalyticsProvider>
+        <AnalyticsProvider
+          trackFunctions={[track]}
+          identifyFunctions={[identify]}
+          useServerAnalytics={false}
+        >
           <LiveProvider>{children}</LiveProvider>
         </AnalyticsProvider>
       </AuthProvider>
