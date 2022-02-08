@@ -16,7 +16,7 @@ import * as Sms from '@apollosproject/data-connector-twilio';
 import {
   Followings,
   Interactions as RockInteractions,
-  RockConstants,
+  // RockConstants,
   Sharable,
   Auth,
   PersonalDevice,
@@ -26,11 +26,11 @@ import {
   BinaryFiles,
   FeatureFeed,
   Event,
-  Person as RockPerson,
-  ContentItem as RockContentItem,
+  // Person as RockPerson,
+  // ContentItem as RockContentItem,
   Campus as RockCampus,
-  ContentChannel,
-  Feature as RockFeature,
+  // ContentChannel,
+  // Feature as RockFeature,
   ActionAlgorithm as RockActionAlgorithm,
   PrayerRequest as RockPrayerRequest,
 } from '@apollosproject/data-connector-rock';
@@ -57,6 +57,13 @@ import {
 } from '@apollosproject/data-connector-postgres';
 
 import * as Theme from './theme';
+import * as GraceGroup from './GraceGroup';
+import * as RockFeature from './Feature';
+import * as RockContentItem from './ContentItem';
+import * as ContentChannel from './ContentChannel';
+import * as Vimeo from './Vimeo';
+import * as RockPerson from './Person';
+import * as RockConstants from './RockConstants';
 
 // This modules ties together certain updates so they occurs in both Rock and Postgres.
 // Will be eliminated in the future through an enhancement to the Shovel
@@ -132,6 +139,8 @@ const data = {
   Group,
   Event,
   Cache,
+  Vimeo,
+  GraceGroup,
   Comment,
   UserLike,
   UserFlag,
