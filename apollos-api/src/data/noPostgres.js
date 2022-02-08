@@ -23,13 +23,13 @@ export default {
     },
     Comment: {
       person: () => null,
-      id: () => null,
+      id: () => '',
     },
     CommentListFeature: {
-      id: () => null,
+      id: () => '',
     },
     AddCommentFeature: {
-      id: () => null,
+      id: () => '',
       initialPrompt: () => null,
       addPrompt: () => null,
       relatedNode: () => null,

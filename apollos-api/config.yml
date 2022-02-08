@@ -87,9 +87,7 @@ BUGSNAG:
   API_KEY: ${BUGSNAG_API_KEY}
 BIBLE_API:
   KEY: ${BIBLE_API_KEY}
-  BIBLE_ID:
-    WEB: '9879dbb7cfe39e4d-01'
-    KJV: 'de4e12af7f28f599-02'
+  DEFAULT_VERSION: NLT
 CLOUDINARY:
   # Cloudinary is used to improve image loading
   # value should look something like
@@ -181,8 +179,8 @@ HOME_FEATURES:
      isCard: false
      type: PrayerList
      subtitle: Daily Prayers
-   - algorithms: [DAILY_GRACE]
-     subtitle: Daily Scripture
+   - algorithms: [WEEKLY_SCRIPTURE]
+     subtitle: Weekly Scripture
      type: VerticalCardList
    - algorithms:
        - type: CONTENT_CHANNEL
@@ -218,8 +216,8 @@ TABS:
       isCard: false
       type: PrayerList
       subtitle: Daily Prayers
-    - algorithms: [DAILY_GRACE]
-      subtitle: Daily Scripture
+    - algorithms: [WEEKLY_SCRIPTURE]
+      subtitle: Weekly Scripture
       type: VerticalCardList
     - algorithms:
         - type: CONTENT_CHANNEL

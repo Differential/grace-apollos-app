@@ -242,10 +242,10 @@
     apollo-datasource "^0.2.0"
     ioredis "4.14.1"
 
-"@apollosproject/data-connector-rock@^2.41.0":
-  version "2.41.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-rock/-/data-connector-rock-2.41.0.tgz#a67c241adf1013c36817efdd02227e02b40848c3"
-  integrity sha512-vRN5E7vN9MIQ6sm3KF4Mpt7xroF+XXmNTY3LDJB7d1cbNLy9qMzJ/EC3RcrpXCr/TQyEMymSHvtb8XVIZfHWwQ==
+"@apollosproject/data-connector-rock@^2.43.2-canary.13":
+  version "2.43.2-canary.13"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-rock/-/data-connector-rock-2.43.2-canary.13.tgz#9d94e164eb2ce86d5b3b2a03f3accde18c30bd9e"
+  integrity sha512-G5m0H3bmcaiC5TQisuhEIbYEDq1hvGfT+uoBiwNIy5GZhneJUtFuAaxkD4amLos1aRWnWuYUoxLkZlYRFMFxvA==
   dependencies:
     awesome-phonenumber "^2.4.2"
     form-data "^4.0.0"
@@ -271,6 +271,13 @@
   version "2.41.0"
   resolved "https://registry.yarnpkg.com/@apollosproject/data-schema/-/data-schema-2.41.0.tgz#1d2519ce221814acd40fd01f591285b7c362a10f"
   integrity sha512-1Q9uoEbmd2Ek8XWyOuXKbE9eCgzMXktrI6oU9524s3aWbRMo6J/5OqLcpmem+xhjxGbBdfQx83upPXP06fJW0Q==
+  dependencies:
+    "@apollo/client" "3.3.20"
+
+"@apollosproject/data-schema@^2.43.2-canary.6":
+  version "2.43.2-canary.6"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-schema/-/data-schema-2.43.2-canary.6.tgz#e85ac95c56e265040a9ba8fcd8a61645b3a67213"
+  integrity sha512-ycGMMQ+xuyhUeC+z/WZuuzARjvYIkbJ5uuj0Vh8Cjb4Qr69WsxVn9LCsTUQ/MTo4ogamBGBIdgdCk0Vs9YOorw==
   dependencies:
     "@apollo/client" "3.3.20"
 
@@ -6444,6 +6451,11 @@ date-fns@^2.0.1:
   version "2.27.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.27.0.tgz#e1ff3c3ddbbab8a2eaadbb6106be2929a5a2d92b"
   integrity sha512-sj+J0Mo2p2X1e306MHq282WS4/A8Pz/95GIFcsPNMPMZVI3EUrAdSv90al1k+p74WGLCruMXk23bfEDZa71X9Q==
+
+date-fns@^2.28.0:
+  version "2.28.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.28.0.tgz#9570d656f5fc13143e50c975a3b6bbeb46cd08b2"
+  integrity sha512-8d35hViGYx/QH0icHYCeLmsLmMUheMmTyV9Fcm6gvNwdw31yXXH+O85sOBJ+OLnLQMKZowvpKb6FgMIQjcpvQw==
 
 dateformat@^3.0.0:
   version "3.0.3"

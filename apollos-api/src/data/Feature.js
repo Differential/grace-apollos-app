@@ -1,9 +1,6 @@
 import { Feature } from '@apollosproject/data-connector-rock';
-import { createGlobalId } from '@apollosproject/server-core';
 import ApollosConfig from '@apollosproject/config';
-import fetch from 'node-fetch';
 import { get, flatten } from 'lodash';
-import moment from 'moment';
 
 const {
   schema,
@@ -53,8 +50,7 @@ class dataSource extends FeatureDataSource {
     GRACE_GROUPS: this.graceGroupsAlgorithm.bind(this),
     SINGLE_IMAGE_CARD: this.singleImageCardAlgorithm.bind(this),
     MOST_RECENT_SERMON: this.mostRecentSermonAlgorithm.bind(this),
-    VERSE_OF_THE_DAY: this.verseOfTheDayAlgorithm.bind(this),
-    DAILY_GRACE: this.dailyGraceAlgorithm.bind(this),
+    WEEKLY_SCRIPTURE: this.weeklyGraceAlgorithm.bind(this),
     FEATURED_CAMPAIGN: this.featuredCampaignAlgorithm.bind(this),
     CAMPAIGN_ITEMS: this.campaignItemsAlgorithm.bind(this),
   };
@@ -97,57 +93,22 @@ class dataSource extends FeatureDataSource {
     }));
   }
 
-  async dailyGraceAlgorithm() {
+  async weeklyGraceAlgorithm() {
     const { ContentItem } = this.context.dataSources;
-    const dailyGrace = await ContentItem.getDailyGrace();
-    if (dailyGrace) {
-      return [
-        {
-          id: `${dailyGrace.id}`,
-          title: dailyGrace.title,
-          subtitle: 'Daily Grace',
-          relatedNode: {
-            ...dailyGrace,
-            __type: ContentItem.resolveType(dailyGrace),
-          },
-          image: ContentItem.getCoverImage(dailyGrace),
-          action: 'READ_CONTENT',
-          summary: ContentItem.createSummary(dailyGrace),
-        },
-      ];
-    }
-    return this.verseOfTheDayAlgorithm();
-  }
-
-  async verseOfTheDayAlgorithm() {
-    const verseOfTheDay = await fetch(
-      `https://developers.youversionapi.com/1.0/verse_of_the_day/${moment().dayOfYear()}?version_id=1`,
-      {
-        headers: {
-          'X-YouVersion-Developer-Token': 'UKe3tMsbC7Rpt55oXjwgI4In__Y',
-          'Accept-Language': 'en',
-          Accept: 'application/json',
-        },
-      }
-    ).then((result) => result.json());
-    const imageUrl = get(verseOfTheDay, 'image.url', '')
-      .replace('{width}', 800)
-      .replace('{height}', 800);
-    const title = get(verseOfTheDay, 'verse.human_reference', '');
-
+    const item = await ContentItem.getWeeklyGrace();
+    if (!item) return [];
     return [
       {
-        id: 'verse-of-the-day',
-        title,
-        subtitle: 'Read & Reflect',
+        id: `${item.id}`,
+        title: item.title,
+        subtitle: 'Weekly Scripture',
         relatedNode: {
-          url: get(verseOfTheDay, 'verse.url'),
-          id: JSON.stringify({ verseOfTheDay }),
-          __type: 'Url',
+          ...item,
+          __type: ContentItem.resolveType(item),
         },
-        image: { sources: [{ uri: imageUrl }] },
-        action: 'OPEN_URL',
-        hasAction: false,
+        image: ContentItem.getCoverImage(item),
+        action: 'READ_CONTENT',
+        summary: ContentItem.createSummary(item),
       },
     ];
   }
