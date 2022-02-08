@@ -216,6 +216,9 @@ TABS:
       isCard: false
       type: PrayerList
       subtitle: Daily Prayers
+    - algorithms: [FEATURED_CAMPAIGN]
+      subtitle: Featured
+      type: VerticalCardList
     - algorithms: [WEEKLY_SCRIPTURE]
       subtitle: Weekly Scripture
       type: VerticalCardList
@@ -275,9 +278,6 @@ TABS:
           id: 4
           name: All Series
   READ: # Explore Tab
-    - algorithms: [FEATURED_CAMPAIGN]
-      subtitle: Featured
-      type: VerticalCardList
     - algorithms:
       - type: CONTENT_FEED
         arguments:
