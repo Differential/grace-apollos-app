@@ -402,19 +402,24 @@ TABS:
       actions:
         [
           {
-            title: I Need Prayer,
+            title: Sign up to shadow a team,
             action: OPEN_URL,
-            relatedNode: { __typename: Url, url: 'https://trygrace.org/prayer' },
+            relatedNode: { __typename: Url, url: 'https://trygrace.org/serve/at-grace' },
           },
           {
-            title: Serve,
+            title: Join a group study,
             action: OPEN_URL,
-            relatedNode: { __typename: Url, url: 'https://trygrace.org/serve' },
+            relatedNode: { __typename: Url, url: 'https://trygrace.org/groups' },
           },
           {
-            title: Upcoming Events,
+            title: Get involved with compassion and justice efforts,
             action: OPEN_URL,
-            relatedNode: { __typename: Url, url: 'https://trygrace.org/events' },
+            relatedNode: { __typename: Url, url: 'https://trygrace.org/serve/community' },
+          },
+          {
+            title: Report an issue,
+            action: OPEN_URL,
+            relatedNode: { __typename: Url, url: 'mailto:info@trygrace.org' },
           },
         ]
 

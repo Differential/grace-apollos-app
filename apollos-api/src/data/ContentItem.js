@@ -35,8 +35,13 @@ class dataSource extends ContentItemDataSource {
     const cursor = this.request()
       .filterOneOf(ids.map((id) => `ContentChannelId eq ${id}`))
       .cache({ ttl: 60 });
-    // Leaders
-    if (ids.includes(10)) {
+    // Leaders, Compassion, Community, Resources
+    if (
+      ids.includes(10) ||
+      ids.includes(22) ||
+      ids.includes(23) ||
+      ids.includes(25)
+    ) {
       return cursor.andFilter(this.LIVE_CONTENT()).orderBy('Priority', 'asc');
     }
     // Messages
