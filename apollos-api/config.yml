@@ -398,7 +398,6 @@ TABS:
           },
         ]
     - type: ActionTable
-      title: Connect
       actions:
         [
           {
