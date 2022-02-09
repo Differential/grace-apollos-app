@@ -14,6 +14,8 @@ APP:
   ROOT_API_URL: ${ROOT_URL}
   JOBS_USERNAME: ${JOBS_USERNAME}
   JOBS_PASSWORD: ${JOBS_PASSWORD}
+DATABASE:
+  URL: ${DATABASE_URL}
 VIMEO:
   TOKEN: ${VIMEO_TOKEN}
 REMOTE_CAMPUS:
@@ -397,6 +399,7 @@ TABS:
             relatedNode: { __typename: Url, url: 'mailto:info@trygrace.org' },
           },
         ]
+    - type: FollowPeople
     - type: ActionTable
       actions:
         [

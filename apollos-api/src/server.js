@@ -9,11 +9,11 @@ import { BugsnagPlugin } from '@apollosproject/bugsnag';
 
 let dataObj;
 
-// if (ApollosConfig?.DATABASE?.URL) {
-// dataObj = require('./data/index.postgres');
-// } else {
-dataObj = require('./data/index');
-// }
+if (ApollosConfig?.DATABASE?.URL) {
+  dataObj = require('./data/index.postgres');
+} else {
+  dataObj = require('./data/index');
+}
 
 const {
   resolvers,
@@ -111,7 +111,6 @@ apolloServer.applyMiddleware({ app, path: '/' });
       );
       console.log('\x1b[31m', '██████████████████████████████████', '\x1b[0m');
     }
-    if (ApollosConfig.AUTO_MIGRATE) await migrationRunner.up();
   }
 })();
 
