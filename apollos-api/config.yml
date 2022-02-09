@@ -399,6 +399,7 @@ TABS:
             relatedNode: { __typename: Url, url: 'mailto:info@trygrace.org' },
           },
         ]
+    - type: FollowPeople
     - type: ActionTable
       title: Connect
       actions:
