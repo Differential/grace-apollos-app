@@ -169,6 +169,9 @@ const overrides = {
   'ui-kit.inputs.Search.styles.TextInputWrapper': (theme) => ({
     paddingLeft: theme.sizing.baseUnit,
   }),
+  'ui-kit.BackgroundImageBlur.BlurredImage': {
+    source: '',
+  },
 };
 
 export default { colors, overrides, overlays, typography };
