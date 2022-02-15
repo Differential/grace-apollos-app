@@ -241,6 +241,7 @@ TABS:
         - type: WEEKLY_SCRIPTURE
           arguments:
             limit: 7
+            showDate: true
       title: 40 Day Challenge
       subtitle: This Week
       type: ActionList

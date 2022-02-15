@@ -94,13 +94,15 @@ class dataSource extends FeatureDataSource {
     }));
   }
 
-  async weeklyGraceAlgorithm({ limit = 1 }) {
+  async weeklyGraceAlgorithm({ limit = 1, showDate = false }) {
     const { ContentItem } = this.context.dataSources;
     const items = await ContentItem.getWeeklyGrace(limit);
     return items.map((item) => ({
       id: `${item.id}`,
       title: item.title,
-      subtitle: format(new Date(item.startDateTime), 'E, MMM d') || '',
+      subtitle: showDate
+        ? format(new Date(item.startDateTime), 'E, MMM d')
+        : '',
       relatedNode: {
         ...item,
         __type: ContentItem.resolveType(item),
