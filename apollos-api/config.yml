@@ -181,9 +181,19 @@ HOME_FEATURES:
      isCard: false
      type: PrayerList
      subtitle: Daily Prayers
-   - algorithms: [WEEKLY_SCRIPTURE]
-     subtitle: Weekly Scripture
+   - algorithms:
+       - type: WEEKLY_SCRIPTURE
+         arguments:
+           limit: 1
+     subtitle: 40 Day Challenge
      type: VerticalCardList
+   - algorithms:
+       - type: WEEKLY_SCRIPTURE
+         arguments:
+           limit: 7
+     title: 40 Day Challenge
+     subtitle: This Week
+     type: ActionList
    - algorithms:
        - type: CONTENT_CHANNEL
          arguments:
@@ -221,9 +231,19 @@ TABS:
     - algorithms: [FEATURED_CAMPAIGN]
       subtitle: Featured
       type: VerticalCardList
-    - algorithms: [WEEKLY_SCRIPTURE]
-      subtitle: Weekly Scripture
+    - algorithms:
+        - type: WEEKLY_SCRIPTURE
+          arguments:
+            limit: 1
+      subtitle: 40 Day Challenge
       type: VerticalCardList
+    - algorithms:
+        - type: WEEKLY_SCRIPTURE
+          arguments:
+            limit: 7
+      title: 40 Day Challenge
+      subtitle: This Week
+      type: ActionList
     - algorithms:
         - type: CONTENT_CHANNEL
           arguments:

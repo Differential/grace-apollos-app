@@ -1,6 +1,7 @@
 import { Feature } from '@apollosproject/data-connector-rock';
 import ApollosConfig from '@apollosproject/config';
 import { get, flatten } from 'lodash';
+import { format } from 'date-fns';
 
 const {
   schema,
@@ -93,24 +94,21 @@ class dataSource extends FeatureDataSource {
     }));
   }
 
-  async weeklyGraceAlgorithm() {
+  async weeklyGraceAlgorithm({ limit = 1 }) {
     const { ContentItem } = this.context.dataSources;
-    const item = await ContentItem.getWeeklyGrace();
-    if (!item) return [];
-    return [
-      {
-        id: `${item.id}`,
-        title: item.title,
-        subtitle: 'Weekly Scripture',
-        relatedNode: {
-          ...item,
-          __type: ContentItem.resolveType(item),
-        },
-        image: ContentItem.getCoverImage(item),
-        action: 'READ_CONTENT',
-        summary: ContentItem.createSummary(item),
+    const items = await ContentItem.getWeeklyGrace(limit);
+    return items.map((item) => ({
+      id: `${item.id}`,
+      title: item.title,
+      subtitle: format(new Date(item.startDateTime), 'E, MMM d') || '',
+      relatedNode: {
+        ...item,
+        __type: ContentItem.resolveType(item),
       },
-    ];
+      image: ContentItem.getCoverImage(item),
+      action: 'READ_CONTENT',
+      summary: ContentItem.createSummary(item),
+    }));
   }
 
   async mostRecentSermonAlgorithm() {
