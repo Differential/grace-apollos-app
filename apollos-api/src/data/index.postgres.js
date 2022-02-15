@@ -33,6 +33,7 @@ import {
   // Feature as RockFeature,
   ActionAlgorithm as RockActionAlgorithm,
   PrayerRequest as RockPrayerRequest,
+  Persona,
 } from '@apollosproject/data-connector-rock';
 
 import {
@@ -149,6 +150,7 @@ const data = {
   NotificationPreference,
   OneSignal,
   Person, // An extension of Postgres person. Will be eliminated in the near future so you can use just postgres/Person.
+  Persona,
 };
 
 const {

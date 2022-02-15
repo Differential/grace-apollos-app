@@ -190,7 +190,6 @@ class dataSource extends ContentItemDataSource {
     const monday = isMonday(Date.now())
       ? Date.now()
       : previousMonday(Date.now());
-    console.log(nextMonday(Date.now()));
     return this.request()
       .andFilter('ContentChannelId eq 16')
       .andFilter(
