@@ -169,6 +169,15 @@ ROCK_MAPPINGS:
   PROMO_CAMPAIGN_CHANNEL_IDS:
     - 19
 
+SUGGESTED_FOLLOWS:
+  - id: 70469496-c35b-4751-af25-133983fbb1e1 # John Slye
+  - id: 9d650746-f154-4d3b-99b4-0826bf884a75 # Derek Adye
+  - id: 3c630a10-b8f9-43f8-9d33-d57ba7e92059 # Brian Parker
+  - id: 0b19799b-fe9b-484d-aa4e-b1e149e33a5d # Matt Komar
+  - id: 7d6b61a3-98f1-4933-af52-2b127036c604 # Michele Smith
+  - id: facfd706-a3eb-4644-b6fe-b929e643c426 # Jennifer Claffey
+  - id: cc3e5d4e-0ac8-4c59-a41e-08092fbcf6fd # Heather Noble
+
 HOME_FEATURES:
    - algorithms: [MOST_RECENT_SERMON]
      subtitle:
