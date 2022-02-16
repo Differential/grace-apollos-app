@@ -228,9 +228,6 @@ TABS:
       isCard: false
       type: PrayerList
       subtitle: Daily Prayers
-    - algorithms: [FEATURED_CAMPAIGN]
-      subtitle: Featured
-      type: VerticalCardList
     - algorithms:
         - type: WEEKLY_SCRIPTURE
           arguments:
@@ -245,6 +242,9 @@ TABS:
       title: 40 Day Challenge
       subtitle: This Week
       type: ActionList
+    - algorithms: [FEATURED_CAMPAIGN]
+      subtitle: Featured
+      type: VerticalCardList
     - algorithms:
         - type: CONTENT_CHANNEL
           arguments:
