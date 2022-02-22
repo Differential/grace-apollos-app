@@ -230,10 +230,6 @@ HOME_FEATURES:
 
 TABS:
   HOME:
-    - algorithms: [MOST_RECENT_SERMON]
-      subtitle:
-      type: VerticalCardList
-      isFeatured: true
     - algorithms:
         - type: DAILY_PRAYER
           arguments:
@@ -270,28 +266,13 @@ TABS:
             limit: 6
       subtitle: Upcoming
       type: VerticalCardList
-    - subtitle: Stay Connected
-      heroAlgorithms:
-        - type: SINGLE_IMAGE_CARD
-          arguments:
-            image: https://trygrace.org/GetFile.ashx?guid=3576a570-88e2-4fd2-bd9f-c4f8e2fc1da9
-            url: https://trygrace.org/groups
-            summary: All of our groups are now online! Stay connected with others via Zoom group meetings.
-            # subtitle: Online groups
-      type: HeroListFeature
   WATCH:
-    # - algorithms: [MOST_RECENT_SERMON]
-    #   subtitle: Latest Message
-    #   type: HeroList
-    #   isFeatured: true
     - algorithms:
-      - type: CONTENT_FEED
-        arguments:
-          channelIds:
-            - 5
-          limit: 4
+        - type: MOST_RECENT_SERMON
+          arguments:
+            limit: 4
       type: HeroList
-      subtitle: Latest Message
+      isFeatured: true
       primaryAction:
         action: OPEN_CHANNEL
         title: 'Recent Messages'
@@ -300,10 +281,10 @@ TABS:
           id: 5
           name: 'Messages'
     - algorithms:
-      - type: CONTENT_FEED
-        arguments:
-          channelIds:
-            - 4
+        - type: CONTENT_FEED
+          arguments:
+            channelIds:
+              - 4
       type: HorizontalCardList
       subtitle: All Series
       primaryAction:
@@ -313,12 +294,12 @@ TABS:
           __typename: ContentChannel
           id: 4
           name: All Series
-  READ: # Explore Tab
+  READ:  # Explore Tab
     - algorithms:
-      - type: CONTENT_FEED
-        arguments:
-          channelIds:
-            - 14
+        - type: CONTENT_FEED
+          arguments:
+            channelIds:
+              - 14
       type: HorizontalCardList
       subtitle: Grace Kids
       primaryAction:

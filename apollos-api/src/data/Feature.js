@@ -113,31 +113,33 @@ class dataSource extends FeatureDataSource {
     }));
   }
 
-  async mostRecentSermonAlgorithm() {
+  async mostRecentSermonAlgorithm({ limit = 4 }) {
     this.setCacheHint({ maxAge: 0 });
     const { ContentItem, LiveStream } = this.context.dataSources;
     const currentLivestream = await LiveStream.getLiveStream();
-    let sermon;
+    let sermons;
 
     // If the livestream is live, let's the upcoming sermon.
     // The sermon is considered upcoming, because the content team doesn't publish it formally
     // until after the sermon has aired.
     if (currentLivestream && currentLivestream.isLive) {
-      sermon = await ContentItem.getUpcomingSermonFeed().first();
+      sermons = await ContentItem.getUpcomingSermonFeed()
+        .top(limit)
+        .get();
     } else {
-      sermon = await ContentItem.getSermonFeed().first();
+      sermons = await ContentItem.getSermonFeed()
+        .top(limit)
+        .get();
     }
-    return [
-      {
-        id: `${sermon.id}`,
-        title: sermon.title,
-        subtitle: 'Latest Message',
-        relatedNode: { ...sermon, __type: ContentItem.resolveType(sermon) },
-        image: ContentItem.getCoverImage(sermon),
-        action: 'READ_CONTENT',
-        summary: ContentItem.createSummary(sermon),
-      },
-    ];
+    return sermons.map((sermon) => ({
+      id: `${sermon.id}`,
+      title: sermon.title,
+      subtitle: 'Latest Message',
+      relatedNode: { ...sermon, __type: ContentItem.resolveType(sermon) },
+      image: ContentItem.getCoverImage(sermon),
+      action: 'READ_CONTENT',
+      summary: ContentItem.createSummary(sermon),
+    }));
   }
 
   async singleImageCardAlgorithm({ title, subtitle, image, url, summary }) {
