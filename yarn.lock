@@ -274,10 +274,10 @@
   dependencies:
     "@apollo/client" "3.3.20"
 
-"@apollosproject/data-schema@^2.43.2-canary.6":
-  version "2.43.2-canary.6"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-schema/-/data-schema-2.43.2-canary.6.tgz#e85ac95c56e265040a9ba8fcd8a61645b3a67213"
-  integrity sha512-ycGMMQ+xuyhUeC+z/WZuuzARjvYIkbJ5uuj0Vh8Cjb4Qr69WsxVn9LCsTUQ/MTo4ogamBGBIdgdCk0Vs9YOorw==
+"@apollosproject/data-schema@^2.43.2-canary.19":
+  version "2.43.2-canary.19"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-schema/-/data-schema-2.43.2-canary.19.tgz#fb4d983a06dd25675e8c169fc35d57fd72674e2a"
+  integrity sha512-x/7sih0K4Lt3/YC9CfnDssINrKCpFp7JA70FeGpn/RWMSgM6dZdKaB/5jcj3XyLKgnZ38UQ1VfzwjJ9ilD0g6Q==
   dependencies:
     "@apollo/client" "3.3.20"
 
@@ -331,10 +331,10 @@
     formik "1.5.1"
     yup "^0.27.0"
 
-"@apollosproject/ui-connected@^2.43.2-canary.6":
-  version "2.43.2-canary.6"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-connected/-/ui-connected-2.43.2-canary.6.tgz#b545104824be7a635d98bd5f109afb38d54ddf36"
-  integrity sha512-gOhUwB5keqJ5BQKIcL9w1VbHz7UFr6E5MwoyooPjXWgakOv3uGidXS+R9BchUmx6aN2qF7+MpAFDk5zR1edOTQ==
+"@apollosproject/ui-connected@^2.43.2-canary.17":
+  version "2.43.2-canary.17"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-connected/-/ui-connected-2.43.2-canary.17.tgz#e160c35745f6806e0afb331b67bee9ef026a53ab"
+  integrity sha512-j6J10b9BZJeyAHwi7N23EISx3FRhYg0YEZFYmgiGEO+OIMrQwMWtameigIxM504imMl75q9rcOuuojjZHeFNVg==
   dependencies:
     "@gorhom/bottom-sheet" "3.4.1"
     apollo-upload-client "^17.0.0"

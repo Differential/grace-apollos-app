@@ -423,7 +423,7 @@ TABS:
           {
             title: Give,
             icon: like,
-            action: OPEN_URL,
+            action: OPEN_URL_EXTERNALLY,
             relatedNode: { __typename: Url, url: 'https://trygrace.org/give' },
           },
           {
