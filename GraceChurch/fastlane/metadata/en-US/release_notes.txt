@@ -1,1 +1,1 @@
-bug fixes and performance improvements
+A few fixes and improvements to improve your Grace experience! 
