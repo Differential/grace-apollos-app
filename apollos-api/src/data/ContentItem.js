@@ -18,7 +18,7 @@ class dataSource extends ContentItemDataSource {
       .cache({ ttl: 60 });
     // Leaders
     if (`${id}` === '10') {
-      return cursor.andFilter(this.LIVE_CONTENT()).orderBy('Priority', 'asc');
+      return cursor.andFilter(this.LIVE_CONTENT()).orderBy('Priority', 'desc');
     }
     // Messages
     if (`${id}` === '4') {
@@ -42,7 +42,7 @@ class dataSource extends ContentItemDataSource {
       ids.includes(23) ||
       ids.includes(25)
     ) {
-      return cursor.andFilter(this.LIVE_CONTENT()).orderBy('Priority', 'asc');
+      return cursor.andFilter(this.LIVE_CONTENT()).orderBy('Priority', 'desc');
     }
     // Messages
     if (ids.includes(4)) {
