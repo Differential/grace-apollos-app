@@ -26,6 +26,11 @@ Generate new provisioning profiles and certificates for app and push notificatio
 fastlane ios deploy
 ```
 Push a new internal build to TestFlight
+### ios beta
+```
+fastlane ios beta
+```
+Promote the most recent TestFlight build to external beta
 ### ios production
 ```
 fastlane ios production
@@ -40,6 +45,16 @@ Promote the most recent Testflight version to production
 fastlane android deploy
 ```
 Deploy a new version to the Google Play
+### android beta
+```
+fastlane android beta
+```
+Promote current build to beta
+### android production
+```
+fastlane android production
+```
+Promote current build to production
 
 ----
 
