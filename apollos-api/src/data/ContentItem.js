@@ -190,20 +190,22 @@ class dataSource extends ContentItemDataSource {
     const monday = isMonday(Date.now())
       ? Date.now()
       : previousMonday(Date.now());
-    return this.request()
-      .andFilter('ContentChannelId eq 16')
-      .andFilter(
-        `StartDateTime ge datetime'${format(monday, 'yyyy-MM-dd')}T00:00:00'`
-      )
-      .andFilter(
-        `StartDateTime lt datetime'${format(
-          nextMonday(Date.now()),
-          'yyyy-MM-dd'
-        )}T00:00:00'`
-      )
-      .andFilter(this.LIVE_CONTENT())
-      .top(limit)
-      .get();
+    return (
+      this.request()
+        .andFilter('ContentChannelId eq 16')
+        .andFilter(
+          `StartDateTime ge datetime'${format(monday, 'yyyy-MM-dd')}T00:00:00'`
+        )
+        .andFilter(
+          `StartDateTime lt datetime'${format(
+            nextMonday(Date.now()),
+            'yyyy-MM-dd'
+          )}T00:00:00'`
+        )
+        // .andFilter(this.LIVE_CONTENT())
+        .top(limit)
+        .get()
+    );
   };
 
   getActiveLiveStreamContent = async () => {
