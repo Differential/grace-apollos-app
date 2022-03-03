@@ -238,9 +238,11 @@ TABS:
       type: PrayerList
       subtitle: Daily Prayers
     - algorithms:
-        - type: WEEKLY_SCRIPTURE
+        - type: CONTENT_FEED
           arguments:
             limit: 1
+            channelIds:
+              - 16
       subtitle: 40 Day Challenge
       type: VerticalCardList
     - algorithms:
