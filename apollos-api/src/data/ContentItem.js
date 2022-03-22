@@ -3,7 +3,7 @@ import { ContentItem } from '@apollosproject/data-connector-rock';
 import sanitizeHTML from 'sanitize-html';
 import { get } from 'lodash';
 import moment from 'moment';
-import { isMonday, previousMonday, format, nextMonday } from 'date-fns';
+import { isSunday, previousSunday, format, nextSunday } from 'date-fns';
 
 const {
   resolver: baseResolver,
@@ -187,18 +187,18 @@ class dataSource extends ContentItemDataSource {
   }
 
   getWeeklyGrace = async (limit) => {
-    const monday = isMonday(Date.now())
+    const sunday = isSunday(Date.now())
       ? Date.now()
-      : previousMonday(Date.now());
+      : previousSunday(Date.now());
     return (
       this.request()
         .andFilter('ContentChannelId eq 16')
         .andFilter(
-          `StartDateTime ge datetime'${format(monday, 'yyyy-MM-dd')}T00:00:00'`
+          `StartDateTime ge datetime'${format(sunday, 'yyyy-MM-dd')}T00:00:00'`
         )
         .andFilter(
           `StartDateTime lt datetime'${format(
-            nextMonday(Date.now()),
+            nextSunday(Date.now()),
             'yyyy-MM-dd'
           )}T00:00:00'`
         )
