@@ -385,6 +385,20 @@ TABS:
       - type: CONTENT_FEED
         arguments:
           channelIds:
+            - 26
+      type: HorizontalCardList
+      subtitle: Events
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'View All'
+        relatedNode:
+          __typename: ContentChannel
+          id: 26
+          name: Events
+    - algorithms:
+      - type: CONTENT_FEED
+        arguments:
+          channelIds:
             - 10
       type: HorizontalCardList
       subtitle: Leaders
