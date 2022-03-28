@@ -435,7 +435,7 @@ TABS:
       actions:
         [
           {
-            title: Sign up to shadow a team,
+            title: Sign up to shadow a volunteer team,
             action: OPEN_URL,
             relatedNode: { __typename: Url, url: 'https://trygrace.org/serve/at-grace' },
           },
