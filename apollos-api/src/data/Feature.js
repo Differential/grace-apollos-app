@@ -184,6 +184,10 @@ class dataSource extends FeatureDataSource {
           const childItems = await childItemsCursor
             .top(limit)
             .expand('ContentChannel')
+            .sort([
+              { field: 'Priority', direction: 'desc' },
+              { field: 'StartDateTime', direction: 'asc' },
+            ])
             .get();
 
           return childItems.map((item) => ({

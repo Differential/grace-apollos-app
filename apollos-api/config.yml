@@ -217,7 +217,7 @@ HOME_FEATURES:
          arguments:
            limit: 6
      subtitle: Upcoming
-     type: VerticalCardList
+     type: Herolist
    - subtitle: Stay Connected
      heroAlgorithms:
        - type: SINGLE_IMAGE_CARD
@@ -267,7 +267,14 @@ TABS:
           arguments:
             limit: 6
       subtitle: Upcoming
-      type: VerticalCardList
+      type: HeroList
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'View All'
+        relatedNode:
+          __typename: ContentChannel
+          id: 26
+          name: Events
   WATCH:
     - algorithms:
         - type: MOST_RECENT_SERMON
@@ -311,6 +318,20 @@ TABS:
           __typename: ContentChannel
           id: 14
           name: Grace Kids
+    - algorithms:
+      - type: CONTENT_FEED
+        arguments:
+          channelIds:
+            - 26
+      type: HorizontalCardList
+      subtitle: Events
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'View All'
+        relatedNode:
+          __typename: ContentChannel
+          id: 26
+          name: Events
     - algorithms:
       - type: CONTENT_FEED
         arguments:
@@ -381,20 +402,6 @@ TABS:
           __typename: ContentChannel
           id: 15
           name: News
-    - algorithms:
-      - type: CONTENT_FEED
-        arguments:
-          channelIds:
-            - 26
-      type: HorizontalCardList
-      subtitle: Events
-      primaryAction:
-        action: OPEN_CHANNEL
-        title: 'View All'
-        relatedNode:
-          __typename: ContentChannel
-          id: 26
-          name: Events
     - algorithms:
       - type: CONTENT_FEED
         arguments:
