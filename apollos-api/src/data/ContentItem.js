@@ -3,13 +3,7 @@ import { ContentItem } from '@apollosproject/data-connector-rock';
 import sanitizeHTML from 'sanitize-html';
 import { get } from 'lodash';
 import moment from 'moment';
-import {
-  isSunday,
-  previousSunday,
-  formatISO,
-  startOfToday,
-  nextSunday,
-} from 'date-fns';
+import { isSunday, previousSunday, format, nextSunday } from 'date-fns';
 
 const {
   resolver: baseResolver,
@@ -192,20 +186,27 @@ class dataSource extends ContentItemDataSource {
       .orderBy('StartDateTime', 'desc');
   }
 
-  getWeeklyGrace = async (limit) =>
-    this.request()
-      .andFilter('ContentChannelId eq 16')
-      .andFilter(
-        `((StartDateTime ge datetime'${formatISO(
-          isSunday(startOfToday())
-            ? startOfToday()
-            : previousSunday(startOfToday())
-        )}') and (StartDateTime lt datetime'${formatISO(
-          nextSunday(startOfToday())
-        )}'))`
-      )
-      .top(limit)
-      .get();
+  getWeeklyGrace = async (limit) => {
+    const sunday = isSunday(Date.now())
+      ? Date.now()
+      : previousSunday(Date.now());
+    return (
+      this.request()
+        .andFilter('ContentChannelId eq 16')
+        .andFilter(
+          `StartDateTime ge datetime'${format(sunday, 'yyyy-MM-dd')}T00:00:00'`
+        )
+        .andFilter(
+          `StartDateTime lt datetime'${format(
+            nextSunday(Date.now()),
+            'yyyy-MM-dd'
+          )}T00:00:00'`
+        )
+        // .andFilter(this.LIVE_CONTENT())
+        .top(limit)
+        .get()
+    );
+  };
 
   getActiveLiveStreamContent = async () => {
     const { LiveStream } = this.context.dataSources;
