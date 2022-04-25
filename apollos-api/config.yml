@@ -243,15 +243,13 @@ TABS:
             limit: 1
             channelIds:
               - 16
-      subtitle: 40 Day Challenge
+      subtitle: Weekly Scripture
       type: VerticalCardList
     - algorithms:
         - type: WEEKLY_SCRIPTURE
           arguments:
             limit: 7
             showDate: true
-      title: 40 Day Challenge
-      subtitle: This Week
       type: ActionList
     - algorithms: [FEATURED_CAMPAIGN]
       subtitle: Featured
