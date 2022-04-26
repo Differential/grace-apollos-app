@@ -196,11 +196,13 @@ HOME_FEATURES:
            limit: 1
      subtitle: Weekly Scripture
      type: VerticalCardList
-   - algorithms:
-       - type: WEEKLY_SCRIPTURE
-         arguments:
-           limit: 7
-     type: ActionList
+  #  - algorithms:
+  #      - type: WEEKLY_SCRIPTURE
+  #        arguments:
+  #          limit: 7
+  #    type: ActionList
+  #    title: 40 Day Challenge
+  #    subtitle: This Week
    - algorithms:
        - type: CONTENT_CHANNEL
          arguments:
@@ -243,12 +245,14 @@ TABS:
               - 16
       subtitle: Weekly Scripture
       type: VerticalCardList
-    - algorithms:
-        - type: WEEKLY_SCRIPTURE
-          arguments:
-            limit: 7
-            showDate: true
-      type: ActionList
+    # - algorithms:
+    #     - type: WEEKLY_SCRIPTURE
+    #       arguments:
+    #         limit: 7
+    #         showDate: true
+    #   title: 40 Day Challenge
+    #   subtitle: This Week
+    #   type: ActionList
     - algorithms: [FEATURED_CAMPAIGN]
       subtitle: Featured
       type: VerticalCardList
