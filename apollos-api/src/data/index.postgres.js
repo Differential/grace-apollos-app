@@ -31,7 +31,7 @@ import {
   Campus as RockCampus,
   // ContentChannel,
   // Feature as RockFeature,
-  ActionAlgorithm as RockActionAlgorithm,
+  // ActionAlgorithm as RockActionAlgorithm,
   PrayerRequest as RockPrayerRequest,
   Persona,
 } from '@apollosproject/data-connector-rock';
@@ -61,6 +61,7 @@ import * as Theme from './theme';
 import * as GraceGroup from './GraceGroup';
 import * as RockFeature from './Feature';
 import * as RockContentItem from './ContentItem';
+import * as ActionAlgorithm from './ActionAlgorithms';
 import * as ContentChannel from './ContentChannel';
 import * as Vimeo from './Vimeo';
 import * as RockPerson from './Person';
@@ -99,7 +100,7 @@ const postgresContentModules = {
 const rockContentModules = {
   Interactions: RockInteractions,
   Followings,
-  ActionAlgorithm: RockActionAlgorithm,
+  ActionAlgorithm,
   Feature: RockFeature,
   ContentItem: RockContentItem,
   ContentChannel,

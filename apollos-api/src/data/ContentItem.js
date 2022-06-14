@@ -11,7 +11,44 @@ const {
   dataSource: ContentItemDataSource,
 } = ContentItem;
 
+const { ROCK_MAPPINGS } = ApollosConfig;
+
+
 class dataSource extends ContentItemDataSource {
+  // Generates feed based on persons dataview membership
+  byPersonaFeed = async (first, contentChannelId) => {
+    const {
+      dataSources: { Persona },
+    } = this.context;
+
+    // Grabs the guids associated with all dataviews user is memeber
+    const getPersonaGuidsForUser = await Persona.getPersonas({
+      categoryId: ROCK_MAPPINGS.DATAVIEW_CATEGORIES.PersonaId,
+    });
+
+    if (getPersonaGuidsForUser.length === 0) {
+      return this.request().empty();
+    }
+
+    // Rely on custom code without the plugin.
+    // Use plugin, if the user has set USE_PLUGIN to true.
+    // In general, you should ALWAYS use the plugin if possible.
+    const endpoint = get(ApollosConfig, 'ROCK.USE_PLUGIN', false)
+      ? 'Apollos/ContentChannelItemsByDataViewGuids'
+      : 'ContentChannelItems/GetFromPersonDataView';
+
+    // Grabs content items based on personas
+    return this.request(
+      `${endpoint}?guids=${getPersonaGuidsForUser
+        .map((obj) => obj.guid)
+        .join()}`
+    )
+      .andFilter(this.LIVE_CONTENT())
+      .andFilter(`ContentChannelId eq ${contentChannelId}`)
+      .top(first)
+      .orderBy('Priority', 'desc');
+  };
+
   byContentChannelId = (id) => {
     const cursor = this.request()
       .filter(`ContentChannelId eq ${id}`)

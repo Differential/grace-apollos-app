@@ -213,11 +213,37 @@ HOME_FEATURES:
      subtitle: Featured
      type: VerticalCardList
    - algorithms:
-       - type: CAMPAIGN_ITEMS
+       - type: PERSONA_FEED
          arguments:
-           limit: 6
+           contentChannelId  : 15
+     subtitle: News
+     type: VerticalCardList
+     primaryAction:
+       action: OPEN_CHANNEL
+       title: 'View All'
+       relatedNode:
+         __typename: ContentChannel
+         id: 15
+         name: News            
+   - algorithms:
+       - type: PERSONA_FEED
+         arguments:
+           contentChannelId: 26
      subtitle: Upcoming
-     type: Herolist
+     type: VerticalCardList
+     primaryAction:
+       action: OPEN_CHANNEL
+       title: 'View All'
+       relatedNode:
+         __typename: ContentChannel
+         id: 26
+         name: Events      
+   #  - algorithms:
+   #      - type: CAMPAIGN_ITEMS
+   #        arguments:
+   #          limit: 6
+   #    subtitle: Upcoming
+   #    type: Herolist
    - subtitle: Stay Connected
      heroAlgorithms:
        - type: SINGLE_IMAGE_CARD
@@ -257,24 +283,50 @@ TABS:
       subtitle: Featured
       type: VerticalCardList
     - algorithms:
-        - type: CONTENT_CHANNEL
+        - type: PERSONA_FEED
           arguments:
-            contentChannelId: 21
-      subtitle: Today's Message Outline
+            contentChannelId  : 15
+      subtitle: News
       type: VerticalCardList
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'View All'
+        relatedNode:
+          __typename: ContentChannel
+          id: 15
+          name: News            
     - algorithms:
-        - type: CAMPAIGN_ITEMS
+        - type: PERSONA_FEED
           arguments:
-            limit: 6
+            contentChannelId: 26
       subtitle: Upcoming
-      type: HeroList
+      type: VerticalCardList
       primaryAction:
         action: OPEN_CHANNEL
         title: 'View All'
         relatedNode:
           __typename: ContentChannel
           id: 26
-          name: Events
+          name: Events      
+    - algorithms:
+        - type: CONTENT_CHANNEL
+          arguments:
+            contentChannelId: 21
+      subtitle: Today's Message Outline
+      type: VerticalCardList
+    # - algorithms:
+    #     - type: CAMPAIGN_ITEMS
+    #       arguments:
+    #         limit: 6
+    #   subtitle: Upcoming
+    #   type: HeroList
+    #   primaryAction:
+    #     action: OPEN_CHANNEL
+    #     title: 'View All'
+    #     relatedNode:
+    #       __typename: ContentChannel
+    #       id: 26
+    #       name: Events
   WATCH:
     - algorithms:
         - type: MOST_RECENT_SERMON
