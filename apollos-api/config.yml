@@ -212,6 +212,7 @@ HOME_FEATURES:
    - algorithms: [FEATURED_CAMPAIGN]
      subtitle: Featured
      type: VerticalCardList
+   # News persona feed.
    - algorithms:
        - type: PERSONA_FEED
          arguments:
@@ -224,7 +225,22 @@ HOME_FEATURES:
        relatedNode:
          __typename: ContentChannel
          id: 15
-         name: News            
+         name: News 
+   # News content feed (remove when personas are added)    
+   - algorithms:
+       - type: CONTENT_CHANNEL
+         arguments:
+           contentChannelId  : 15
+     subtitle: News
+     type: VerticalCardList
+     primaryAction:
+       action: OPEN_CHANNEL
+       title: 'View All'
+       relatedNode:
+         __typename: ContentChannel
+         id: 15
+         name: News    
+   # Events persona feed.
    - algorithms:
        - type: PERSONA_FEED
          arguments:
@@ -237,7 +253,21 @@ HOME_FEATURES:
        relatedNode:
          __typename: ContentChannel
          id: 26
-         name: Events      
+         name: Events
+   # Events content feed (remove when personas are added).
+   - algorithms:
+       - type: CONTENT_CHANNEL
+         arguments:
+           contentChannelId: 26
+     subtitle: Upcoming
+     type: VerticalCardList
+     primaryAction:
+       action: OPEN_CHANNEL
+       title: 'View All'
+       relatedNode:
+         __typename: ContentChannel
+         id: 26
+         name: Events         
    #  - algorithms:
    #      - type: CAMPAIGN_ITEMS
    #        arguments:
@@ -282,6 +312,7 @@ TABS:
     - algorithms: [FEATURED_CAMPAIGN]
       subtitle: Featured
       type: VerticalCardList
+    # News persona feed.
     - algorithms:
         - type: PERSONA_FEED
           arguments:
@@ -294,7 +325,22 @@ TABS:
         relatedNode:
           __typename: ContentChannel
           id: 15
-          name: News            
+          name: News 
+    # News content feed (remove when personas are added)    
+    - algorithms:
+        - type: CONTENT_CHANNEL
+          arguments:
+            contentChannelId  : 15
+      subtitle: News
+      type: VerticalCardList
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'View All'
+        relatedNode:
+          __typename: ContentChannel
+          id: 15
+          name: News    
+    # Events persona feed.
     - algorithms:
         - type: PERSONA_FEED
           arguments:
@@ -307,13 +353,23 @@ TABS:
         relatedNode:
           __typename: ContentChannel
           id: 26
-          name: Events      
+          name: Events
+    # Events content feed (remove when personas are added).
     - algorithms:
         - type: CONTENT_CHANNEL
           arguments:
-            contentChannelId: 21
-      subtitle: Today's Message Outline
+            contentChannelId: 26
+      subtitle: Upcoming
       type: VerticalCardList
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'View All'
+        relatedNode:
+          __typename: ContentChannel
+          id: 26
+          name: Events
+        subtitle: Today's Message Outline
+        type: VerticalCardList
     # - algorithms:
     #     - type: CAMPAIGN_ITEMS
     #       arguments:
