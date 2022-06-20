@@ -244,6 +244,7 @@ HOME_FEATURES:
    - algorithms:
        - type: PERSONA_FEED
          arguments:
+           limit: 3
            contentChannelId: 26
      subtitle: Upcoming
      type: VerticalCardList
@@ -258,6 +259,7 @@ HOME_FEATURES:
    - algorithms:
        - type: CONTENT_CHANNEL
          arguments:
+           limit: 3
            contentChannelId: 26
      subtitle: Upcoming
      type: VerticalCardList
@@ -330,6 +332,7 @@ TABS:
     - algorithms:
         - type: CONTENT_CHANNEL
           arguments:
+            limit: 3
             contentChannelId  : 15
       subtitle: News
       type: VerticalCardList
@@ -358,6 +361,7 @@ TABS:
     - algorithms:
         - type: CONTENT_CHANNEL
           arguments:
+            limit: 3
             contentChannelId: 26
       subtitle: Upcoming
       type: VerticalCardList
