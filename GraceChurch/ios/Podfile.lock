@@ -83,6 +83,16 @@ PODS:
   - hermes-engine (0.9.0)
   - libevent (2.1.12)
   - OneSignal (3.4.3)
+  - OneSignalXCFramework (3.11.1):
+    - OneSignalXCFramework/OneSignalCore (= 3.11.1)
+    - OneSignalXCFramework/OneSignalExtension (= 3.11.1)
+    - OneSignalXCFramework/OneSignalOutcomes (= 3.11.1)
+  - OneSignalXCFramework/OneSignalCore (3.11.1)
+  - OneSignalXCFramework/OneSignalExtension (3.11.1):
+    - OneSignalXCFramework/OneSignalCore
+    - OneSignalXCFramework/OneSignalOutcomes
+  - OneSignalXCFramework/OneSignalOutcomes (3.11.1):
+    - OneSignalXCFramework/OneSignalCore
   - OpenSSL-Universal (1.1.180)
   - Permission-Notifications (2.2.2):
     - RNPermissions
@@ -488,7 +498,7 @@ DEPENDENCIES:
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - hermes-engine (~> 0.9.0)
   - libevent (~> 2.1.12)
-  - OneSignal (< 4.0, >= 3.0)
+  - OneSignalXCFramework (< 4.0, >= 3.0)
   - Permission-Notifications (from `../node_modules/react-native-permissions/ios/Notifications.podspec`)
   - Permission-PhotoLibrary (from `../node_modules/react-native-permissions/ios/PhotoLibrary.podspec`)
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
@@ -564,6 +574,7 @@ SPEC REPOS:
     - hermes-engine
     - libevent
     - OneSignal
+    - OneSignalXCFramework
     - OpenSSL-Universal
     - YogaKit
 
@@ -719,6 +730,7 @@ SPEC CHECKSUMS:
   hermes-engine: bf7577d12ac6ccf53ab8b5af3c6ccf0dd8458c5c
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OneSignal: e4dfb1912410f302dc9661ce98fc829f6c18ff6a
+  OneSignalXCFramework: 8bdcaa3b7f6082565bf29c5481435376a33e94f2
   OpenSSL-Universal: 1aa4f6a6ee7256b83db99ec1ccdaa80d10f9af9b
   Permission-Notifications: 9c6b5cc4f0e6599e9fc3395b77cebddc48f1be41
   Permission-PhotoLibrary: 8227a6ed9f6a971537afe63742d54f5f23a38fe2
@@ -777,6 +789,6 @@ SPEC CHECKSUMS:
   Yoga: 2b4a01651f42a32f82e6cef3830a3ba48088237f
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 49ef4b756b2821e2bfe750947de00de313143c59
+PODFILE CHECKSUM: 6440397cfcb08db6701cddb46dfcbf61aa177f44
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2
