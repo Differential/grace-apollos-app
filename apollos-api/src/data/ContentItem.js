@@ -13,7 +13,6 @@ const {
 
 const { ROCK_MAPPINGS } = ApollosConfig;
 
-
 class dataSource extends ContentItemDataSource {
   // Generates feed based on persons dataview membership
   byPersonaFeed = async (first, contentChannelId) => {
@@ -44,7 +43,9 @@ class dataSource extends ContentItemDataSource {
         .join()}`
     )
       .andFilter(this.LIVE_CONTENT())
-      .andFilter(`ContentChannelId eq ${contentChannelId}`)
+      .andFilter(
+        contentChannelId ? `ContentChannelId eq ${contentChannelId}` : ''
+      )
       .top(first)
       .orderBy('Priority', 'desc');
   };
