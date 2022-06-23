@@ -212,70 +212,12 @@ HOME_FEATURES:
    - algorithms: [FEATURED_CAMPAIGN]
      subtitle: Featured
      type: VerticalCardList
-   # News persona feed.
    - algorithms:
-       - type: PERSONA_FEED
+       - type: CAMPAIGN_ITEMS
          arguments:
-           contentChannelId  : 15
-     subtitle: News
-     type: VerticalCardList
-     primaryAction:
-       action: OPEN_CHANNEL
-       title: 'View All'
-       relatedNode:
-         __typename: ContentChannel
-         id: 15
-         name: News 
-   # News content feed (remove when personas are added)    
-   - algorithms:
-       - type: CONTENT_CHANNEL
-         arguments:
-           contentChannelId  : 15
-     subtitle: News
-     type: VerticalCardList
-     primaryAction:
-       action: OPEN_CHANNEL
-       title: 'View All'
-       relatedNode:
-         __typename: ContentChannel
-         id: 15
-         name: News    
-   # Events persona feed.
-   - algorithms:
-       - type: PERSONA_FEED
-         arguments:
-           limit: 3
-           contentChannelId: 26
+           limit: 6
      subtitle: Upcoming
-     type: VerticalCardList
-     primaryAction:
-       action: OPEN_CHANNEL
-       title: 'View All'
-       relatedNode:
-         __typename: ContentChannel
-         id: 26
-         name: Events
-   # Events content feed (remove when personas are added).
-   - algorithms:
-       - type: CONTENT_CHANNEL
-         arguments:
-           limit: 3
-           contentChannelId: 26
-     subtitle: Upcoming
-     type: VerticalCardList
-     primaryAction:
-       action: OPEN_CHANNEL
-       title: 'View All'
-       relatedNode:
-         __typename: ContentChannel
-         id: 26
-         name: Events         
-   #  - algorithms:
-   #      - type: CAMPAIGN_ITEMS
-   #        arguments:
-   #          limit: 6
-   #    subtitle: Upcoming
-   #    type: Herolist
+     type: Herolist
    - subtitle: Stay Connected
      heroAlgorithms:
        - type: SINGLE_IMAGE_CARD
@@ -314,42 +256,18 @@ TABS:
     - algorithms: [FEATURED_CAMPAIGN]
       subtitle: Featured
       type: VerticalCardList
-    # News persona feed.
-    - algorithms:
-        - type: PERSONA_FEED
-          arguments:
-            contentChannelId  : 15
-      subtitle: News
-      type: VerticalCardList
-      primaryAction:
-        action: OPEN_CHANNEL
-        title: 'View All'
-        relatedNode:
-          __typename: ContentChannel
-          id: 15
-          name: News 
-    # News content feed (remove when personas are added)    
     - algorithms:
         - type: CONTENT_CHANNEL
           arguments:
-            limit: 3
-            contentChannelId  : 15
-      subtitle: News
+            contentChannelId: 21
+      subtitle: Today's Message Outline
       type: VerticalCardList
-      primaryAction:
-        action: OPEN_CHANNEL
-        title: 'View All'
-        relatedNode:
-          __typename: ContentChannel
-          id: 15
-          name: News    
-    # Events persona feed.
     - algorithms:
-        - type: PERSONA_FEED
+        - type: CAMPAIGN_ITEMS
           arguments:
-            contentChannelId: 26
+            limit: 6
       subtitle: Upcoming
-      type: VerticalCardList
+      type: HeroList
       primaryAction:
         action: OPEN_CHANNEL
         title: 'View All'
@@ -357,36 +275,6 @@ TABS:
           __typename: ContentChannel
           id: 26
           name: Events
-    # Events content feed (remove when personas are added).
-    - algorithms:
-        - type: CONTENT_CHANNEL
-          arguments:
-            limit: 3
-            contentChannelId: 26
-      subtitle: Upcoming
-      type: VerticalCardList
-      primaryAction:
-        action: OPEN_CHANNEL
-        title: 'View All'
-        relatedNode:
-          __typename: ContentChannel
-          id: 26
-          name: Events
-        subtitle: Today's Message Outline
-        type: VerticalCardList
-    # - algorithms:
-    #     - type: CAMPAIGN_ITEMS
-    #       arguments:
-    #         limit: 6
-    #   subtitle: Upcoming
-    #   type: HeroList
-    #   primaryAction:
-    #     action: OPEN_CHANNEL
-    #     title: 'View All'
-    #     relatedNode:
-    #       __typename: ContentChannel
-    #       id: 26
-    #       name: Events
   WATCH:
     - algorithms:
         - type: MOST_RECENT_SERMON
