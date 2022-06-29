@@ -276,6 +276,17 @@ TABS:
           id: 26
           name: Events
   WATCH:
+    - type: ActionList
+      actions:
+        [
+          {
+            title: "Watch Our Online Service",
+            subtitle: "Sundays 9:30 and 11am",
+            action: OPEN_URL,
+            relatedNode: { __typename: Url, url: 'https://live.trygrace.org' },
+            image: { sources: [{ uri: "https://res.cloudinary.com/hwwbvfvlv/image/upload/v1648579908/onlineworship_vvzweo.png" }] }
+          }
+        ]
     - algorithms:
         - type: MOST_RECENT_SERMON
           arguments:
