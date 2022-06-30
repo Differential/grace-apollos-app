@@ -15,7 +15,8 @@ const { ROCK_MAPPINGS } = ApollosConfig;
 
 class dataSource extends ContentItemDataSource {
   // Generates feed based on persons dataview membership
-  byPersonaFeed = async (first, contentChannelId) => {
+  // This is hardcoded to accept 2 contentChannelIds
+  byPersonaFeed = async (limit, contentChannelIds) => {
     const {
       dataSources: { Persona },
     } = this.context;
@@ -44,9 +45,14 @@ class dataSource extends ContentItemDataSource {
     )
       .andFilter(this.LIVE_CONTENT())
       .andFilter(
-        contentChannelId ? `ContentChannelId eq ${contentChannelId}` : ''
+        contentChannelIds[1]
+          ? `ContentChannelId eq ${
+              contentChannelIds[0]
+            } or ContentChannelId eq ${contentChannelIds[1]}`
+          : ''
       )
-      .top(first)
+      .top(limit)
+      .orderBy('StartDateTime', 'desc')
       .orderBy('Priority', 'desc');
   };
 

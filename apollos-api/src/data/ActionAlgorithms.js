@@ -8,12 +8,15 @@ const {
 } = ActionAlgorithm;
 
 class dataSource extends ActionAlgorithmDataSource {
-  async personaFeedAlgorithm({ contentChannelId }) {
+  async personaFeedAlgorithm({ limit = 6, contentChannelIds = [] }) {
     const { ContentItem, Feature } = this.context.dataSources;
     Feature.setCacheHint({ scope: 'PRIVATE' });
 
     // Get the first three persona items.
-    const personaFeed = await ContentItem.byPersonaFeed(3, contentChannelId);
+    const personaFeed = await ContentItem.byPersonaFeed(
+      limit,
+      contentChannelIds
+    );
     const items = await personaFeed.expand('ContentChannel').get();
 
     // Map them into specific actions.
