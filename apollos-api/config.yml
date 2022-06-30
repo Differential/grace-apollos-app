@@ -217,7 +217,7 @@ HOME_FEATURES:
          arguments:
            limit: 6
      subtitle: Upcoming
-     type: Herolist
+     type: VerticalCardList
    - subtitle: Stay Connected
      heroAlgorithms:
        - type: SINGLE_IMAGE_CARD
@@ -267,7 +267,7 @@ TABS:
           arguments:
             limit: 6
       subtitle: Upcoming
-      type: HeroList
+      type: VerticalCardList
       primaryAction:
         action: OPEN_CHANNEL
         title: 'View All'
