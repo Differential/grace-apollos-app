@@ -52,7 +52,6 @@ class dataSource extends ContentItemDataSource {
           : ''
       )
       .top(limit)
-      .orderBy('StartDateTime', 'desc')
       .orderBy('Priority', 'desc');
   };
 
