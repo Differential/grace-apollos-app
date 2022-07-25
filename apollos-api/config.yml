@@ -213,11 +213,12 @@ HOME_FEATURES:
      subtitle: Featured
      type: VerticalCardList
    - algorithms:
-       - type: CAMPAIGN_ITEMS
+       - type: PERSONA_FEED
          arguments:
            limit: 6
+           contentChannelIds: [15,26] # This is hardcoded to accept 2 contentChannelIds...see ContentItem.js
      subtitle: Upcoming
-     type: Herolist
+     type: VerticalCardList
    - subtitle: Stay Connected
      heroAlgorithms:
        - type: SINGLE_IMAGE_CARD
@@ -263,11 +264,12 @@ TABS:
       subtitle: Today's Message Outline
       type: VerticalCardList
     - algorithms:
-        - type: CAMPAIGN_ITEMS
+        - type: PERSONA_FEED
           arguments:
             limit: 6
+            contentChannelIds: [15,26]
       subtitle: Upcoming
-      type: HeroList
+      type: VerticalCardList
       primaryAction:
         action: OPEN_CHANNEL
         title: 'View All'
