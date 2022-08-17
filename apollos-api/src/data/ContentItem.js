@@ -33,7 +33,9 @@ class dataSource extends ContentItemDataSource {
     // Rely on custom code without the plugin.
     // Use plugin, if the user has set USE_PLUGIN to true.
     // In general, you should ALWAYS use the plugin if possible.
-    const endpoint = 'ContentChannelItems/GetFromPersonDataView';
+    const endpoint = get(ApollosConfig, 'ROCK.USE_PLUGIN', false)
+      ? 'Apollos/ContentChannelItemsByDataViewGuids'
+      : 'ContentChannelItems/GetFromPersonDataView';
 
     // Grabs content items based on personas
     return this.request(
