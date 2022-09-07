@@ -266,7 +266,7 @@ TABS:
     - algorithms:
         - type: PERSONA_FEED
           arguments:
-            limit: 6
+            limit: 10
             contentChannelIds: [15,26]
       subtitle: Upcoming
       type: VerticalCardList
