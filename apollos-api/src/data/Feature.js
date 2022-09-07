@@ -225,6 +225,53 @@ class dataSource extends FeatureDataSource {
       hasAction: false,
     }));
   }
+
+  async createActionListFeature({
+    algorithms = [],
+    actions = [],
+    title,
+    subtitle,
+    primaryAction,
+    id,
+    ...args
+  }) {
+    // Generate a list of actions.
+    const { ActionAlgorithm } = this.context.dataSources;
+
+    // Run algorithms if we have them, otherwise pull from the config
+    const compiledActions = () =>
+      actions.length
+        ? actions.map((action) => this.attachActionIds(action))
+        : ActionAlgorithm.runAlgorithms({ algorithms, args });
+
+    // Ensures that we have a generated ID for the Primary Action related node, if not provided.
+    if (primaryAction) {
+      // eslint-disable-next-line no-param-reassign
+      primaryAction = this.attachActionIds(primaryAction);
+    }
+
+    return {
+      // The Feature ID is based on all of the action ids, added together.
+      // This is naive, and could be improved.
+      id: this.createFeatureId({
+        id,
+        args: {
+          algorithms,
+          title,
+          subtitle,
+          actions,
+          primaryAction,
+          ...args,
+        },
+      }),
+      actions: compiledActions,
+      title,
+      subtitle,
+      primaryAction,
+      // Typanme is required so GQL knows specifically what Feature is being created
+      __typename: 'ActionListFeature',
+    };
+  }
 }
 
 export { schema, resolver, dataSource };
