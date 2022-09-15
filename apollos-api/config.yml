@@ -246,14 +246,14 @@ TABS:
               - 16
       subtitle: Weekly Scripture
       type: VerticalCardList
-    # - algorithms:
-    #     - type: WEEKLY_SCRIPTURE
-    #       arguments:
-    #         limit: 7
-    #         showDate: true
-    #   title: 40 Day Challenge
-    #   subtitle: This Week
-    #   type: ActionList
+    - algorithms:
+        - type: WEEKLY_SCRIPTURE
+          arguments:
+            limit: 7
+            showDate: true
+      title: The Hesed Habit
+      subtitle: This Week
+      type: ActionList
     - algorithms: [FEATURED_CAMPAIGN]
       subtitle: Featured
       type: VerticalCardList
